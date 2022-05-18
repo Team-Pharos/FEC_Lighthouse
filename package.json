@@ -5,6 +5,10 @@
   "repository": "https://github.com/Team-Pharos/FEC_Lighthouse.git",
   "author": "Joy <parkerjn90@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production"
+  },
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

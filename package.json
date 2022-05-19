@@ -11,8 +11,15 @@
     "dev": "webpack serve --open"
   },
   "dependencies": {
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "express": "^4.18.1",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.4",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.5",
+    "tailwind-styled-components": "^2.1.7",
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@babel/core": "^7.17.12",
@@ -20,6 +27,8 @@
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb": "^19.0.4",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",

@@ -2,18 +2,14 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
-// importing helper functions
-const {getOneProduct} = require('../controller/atelierAPI');
+const {getOneProduct, getStyles} = require('../controller/atelierAPI');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')))
 
-// route
 app.get('/getOne', (req, res) => {
-  // product_id needs to be req../..params. id
-  getOneProduct(37312)
+  getOneProduct(req.query.id)
   .then (product => {
-    console.log('getOne product', product.data);
     res.send(product.data);
   })
   .catch (err => {
@@ -22,7 +18,18 @@ app.get('/getOne', (req, res) => {
   });
 })
 
+app.get('/getStyles', (req, res) => {
+  getStyles(req.query.id)
+  .then (styles => {
+    res.send(styles.data);
+  })
+  .catch (err => {
+    console.log('get styles err', err);
+    res.sendStatus(501);
+  });
+})
+
 
 app.listen(process.env.PORT, () => {
-  console.log('success listen at 3000');
+  console.log('success listen to 3000');
 })

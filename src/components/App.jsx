@@ -26,7 +26,7 @@ const App = () => {
     // return all 4 widgets
     <>
     <Overview productDetails={productDetails} productId={productId} />
-    <QuestionsView />
+    <QuestionsView productID={productId}/>
     </>
   )
 }

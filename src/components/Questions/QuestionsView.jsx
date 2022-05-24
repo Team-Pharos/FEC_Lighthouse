@@ -8,7 +8,9 @@ const QuestionsView = ({productId}) => {
 
   const [questions, setQuestions] = useState([]);
 
-  axios.get('/getQuestions', {params: {product_id: productId}})
+  useEffect(() => {
+
+    axios.get('/getQuestions', {params: {product_id: productId}})
     .then((questionList) => {
       console.log('questionsList response');
       console.log(questionList.data.results);
@@ -17,6 +19,7 @@ const QuestionsView = ({productId}) => {
     .catch((err) => {
       console.log(`unable to retrieve questions ${err}`)
     })
+  }, []);
 
   return (
     <>

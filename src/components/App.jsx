@@ -3,6 +3,7 @@ import Overview from './Overview/Overview.jsx';
 import QuestionsView from './Questions/QuestionsView.jsx';
 import RelatedItems from './Related/RelatedItems.jsx';
 import YourOutfit from './Related/YourOutfit.jsx';
+import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
     <RelatedItems productId={productId}/>
     <YourOutfit productId={productId}/>
     <QuestionsView productId={productId}/>
+    <RatingsReviews productId={productId}/>
     </>
   )
 }

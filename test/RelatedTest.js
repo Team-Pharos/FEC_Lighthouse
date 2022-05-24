@@ -1,0 +1,1 @@
+const ProductCardRI = require('../src/components/Related/ProductCardRI.jsx');

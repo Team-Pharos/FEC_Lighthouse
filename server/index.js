@@ -2,8 +2,7 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
-console.log(process.env.PORT);
-const {getOneProduct, getStyles} = require('../controller/atelierAPI');
+const {getOneProduct, getStyles, getQuestions} = require('../controller/atelierAPI');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')))
@@ -30,7 +29,23 @@ app.get('/getStyles', (req, res) => {
   });
 })
 
+app.get('/getQuestions', (req, res) => {
+  getQuestions(req.query.product_id)
+    .then((relevantQuestions) => {
+      res.send(relevantQuestions.data);
+    })
+    .catch((err) => {
+      res.sendStatus(501);
+    });
+})
+
+//=======Ratings Reviews========
+
+app.get('/getReviews', (req, res) => {
+  getReviews
+})
 
 app.listen(process.env.PORT, () => {
+  console.log(process.env.PORT)
   console.log('success listen to 3000');
 })

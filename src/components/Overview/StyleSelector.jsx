@@ -8,8 +8,6 @@ const StyleImg = styled.img`
 `;
 
 const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
-  // console.log(styles);
-  // console.log(currentStyle);
   return (
   <div className='StyleSelector'>
   {

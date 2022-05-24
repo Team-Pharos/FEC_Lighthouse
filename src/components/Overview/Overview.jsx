@@ -11,8 +11,8 @@ import OverviewStyles from './../../../styles/OverviewStyle.css';
 const Overview = ({productId, productDetails}) => {
   const [styles, setStyles] = useState([])
   const [currentStyle, setCurrentStyle] = useState(styles[0])
-  console.log('styles: ', styles);
-  console.log('currentStyle: ', currentStyle);
+  // console.log('styles: ', styles);
+  // console.log('currentStyle: ', currentStyle);
 
   const getStyles = (productId) => {
     axios.get('/getStyles', {params: {id: productId}})

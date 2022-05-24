@@ -7,7 +7,7 @@ const App = () => {
   // set default product as 37311
   const [productId, setProductId] = useState(37311);
   const [productDetails, setProductDetails] = useState({})
-  console.log(productDetails);
+  // console.log(productDetails);
 
 
   const getOneProduct = (productId) => {

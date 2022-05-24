@@ -9,7 +9,11 @@ const ProductionInfo = ({productDetails, currentStyle}) => {
     <p>{productDetails.category}</p>
     <p>{productDetails.name}</p>
     {currentStyle
-    ? <span>${currentStyle.original_price}</span>
+    ? <span style={{textDecoration: currentStyle.sale_price ? 'line-through' : ''}}>${currentStyle.original_price}</span>
+    : <></>}
+    {' '}
+    {currentStyle && currentStyle.sale_price
+    ? <span style={{color: 'red'}}>&nbsp;&nbsp;&nbsp;${currentStyle.sale_price}</span>
     : <></>}
 
   </div>

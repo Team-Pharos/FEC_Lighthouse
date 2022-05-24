@@ -12,8 +12,6 @@ const QuestionsView = ({productId}) => {
 
     axios.get('/getQuestions', {params: {product_id: productId}})
     .then((questionList) => {
-      console.log('questionsList response');
-      console.log(questionList.data.results);
       setQuestions(questionList.data.results);
     })
     .catch((err) => {
@@ -24,8 +22,8 @@ const QuestionsView = ({productId}) => {
   return (
     <>
     <h2>Questions and Answers</h2>
-      {/* <SearchBar />
-      <QuestionsList /> */}
+
+      <QuestionsList questions={questions}/>
       <button>Add Question</button>
     </>
   )

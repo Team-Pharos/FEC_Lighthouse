@@ -10,7 +10,9 @@ const QuestionsView = ({productId}) => {
 
   axios.get('/getQuestions', {params: {product_id: productId}})
     .then((questionList) => {
-      console.log(questionList.results);
+      console.log('questionsList response');
+      console.log(questionList.data.results);
+      setQuestions(questionList.data.results);
     })
     .catch((err) => {
       console.log(`unable to retrieve questions ${err}`)

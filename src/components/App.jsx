@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Overview from './Overview/Overview.jsx';
 import QuestionsView from './Questions/QuestionsView.jsx';
+import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
     <>
     <Overview productDetails={productDetails} productId={productId} />
     <QuestionsView productId={productId}/>
+    <RatingsReviews productId={productId}/>
     </>
   )
 }

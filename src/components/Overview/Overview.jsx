@@ -6,9 +6,13 @@ import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ProductOverview from './ProductOverview.jsx';
 import Features from './Features.jsx';
+import OverviewStyles from './../../../styles/OverviewStyle.css';
 
 const Overview = ({productId, productDetails}) => {
   const [styles, setStyles] = useState([])
+  const [currentStyle, setCurrentStyle] = useState(styles[0])
+  // console.log('styles: ', styles);
+  // console.log('currentStyle: ', currentStyle);
 
   const getStyles = (productId) => {
     axios.get('/getStyles', {params: {id: productId}})
@@ -21,13 +25,13 @@ const Overview = ({productId, productDetails}) => {
   }
 
   useEffect(() => {getStyles(productId)}, [])
+  useEffect(() => {setCurrentStyle(styles[0])}, [styles])
 
   return (
-    <>
-      <h1>Hello Overview</h1>
+    <div className='OverView'>
       <ImageGallery />
-      <ProductInfo productDetails={productDetails}/>
-      <StyleSelector />
+      <ProductInfo productDetails={productDetails} currentStyle={currentStyle}/>
+      <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
       <AddToCart />
 
       <ProductOverview productDetails={productDetails}/>
@@ -36,8 +40,7 @@ const Overview = ({productId, productDetails}) => {
         ? <Features productDetails={productDetails}/>
         : <></>
       }
-
-    </>
+    </div>
   )
 }
 

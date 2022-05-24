@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from "react";
 import Overview from './Overview/Overview.jsx';
+import QuestionsView from './Questions/QuestionsView.jsx';
 import axios from 'axios';
 
 const App = () => {
   // set default product as 37311
   const [productId, setProductId] = useState(37311);
   const [productDetails, setProductDetails] = useState({})
+  console.log(productDetails);
 
 
   const getOneProduct = (productId) => {
@@ -23,7 +25,10 @@ const App = () => {
 
   return (
     // return all 4 widgets
+    <>
     <Overview productDetails={productDetails} productId={productId} />
+    <QuestionsView productId={productId}/>
+    </>
   )
 }
 

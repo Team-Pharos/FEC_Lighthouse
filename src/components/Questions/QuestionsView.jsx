@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import SearchBar from './SearchBar.jsx';
+import QuestionsList from './QuestionsList.jsx';
 
 
 const QuestionsView = ({productId}) => {
 
   const [questions, setQuestions] = useState([]);
 
-  axios.get('/qa/questions')
+  axios.get('/getQuestions', {params: {product_id: productId}})
     .then((questionList) => {
-      console.log(questionList);
+      console.log(questionList.results);
     })
     .catch((err) => {
       console.log(`unable to retrieve questions ${err}`)
@@ -16,6 +18,7 @@ const QuestionsView = ({productId}) => {
 
   return (
     <>
+    <h2>Questions and Answers</h2>
       {/* <SearchBar />
       <QuestionsList /> */}
       <button>Add Question</button>

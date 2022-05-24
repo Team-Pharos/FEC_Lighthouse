@@ -30,6 +30,8 @@ app.get('/getStyles', (req, res) => {
 })
 
 app.get('/getQuestions', (req, res) => {
+  console.log('req');
+  console.log(req);
   getQuestions(req.params)
     .then((questionsList) => {
       res.send(questionsList.data);

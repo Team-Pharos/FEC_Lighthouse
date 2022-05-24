@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 const ImageGallery = () => {
-  return (<h1>ImageGallery</h1>)
+  return (<div className='ImageGallery'>ImageGallery</div>)
 }
 
 

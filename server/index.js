@@ -2,6 +2,7 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
+console.log(process.env.PORT);
 const {getOneProduct, getStyles} = require('../controller/atelierAPI');
 
 app.use(express.json());

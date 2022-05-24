@@ -5,6 +5,7 @@ require('dotenv').config();
 
 let getOneProduct = (product_id) => {
   let url = `${process.env.API}products/${product_id}`
+  console.log(url);
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
 }
 

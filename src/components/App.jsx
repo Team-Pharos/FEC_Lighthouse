@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Overview from './Overview/Overview.jsx';
+import QuestionsView from './Questions/QuestionsView.jsx';
 import axios from 'axios';
 
 const App = () => {
@@ -23,7 +24,10 @@ const App = () => {
 
   return (
     // return all 4 widgets
+    <>
     <Overview productDetails={productDetails} productId={productId} />
+    <QuestionsView />
+    </>
   )
 }
 

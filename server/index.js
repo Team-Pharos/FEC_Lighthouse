@@ -31,5 +31,6 @@ app.get('/getStyles', (req, res) => {
 
 
 app.listen(process.env.PORT, () => {
+  console.log(process.env.PORT)
   console.log('success listen to 3000');
 })

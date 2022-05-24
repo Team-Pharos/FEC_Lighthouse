@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import Overview from './Overview/Overview.jsx';
 import QuestionsView from './Questions/QuestionsView.jsx';
+import RelatedItems from './Related/RelatedItems.jsx';
+import YourOutfit from './Related/YourOutfit.jsx';
 import axios from 'axios';
 
 const App = () => {
@@ -27,6 +29,8 @@ const App = () => {
     // return all 4 widgets
     <>
     <Overview productDetails={productDetails} productId={productId} />
+    <RelatedItems productId={productId}/>
+    <YourOutfit productId={productId}/>
     <QuestionsView productId={productId}/>
     </>
   )

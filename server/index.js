@@ -52,6 +52,20 @@ app.get('/getReviews', (req, res) => {
     })
 })
 
+
+//=======Related Products/Outfit=======
+
+app.get('/getRelatedProducts', (req, res) => {
+  // console.log(req.query);
+  getRelatedProducts(req.query.id)
+    .then((relatedItems) => {
+      res.send(relatedItems.data);
+    })
+    .catch((error) => {
+      res.sendStatus(501);
+    })
+})
+
 app.listen(process.env.PORT, () => {
   console.log('success listen to 3000');
 })

@@ -6,7 +6,6 @@ const Input = styled.input`
   width: 200px;
 `;
 
-
 const AddQuestion = (props) => {
   return (
     <>

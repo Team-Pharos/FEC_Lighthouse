@@ -5,9 +5,9 @@ const ProductCardYO = ({clickX}) => {
 
 
   return (
-    <div>
-      <button onClick={clickX}>❌</button>
-      <h5>Product Card Your Outfit</h5>
+    <div className={"product-card-yo"}>
+      <button className="x" onClick={clickX}>❌</button>
+      <h5 className="center-text">Product Card Your Outfit</h5>
     </div>
   );
 }

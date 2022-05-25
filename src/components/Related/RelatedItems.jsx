@@ -7,6 +7,7 @@ const RelatedItems = ({productId, productDetails}) => {
   const [relatedItems, setItems] = useState([]);
   // const relatedItemsCardList = [];
 
+
   // replace line 14 with this: setItems(relatedItems.data.results)
   useEffect(() => {
     axios.get(`/getRelatedProducts`, { params: {id: productId}})
@@ -18,6 +19,8 @@ const RelatedItems = ({productId, productDetails}) => {
         console.log(error)
       ));
   }, []);
+
+  const [comparedItem, setCompared] = useState({id: '', details: {}});
 
     // handler fn
     const clickStar = (e) => {

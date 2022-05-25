@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
+import '../../../styles/RelatedStyles.css';
 
 const ProductCardRI = ({relatedItem, clickStar}) => {
   const [itemDetails, setDetails] = useState({});
@@ -21,10 +22,10 @@ const ProductCardRI = ({relatedItem, clickStar}) => {
 
 
   return (
-    <div>
-      <button onClick={clickStar}>⭐️</button>
-      <h5>Product Card Related Items</h5>
-      <h5>{relatedItem}</h5>
+    <div className="product-card-ri">
+      <button className="star" onClick={clickStar}>⭐️</button>
+      <h5 className="center-text">Product Card Related Items</h5>
+      <h5 className="center-text">{relatedItem}</h5>
     </div>
   );
 }

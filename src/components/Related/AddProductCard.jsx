@@ -6,11 +6,10 @@ const AddProductCard = ({productId, clickPlus}) => {
 
 
   return (
-    <div>
-      <div>
-      <button onClick={clickPlus}>➕</button>
+    <div className="add-item-card">
       <h5 >Add Product Card</h5>
-      </div>
+      <button onClick={clickPlus}>➕</button>
+      <h5 >{productId}</h5>
     </div>
   );
 }

@@ -4,28 +4,37 @@ import ReviewList from './ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 
   //component styling
-  const StyledReviewList = styled(ReviewList)`
-    margin: 10px;
-    height: 500px;
-    width: 60%;
-    overflow: auto;
+  const Reviews = styled.div`
+    width: 50%;
+    `;
+
+  const Breakdown = styled.div`
+    float: left;
+    width: 25%;
+    height: 100%;
   `;
 
-  const StyledRatingBreakdown = styled(RatingBreakdown)`
-    width: 30%;
+  const Container = styled.div`
+    margin: 10px auto;
+    width: 80%;
+  `;
+  const Header = styled.div`
+    width: 100%;
   `;
 
 const RatingsReviews = ({productId}) => {
 
   //render return
     return (
-      <>
-      <h4>Ratings and Reviews</h4>
-      <h5>Overall Rating for {productId}</h5>
-      <StyledRatingBreakdown productId={productId}/>
-      <h3>Reviews for {productId}</h3>
-      <StyledReviewList productId={productId}/>
-      </>
+      <Container>
+      <Header><h3>Ratings and Reviews</h3></Header>
+      <Breakdown>
+        <RatingBreakdown productId={productId}/>
+      </Breakdown>
+      <Reviews>
+        <ReviewList productId={productId}/>
+      </Reviews>
+      </Container>
     )
 }
 

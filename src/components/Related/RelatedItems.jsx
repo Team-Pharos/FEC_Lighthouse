@@ -6,10 +6,12 @@ import axios from 'axios';
 const RelatedItems = ({productId, productDetails}) => {
   const [relatedItems, setItems] = useState([]);
 
+
+  // replace line 14 with this: setItems(relatedItems.data.results)
   useEffect(() => {
     axios.get(`/getRelatedProducts`, { params: {id: productId}})
       // .then((relatedProducts) => (setItems(relatedProducts.data)))
-      .then((relatedItems) => (setItems(relatedItems.data.results)))
+      .then((relatedItems) => (console.log(relatedItems.data)))
       .catch((error) => (
         console.log(error)
       ));

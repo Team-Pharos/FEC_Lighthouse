@@ -5,7 +5,7 @@ import QuestionsList from './QuestionsList.jsx';
 import AddQuestion from './AddQuestionModal.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
 
-const QuestionsView = ({productId}) => {
+const QuestionsView = ({productId, productName}) => {
 
   const [questions, setQuestions] = useState([]);
 

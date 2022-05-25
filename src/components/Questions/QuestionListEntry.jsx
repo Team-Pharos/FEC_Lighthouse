@@ -5,7 +5,12 @@ import AnswersList from './AnswersList.jsx';
 // import differenceInCalendarISOYears from 'date-fns/difference_in_calendar_iso_years'
 
 const Span = styled.span`
+color: #f26938;
 text-decoration: underline;
+
+&:hover {
+  color: #68a69b;
+}
 `;
 
 const QuestionListEntry = ({question}) => {

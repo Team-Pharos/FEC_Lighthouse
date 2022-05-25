@@ -19,7 +19,7 @@ const AddQuestion = (props) => {
     <p>Email *</p>
     <Input type="email" required maxlength="60" placeholder="Example: jackson@email.com"/>
     <h6>For authentication reasons, you will not be emailed</h6>
-    <button>Submit Question</button>
+    <button>Submit Question</button><button>Close</button>
     </>
   )
 }

@@ -32,7 +32,9 @@ const Overview = ({productId, productDetails}) => {
       <ImageGallery />
       <ProductInfo productDetails={productDetails} currentStyle={currentStyle}/>
       <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
-      <AddToCart />
+      {
+        currentStyle ? <AddToCart currentStyle={currentStyle}/> : <></>
+      }
 
       <ProductOverview productDetails={productDetails}/>
       {

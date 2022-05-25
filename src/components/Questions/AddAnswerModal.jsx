@@ -6,14 +6,14 @@ const AddAnswer = (props) => {
     <>
     <h3>Submit Your Answer</h3>
     <h5>{"[Product Name]:[Question Body]"}</h5>
-    <h6>Your Answer *</h6>
+    <p>Your Answer *</p>
     <input type="text" required maxlength="1000"/>
-    <h6>What is your nickname? *</h6>
+    <p>What is your nickname? *</p>
     <input type="text" required maxlength="60" placeholder="Example: jack543!"/>
-    <p>For privacy reasons, do not use your full name or email address</p>
-    <h6>Email *</h6>
+    <h6>For privacy reasons, do not use your full name or email address</h6>
+    <p>Email *</p>
     <input type="email" required maxlength="60" placeholder="Example: jack@email.com"/>
-    <p>For authentication reasons, you will not be emailed</p>
+    <h6>For authentication reasons, you will not be emailed</h6>
     </>
   )
 }

@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const App = () => {
   // set default product as 37311
-  const [productId, setProductId] = useState(37311);
+  const [productId, setProductId] = useState(37312);
   const [productDetails, setProductDetails] = useState({})
 
 

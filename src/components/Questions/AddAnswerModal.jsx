@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const Input = styled.Input`
+const Input = styled.input`
   width: 200px;
 `;
 

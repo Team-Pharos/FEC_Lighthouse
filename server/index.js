@@ -2,7 +2,7 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
-const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts} = require('../controller/atelierAPI');
+const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts, getAnswers} = require('../controller/atelierAPI');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')))
@@ -29,6 +29,8 @@ app.get('/getStyles', (req, res) => {
   });
 })
 
+//=======Q&A========
+
 app.get('/getQuestions', (req, res) => {
   getQuestions(req.query.product_id)
     .then((relevantQuestions) => {
@@ -37,6 +39,16 @@ app.get('/getQuestions', (req, res) => {
     .catch((err) => {
       res.sendStatus(501);
     });
+})
+
+app.get('/getAnswers', (req, res) => {
+  getAnswers(req.query.question_id)
+    .then((relevantAnswers) => {
+      res.send(relevantAnswers.data);
+    })
+    .catch((err) => {
+      res.status(501).send('NO ANSWERS FOUND');
+    })
 })
 
 //=======Ratings Reviews========

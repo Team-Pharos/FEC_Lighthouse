@@ -19,6 +19,11 @@ let getQuestions = (product_id) => {
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
 }
 
+let getAnswers = (question_id) => {
+  let url = `${process.env.API}qa/questions/${question_id}/answers`
+  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+}
+
 let getReviews = (product_id) => {
   console.log('product_id in atelierAPI for reviews: ', product_id);
   let url = `${process.env.API}reviews/?product_id=${product_id}`;
@@ -35,6 +40,7 @@ module.exports = {
   getOneProduct: getOneProduct,
   getStyles: getStyles,
   getQuestions: getQuestions,
+  getAnswers: getAnswers,
   getReviews: getReviews,
   getRelatedProducts: getRelatedProducts
 }

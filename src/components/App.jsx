@@ -7,8 +7,8 @@ import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 
 const App = () => {
-  // set default product as 37311
-  const [productId, setProductId] = useState(37312);
+  // set default product as 37313
+  const [productId, setProductId] = useState(37313);
   const [productDetails, setProductDetails] = useState({})
 
 

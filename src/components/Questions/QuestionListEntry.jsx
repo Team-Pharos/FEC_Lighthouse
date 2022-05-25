@@ -23,7 +23,7 @@ const QuestionListEntry = ({question}) => {
     <>
     <h4 className="question_title">{`Q: ${question.question_body}`}</h4><p className="question helpful">Helpful? Yes&#40;#&#41;</p>
     <h5>{`asked by ${question.asker_name} ${question.question_date}`}</h5>
-    <AnswersList/>
+    <AnswersList answers={answers}/>
     </>
   )
 

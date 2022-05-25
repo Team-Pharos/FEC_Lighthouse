@@ -3,8 +3,6 @@ import axios from 'axios';
 import AnswerListEntry from './AnswerListEntry.jsx';
 
 const AnswersList = ({answers}) => {
-  console.log('answers');
-  console.log(answers);
   return (
     <>
       {answers.map((answer) => {

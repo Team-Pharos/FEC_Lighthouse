@@ -25,13 +25,18 @@ let getReviews = (product_id) => {
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}});
 }
 
-
+let getRelatedProducts = (product_id) => {
+  console.log('request atelierAPI for products related to:', product_id);
+  let url=`${process.env.API}/${product_id}/related`;
+  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+}
 
 module.exports = {
   getOneProduct: getOneProduct,
   getStyles: getStyles,
   getQuestions: getQuestions,
-  getReviews: getReviews
+  getReviews: getReviews,
+  getRelatedProducts: getRelatedProducts
 }
 
 

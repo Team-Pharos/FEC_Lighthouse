@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from "react";
 
-const AddProductCard = () => {
+const AddProductCard = ({productId, clickPlus}) => {
+
+
+
+
   return (
     <div>
       <div>
-      <h1 >Add Product Card</h1>
-      <button onClick={console.log('add product to Your Outfit')}>➕</button>
+      <button onClick={clickPlus}>➕</button>
+      <h5 >Add Product Card</h5>
       </div>
     </div>
   );

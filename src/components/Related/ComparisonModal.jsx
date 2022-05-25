@@ -14,7 +14,7 @@ const ComparisonModal = ({productId, productDetails}) => {
         </thead>
         <tbody>
           <tr>
-            <td>{productId}</td>
+            <td>{productDetails.name}</td>
             <td>Value</td>
             <td>Value</td>
           </tr>

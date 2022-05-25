@@ -4,7 +4,7 @@ const ComparisonModal = ({productId, productDetails}) => {
   return (
     <div>
       <h1>Comparison Modal</h1>
-      <table>
+      <table className="comparison-modal">
         <thead>
           <tr>
             <th>Current Product</th>
@@ -14,7 +14,7 @@ const ComparisonModal = ({productId, productDetails}) => {
         </thead>
         <tbody>
           <tr>
-            <td>{productId}</td>
+            <td>{productDetails.name}</td>
             <td>Value</td>
             <td>Value</td>
           </tr>

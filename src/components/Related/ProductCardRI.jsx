@@ -1,10 +1,31 @@
 import React, {useState, useEffect} from "react";
+import axios from 'axios';
+import '../../../styles/RelatedStyles.css';
 
-const ProductCardRI = () => {
+const ProductCardRI = ({relatedItem, clickStar}) => {
+  const [itemDetails, setDetails] = useState({});
+
+
+  const getProductDetails = (relatedItem) => {
+    axios.get('/getOne', {params: {id: relatedItem}})
+      .then(response => {
+        setDetails(response.data);
+      })
+      .catch(error => {
+        console.log('error getting product details', error);
+      });
+  }
+
+  // useEffect(() => {getProdcutDetails(relatedItem)}, [relatedItem]);
+
+
+
+
   return (
-    <div>
-      <h1>Product Card Related Items</h1>
-      <button onClick={console.log('Show Comparison Modal')}>⭐️</button>
+    <div className="product-card-ri">
+      <button className="star" onClick={clickStar}>⭐️</button>
+      <h5 className="center-text">Product Card Related Items</h5>
+      <h5 className="center-text">{relatedItem}</h5>
     </div>
   );
 }

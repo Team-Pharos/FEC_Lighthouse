@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
 
-const ProductCardYO = () => {
+const ProductCardYO = ({clickX}) => {
+
+
+
   return (
-    <div>
-      <h1>Product Card Your Outfit</h1>
-      <button onClick={console.log('product removed from Your Outift')}>❌</button>
+    <div className={"product-card-yo"}>
+      <button className="x" onClick={clickX}>❌</button>
+      <h5 className="center-text">Product Card Your Outfit</h5>
     </div>
   );
 }

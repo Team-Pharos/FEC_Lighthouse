@@ -23,8 +23,6 @@
   integrity sha512-GZt/TCsG70Ms19gfZO1tM4CVnXsPgEPBCpJu+Qz3L0LUDsY5nZqFZglIoPC1kIYOtNBZlrnFT+klg12vFGZXrw==
 
 "@babel/core@^7.11.6", "@babel/core@^7.12.3":
-<<<<<<< HEAD
-=======
   version "7.18.0"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.18.0.tgz#c58d04d7c6fbfb58ea7681e2b9145cfb62726756"
   integrity sha512-Xyw74OlJwDijToNi0+6BBI5mLLR5+5R3bcSH80LXzjzEGEUlvNzujEE71BaD/ApEZHAvFI/Mlmp4M5lIkdeeWw==
@@ -46,7 +44,6 @@
     semver "^6.3.0"
 
 "@babel/core@^7.17.12":
->>>>>>> 8cf2a51e9c9f89d78f708ecf95f4eeeb37b09d85
   version "7.17.12"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.17.12.tgz"
   integrity sha512-44ODe6O1IVz9s2oJE3rZ4trNNKTX9O7KpQpfAP4t8QII/zwrVRHL7i2pxhqtcY7tqMLrrKfMlBKnm1QlrRFs5w==
@@ -67,32 +64,7 @@
     json5 "^2.2.1"
     semver "^6.3.0"
 
-<<<<<<< HEAD
-"@babel/core@^7.18.0":
-  version "7.18.0"
-  resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.18.0.tgz#c58d04d7c6fbfb58ea7681e2b9145cfb62726756"
-  integrity sha512-Xyw74OlJwDijToNi0+6BBI5mLLR5+5R3bcSH80LXzjzEGEUlvNzujEE71BaD/ApEZHAvFI/Mlmp4M5lIkdeeWw==
-  dependencies:
-    "@ampproject/remapping" "^2.1.0"
-    "@babel/code-frame" "^7.16.7"
-    "@babel/generator" "^7.18.0"
-    "@babel/helper-compilation-targets" "^7.17.10"
-    "@babel/helper-module-transforms" "^7.18.0"
-    "@babel/helpers" "^7.18.0"
-    "@babel/parser" "^7.18.0"
-    "@babel/template" "^7.16.7"
-    "@babel/traverse" "^7.18.0"
-    "@babel/types" "^7.18.0"
-    convert-source-map "^1.7.0"
-    debug "^4.1.0"
-    gensync "^1.0.0-beta.2"
-    json5 "^2.2.1"
-    semver "^6.3.0"
-
-"@babel/generator@^7.17.12", "@babel/generator@^7.7.2":
-=======
 "@babel/generator@^7.17.12":
->>>>>>> 8cf2a51e9c9f89d78f708ecf95f4eeeb37b09d85
   version "7.17.12"
   resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.17.12.tgz"
   integrity sha512-V49KtZiiiLjH/CnIW6OjJdrenrGoyh6AmKQ3k2AZFKozC1h846Q4NYlZ5nqAigPDUXfGzC88+LOUuG8yKd2kCw==
@@ -101,11 +73,7 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     jsesc "^2.5.1"
 
-<<<<<<< HEAD
-"@babel/generator@^7.18.0":
-=======
 "@babel/generator@^7.18.0", "@babel/generator@^7.7.2":
->>>>>>> 8cf2a51e9c9f89d78f708ecf95f4eeeb37b09d85
   version "7.18.0"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.18.0.tgz#46d28e8a18fc737b028efb25ab105d74473af43f"
   integrity sha512-81YO9gGx6voPXlvYdZBliFXAZU8vZ9AZ6z+CjlmcnaeOcYSFbMTpdeDUO9xD9dh/68Vq03I8ZspfUTPfitcDHg==
@@ -1071,11 +1039,7 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-<<<<<<< HEAD
-"@babel/traverse@^7.18.0":
-=======
 "@babel/traverse@^7.18.0", "@babel/traverse@^7.7.2":
->>>>>>> 8cf2a51e9c9f89d78f708ecf95f4eeeb37b09d85
   version "7.18.0"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.18.0.tgz#0e5ec6db098660b2372dd63d096bf484e32d27ba"
   integrity sha512-oNOO4vaoIQoGjDQ84LgtF/IAlxlyqL4TUuoQ7xLkQETFaHkY1F7yazhB4Kt3VcZGL0ZF/jhrEpnXqUb0M7V3sw==
@@ -1091,9 +1055,6 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-<<<<<<< HEAD
-"@babel/types@^7.0.0", "@babel/types@^7.16.0", "@babel/types@^7.16.7", "@babel/types@^7.16.8", "@babel/types@^7.17.0", "@babel/types@^7.17.12", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4":
-=======
 "@babel/types@^7.0.0", "@babel/types@^7.18.0", "@babel/types@^7.3.0", "@babel/types@^7.3.3":
   version "7.18.0"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.18.0.tgz#ef523ea349722849cb4bf806e9342ede4d071553"
@@ -1103,7 +1064,6 @@
     to-fast-properties "^2.0.0"
 
 "@babel/types@^7.16.0", "@babel/types@^7.16.7", "@babel/types@^7.16.8", "@babel/types@^7.17.0", "@babel/types@^7.17.12", "@babel/types@^7.4.4":
->>>>>>> 8cf2a51e9c9f89d78f708ecf95f4eeeb37b09d85
   version "7.17.12"
   resolved "https://registry.npmjs.org/@babel/types/-/types-7.17.12.tgz"
   integrity sha512-rH8i29wcZ6x9xjzI5ILHL/yZkbQnCERdHlogKuIb4PUr7do4iT8DPekrTbBLWTnRQm6U0GYABbTMSzijmEqlAg==
@@ -5272,11 +5232,7 @@ react-dom@^18.1.0:
 
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0, react-is@^18.1.0:
   version "18.1.0"
-<<<<<<< HEAD
-  resolved "https://registry.npmjs.org/react-is/-/react-is-18.1.0.tgz"
-=======
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.1.0.tgz#61aaed3096d30eacf2a2127118b5b41387d32a67"
->>>>>>> 8cf2a51e9c9f89d78f708ecf95f4eeeb37b09d85
   integrity sha512-Fl7FuabXsJnV5Q1qIOQwx/sagGF18kogb4gpfcG4gjLBWO0WDiiz1ko/ExayuxE7InyQkBLkxRFG5oxY6Uu3Kg==
 
 react-is@^16.7.0:

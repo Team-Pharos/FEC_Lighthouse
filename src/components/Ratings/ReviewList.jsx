@@ -8,6 +8,7 @@ const ReviewList = ({productId}) => {
 
   //Styled Components
 
+
   //state population
   useEffect(() => {
     axios.get('/getReviews', { params: {id: productId}})

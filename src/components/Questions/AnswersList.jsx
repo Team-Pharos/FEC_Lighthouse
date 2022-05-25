@@ -11,7 +11,6 @@ const AnswersList = ({answers}) => {
           <AnswerListEntry key={answer.answer_id} answer={answer}/>
         )
       })}
-      <button>Add Answer</button>
     </>
   )
 }

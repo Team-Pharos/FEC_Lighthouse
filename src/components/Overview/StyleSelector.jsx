@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyleImg = styled.img`
     width: 60px;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 50%;
 `;
 
 const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
@@ -21,7 +21,7 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
       {i % 4 === 0 && i !== 0
       ? <br/>
       : ' '}
-      <StyleImg src={style.photos[0].thumbnail_url} name={i} onClick={e => {console.log(e.target.name); setCurrentStyle(styles[e.target.name])}}/>
+      <StyleImg style={{borderStyle: style === currentStyle ? 'solid' : ''}} src={style.photos[0].thumbnail_url} name={i} onClick={e => {setCurrentStyle(styles[e.target.name])}}/>
     </span>
   })}
   </div>

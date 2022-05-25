@@ -17,6 +17,7 @@ import RatingBreakdown from './RatingBreakdown.jsx';
   const Container = styled.div`
     margin: 10px auto;
     width: 80%;
+    height: 700px;
   `;
   const Header = styled.div`
     width: 100%;

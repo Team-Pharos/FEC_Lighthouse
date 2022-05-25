@@ -15,8 +15,6 @@ let getStyles = (product_id) => {
 }
 
 let getQuestions = (product_id) => {
-  console.log('product_id in atelierAPI');
-  console.log(product_id);
   let url = `${process.env.API}qa/questions?product_id=${product_id}`
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
 }

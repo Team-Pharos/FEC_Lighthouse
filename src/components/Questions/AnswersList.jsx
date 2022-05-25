@@ -1,11 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import AnswerListEntry from './AnswerListEntry.jsx';
 
 const AnswersList = ({answers}) => {
   return (
     <>
-    <h4 className="answer_title">A: Answer Title</h4><p className="answer helpful">Helpful? Yes&#40;#&#41; Report</p>
-    <h5>by: username on date</h5>
+    <h3>A:</h3>
+      {answers.map((answer) => {
+        return(
+          <AnswerListEntry key={answer.answer_id} answer={answer}/>
+        )
+      })}
+      <button>See More Answers</button>
     </>
   )
 }

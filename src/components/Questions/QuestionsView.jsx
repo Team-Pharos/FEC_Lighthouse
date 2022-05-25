@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar.jsx';
 import QuestionsList from './QuestionsList.jsx';
+import AddQuestion from './AddQuestionModal.jsx';
+import AddAnswer from './AddAnswerModal.jsx';
 
 const QuestionsView = ({productId}) => {
 
@@ -24,7 +26,9 @@ const QuestionsView = ({productId}) => {
     <h2>Questions and Answers</h2>
       <SearchBar/>
       <QuestionsList questions={questions}/>
-      <button>Add Question</button>
+      <button>Add A Question</button>
+      <AddQuestion/>
+      <AddAnswer/>
     </>
   )
 }

@@ -7,7 +7,6 @@ const QuestionsList = ({ questions }) => {
   return (
     <div>
       {questions.map((question) => {
-        console.log(question);
         return(
           <QuestionListEntry key={question.question_id} question={question}/>
         )

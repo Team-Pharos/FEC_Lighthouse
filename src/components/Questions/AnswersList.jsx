@@ -11,6 +11,7 @@ const AnswersList = ({answers}) => {
           <AnswerListEntry key={answer.answer_id} answer={answer}/>
         )
       })}
+      <button>See More Answers</button>
     </>
   )
 }

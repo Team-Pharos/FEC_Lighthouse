@@ -24,7 +24,7 @@ const QuestionsView = ({productId}) => {
     <h2>Questions and Answers</h2>
       <SearchBar/>
       <QuestionsList questions={questions}/>
-      <button>Add Question</button>
+      <button>Add A Question</button>
     </>
   )
 }

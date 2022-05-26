@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { Input, OuterModal, InnerModal, ModalTitle } from './Styles.jsx';
 import AnswersList from './AnswersList.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
 // import differenceInCalendarISOYears from 'date-fns/difference_in_calendar_iso_years'

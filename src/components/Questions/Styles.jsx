@@ -21,4 +21,9 @@ const InnerModal = styled.div`
   background-color:#fff;
 `;
 
-export { Input, OuterModal, InnerModal }
+const ModalTitle = styled.h2`
+  color: blue;
+`;
+
+export { Input, OuterModal, InnerModal, ModalTitle };
+

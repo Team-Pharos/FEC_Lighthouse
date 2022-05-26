@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+// import FontStyles from '../../fonts/fonts.js';
 
 const Input = styled.input`
   width: 300px;
@@ -36,6 +37,7 @@ const Modal = styled.div`
 `;
 
 const ModalTitle = styled.h2`
+  // font-family: "Water Brush", sans-serif;
   color: blue;
 `;
 

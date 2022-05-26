@@ -19,15 +19,11 @@ let getStyles = (product_id) => {
 let getQuestions = (product_id) => {
   let url = `${process.env.API}qa/questions?product_id=${product_id}`
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
-    .sort(question_helpfulness: 'desc');
 }
 
 let getAnswers = (question_id) => {
   let url = `${process.env.API}qa/questions/${question_id}/answers`
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
-    .sort(helpfulness)
-    .where({answerer_name: 'Seller'})
-    .where('answerer_name').ne('Seller'); //not sure this will do it
 }
 
 //==========Reviews and Ratings Models============

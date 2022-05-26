@@ -12,6 +12,8 @@ const Overview = ({productId, productDetails}) => {
   const [styles, setStyles] = useState([])
   const [currentStyle, setCurrentStyle] = useState(styles[0])
 
+  console.log(currentStyle);
+
   const getStyles = (productId) => {
     axios.get('/getStyles', {params: {id: productId}})
     .then(response => {

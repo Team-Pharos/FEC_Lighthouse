@@ -7,6 +7,9 @@ const Img = styled.img`
     height:500px;
     border-radius: 10%;
     object-fit: cover;
+    &:hover {
+      cursor: zoom-in;
+    }
 `;
 
 const ImgMini = styled.img`
@@ -22,6 +25,7 @@ const Arrow = styled.button`
 `;
 
 const ImageGallery = ({currentStyle}) => {
+
   const urlArr = [];
   const miniUrlArr = [];
 
@@ -40,12 +44,11 @@ const ImageGallery = ({currentStyle}) => {
       <br/>
 
       {miniUrlArr.map((img, i) => {
-        return (<>
-          <ImgMini key={img} className='miniImg' src={img} style={{border: img === miniUrlArr[imageInd] ? 'solid' : '', display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : ''}}/>
+        return (<div key={img} >
+          <ImgMini className='miniImg' src={img} style={{border: img === miniUrlArr[imageInd] ? 'solid' : '', display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : '' }} onClick={() => {setImage(i)}}/>
           <br />
-        </>)
+        </div>)
       })}
-
 
       <Arrow className='downArrow' style={{visibility: imageInd < miniUrlArr.length - 1 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd + 1)}}><FaAngleDown /></Arrow>
     </div>

@@ -19,7 +19,7 @@ const AddToCart = ({currentStyle}) => {
   return (
     <div className='AddToCart' >
       <select name="size" defaultValue={'default'} onChange={e => {setSizeSelector(e.target.value)}}>
-        <option value="default" disabled>SELECT SIZE</option>
+        <option value="default" >SELECT SIZE</option>
         {Object.keys(currentStyle.skus).map( key => {
           if (currentStyle.skus[key].quantity) {
             return <option key={key} value={key}>{currentStyle.skus[key].size}</option>

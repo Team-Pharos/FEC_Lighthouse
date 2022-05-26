@@ -15,7 +15,6 @@ const ProductionInfo = ({productDetails, currentStyle}) => {
     {currentStyle && currentStyle.sale_price
     ? <span style={{color: 'red'}}>&nbsp;&nbsp;&nbsp;${currentStyle.sale_price}</span>
     : <></>}
-
   </div>
   )
 }

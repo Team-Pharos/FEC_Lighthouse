@@ -12,7 +12,7 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
   <div className='StyleSelector'>
   {
     currentStyle !== undefined
-    ? <p>{`STYLE > ${currentStyle.name}`}</p>
+    ? <h4>{`STYLE > ${currentStyle.name}`}</h4>
     : <></>
   }
 

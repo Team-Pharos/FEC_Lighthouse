@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {RightText} from './Styles.jsx';
 
 const Thumbnail = styled.img`
   width: 50px;
@@ -27,16 +28,16 @@ const ReviewTile = ({review}) => {
    if (review.body.length <= 250) {
     bodyView = <div><p>{review.body}</p></div>
   }
-  recommended ? check = <p>✅</p> : check = <p></p>;
+  recommended ? check = <span>✅</span> : check = <span></span>;
 
   return (
     <Tile>
-      <h4>Rating: {review.rating}</h4>
-      <h5>
-        Recommended: {check} Reviewer: {review.reviewer_name} Date: {review.date}
-        </h5>
-      <h4>Summary: {review.summary}</h4>
-      {bodyView}
+      <h4>{review.rating}</h4>
+      <RightText>
+        {check} {review.reviewer_name} {review.date}
+      </RightText>
+      <div><h4>{review.summary}</h4></div>
+      <div>{bodyView}</div>
       <div>
         {review.photos.map( (photo) => {
           <Thumbnail src={photo.url}/>
@@ -46,7 +47,7 @@ const ReviewTile = ({review}) => {
         <p>Response: {review.response}</p>
       </div>
         <span>Helpfulness: {review.helpfulness}</span>
-        <span>      report</span>
+        <RightText>report</RightText>
     </Tile>
   )
 }

@@ -30,6 +30,8 @@ const RatingBreakdown = ({productId}) => {
   };
 
   let ratings = metaData.ratings || {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
+  let characteristics = metaData.characteristics;
+  console.log(characteristics);
 
   return(
     <div className="RatingBreakdown">

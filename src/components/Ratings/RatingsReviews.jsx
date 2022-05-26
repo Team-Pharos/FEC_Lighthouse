@@ -31,7 +31,7 @@ const RatingsReviews = ({productId}) => {
 
   //render return
     return (
-      <>
+      <div id="RatingsAndReviews">
       <Header><h3>Ratings and Reviews</h3></Header>
       <Container>
       <Breakdown>
@@ -41,7 +41,7 @@ const RatingsReviews = ({productId}) => {
         <ReviewList productId={productId}/>
       </Reviews>
       </Container>
-      </>
+      </div>
     )
 }
 

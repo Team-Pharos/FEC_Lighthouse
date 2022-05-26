@@ -1,42 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Thumbnail = styled.img`
-  width: 50px;
-  height: 50px;
-  margin: 3px;
-`;
-
-const truncatedBody = styled.div`
-  height: 75px;
-  overflow: auto;
-`;
-
-const Tile = styled.div`
-border-bottom: 1px solid black;
-`;
+import {RightText, Thumbnail, TruncBody, Tile} from './Styles.jsx';
+import { FaCheckSquare } from "react-icons/fa";
+import { BsStarFill } from "react-icons/bs";
+import moment from 'moment';
 
 const ReviewTile = ({review}) => {
 
   let bodyView, check;
   let recommended = review.recommend;
 
+  let ShowStars = (rating) => {
+    let stars = [];
+    for (let i = 1; i <= rating; i++) {
+      stars.push(<span key={i}><BsStarFill/></span>);
+    }
+    return(stars)
+  }
+
   if (review.body.length > 250) {
-    bodyView = <truncatedBody><p>{review.body}</p></truncatedBody>
+    bodyView = <TruncBody><p>{review.body}</p></TruncBody>
   }
    if (review.body.length <= 250) {
     bodyView = <div><p>{review.body}</p></div>
   }
-  recommended ? check = <p>✅</p> : check = <p></p>;
+  recommended ? check = <span><FaCheckSquare/></span> : check = <span></span>;
 
   return (
     <Tile>
-      <h4>Rating: {review.rating}</h4>
-      <h5>
-        Recommended: {check} Reviewer: {review.reviewer_name} Date: {review.date}
-        </h5>
-      <h4>Summary: {review.summary}</h4>
-      {bodyView}
+      {ShowStars(review.rating)}
+      <RightText>
+        {check} {review.reviewer_name} {moment(review.date).format('MMMM Do YYYY')}
+      </RightText>
+      <div><h4>{review.summary}</h4></div>
+      <div>{bodyView}</div>
       <div>
         {review.photos.map( (photo) => {
           <Thumbnail src={photo.url}/>
@@ -46,7 +43,7 @@ const ReviewTile = ({review}) => {
         <p>Response: {review.response}</p>
       </div>
         <span>Helpfulness: {review.helpfulness}</span>
-        <span>      report</span>
+        <RightText>report</RightText>
     </Tile>
   )
 }

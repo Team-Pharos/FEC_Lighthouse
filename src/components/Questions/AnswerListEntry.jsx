@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import styled from 'styled-components';
 
 const Span = styled.span`
@@ -21,7 +22,7 @@ const AnswerListEntry = ({answer}) => {
     <>
       <Answer className="answer_title">{answer.body}</Answer>
       <p className="answer helpful">Helpful? <Span>Yes&#40;#&#41;</Span> <Span>Report</Span></p>
-      <h5>{`by: ${answer.answerer_name} ${answer.date}`}</h5>
+      <h5>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</h5>
     </>
   )
 }

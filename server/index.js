@@ -52,17 +52,21 @@ app.get('/getAnswers', (req, res) => {
 })
 
 app.put('/markQuestionHelpful', (req, res) => {
-   markQAsHelpful(req.query.question_id)
+  console.log('req.body.params');
+  console.log(req.body.params);
+   markQAsHelpful(req.body.params.question_id)
       .then(() => {
+        console.log('here');
         res.sendStatus(204);
       })
       .catch((err) => {
+        console.log(err);
         res.sendStatus(501);
       });
 })
 
 app.put('/markAnswerHelpful', (req, res) => {
-  markAAsHelpful(req.query.answer_id)
+  markAAsHelpful(req.body.params.answer_id)
     .then(() => {
       res.sendStatus(204);
     })
@@ -72,7 +76,7 @@ app.put('/markAnswerHelpful', (req, res) => {
 })
 
 app.put('/reportAnswer', (req, res) => {
-  markAAsReported(req.query.answer_id)
+  markAAsReported(req.body.params.answer_id)
     .then(() => {
       res.sendStatus(204);
     })

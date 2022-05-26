@@ -29,6 +29,8 @@ const OuterModal = styled.div`
 const InnerModal = styled.div`
   width: 500px;
   background-color:#fff;
+  border: 5px solid #F26938;
+  border-radius: 5px;
 `;
 
 const Modal = styled.div`

@@ -17,11 +17,45 @@ color: #010a26;
 `;
 
 const AnswerListEntry = ({answer}) => {
+  console.log(answer);
+
+  const [isReported, setReported] = useState(false);
+  const [isHelpful, setIsHelpful] = useState(false);
+
+  const helpfulClick = (e) => {
+    e.preventDefault();
+    if (isHelpful === false) {
+      axios.put('/markAnswerHelpful', {params: {answer_id: answer.answer_id}})
+      .then(() => {
+        setIsHelpful(true);
+      })
+      .then(() => {
+        alert('Answer has been marked as helpful');
+      })
+      .catch((err) => {
+        console.log(`error: ${err}`);
+      })
+    }
+  }
+
+  const reportClick = (e) => {
+    e.preventDefault();
+    if (isReported === false) {
+      setReported(true);
+      axios.put('/reportAnswer', {params: {answer_id: answer.answer_id}})
+        .then(() => {
+          alert('Answer has been reported');
+        })
+        .catch((err) => {
+          console.log(`error: ${err}`);
+        });
+    }
+  }
 
   return (
     <>
       <Answer className="answer_title">{answer.body}</Answer>
-      <p className="answer helpful">Helpful? <Span>{`Yes (${answer.helpfulness})`}</Span> <Span>Report</Span></p>
+      <p className="answer helpful">Helpful? <Span onClick={helpfulClick}>{`Yes (${answer.helpfulness})`}</Span> {isReported ? <Span>Reported</Span> : <Span onClick={reportClick}>Report</Span>}</p>
       <h5>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</h5>
     </>
   )

@@ -36,7 +36,7 @@ const QuestionListEntry = ({question, productName}) => {
     <h4 className="question_title">{`Q: ${question.question_body}`}</h4><p className="question helpful">Helpful? <Span>Yes&#40;#&#41;</Span></p>
     <h5>{`asked by ${question.asker_name} ${question.question_date}`}</h5>
     <button onClick={() => {setAddAnswer(true)}} >Add An Answer</button>
-    <AddAnswer productName={productName} addAnswer={addAnswer} onClose={() => {setAddAnswer(false)}}/>
+    <AddAnswer productName={productName} questionBody={question.question_body} addAnswer={addAnswer} onClose={() => {setAddAnswer(false)}}/>
     <AnswersList answers={answers}/>
     </>
   )

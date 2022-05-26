@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-const OverallRating = styled.div`
-  font-family: arial;
+const BreakdownContainer = styled.div`
+  top: 25px;
 `;
 
 const RatingBreakdown = ({productId}) => {
@@ -25,25 +25,24 @@ const RatingBreakdown = ({productId}) => {
       numVotes += Number(ratingsObject[rating]);
       totalScore += rating * ratingsObject[rating];
     }
-
+    console.log(totalScore / numVotes);
     return (numVotes === 0) ? 5 : (totalScore / numVotes).toFixed(1);
   };
 
   let ratings = metaData.ratings || {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
   let characteristics = metaData.characteristics;
-  console.log(characteristics);
 
   return(
-    <div className="RatingBreakdown">
-    <OverallRating>Overall Rating for {productId}</OverallRating>
-    <h2> {calculateOverallRating(ratings)}</h2>
+    <BreakdownContainer>
+    <h4>Overall Rating for {productId}</h4>
+    <h2> {calculateOverallRating(ratings)} </h2>
     <h3>Ratings</h3>
     <ul>
       {Object.keys(ratings).map( rating => {
         return <li key={rating}>{rating}: {ratings[rating]}</li>;
       })}
     </ul>
-    </div>
+    </BreakdownContainer>
   )
 }
 

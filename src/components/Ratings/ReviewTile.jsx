@@ -1,38 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import {RightText} from './Styles.jsx';
-
-const Thumbnail = styled.img`
-  width: 50px;
-  height: 50px;
-  margin: 3px;
-`;
-
-const truncatedBody = styled.div`
-  height: 75px;
-  overflow: auto;
-`;
-
-const Tile = styled.div`
-border-bottom: 1px solid black;
-`;
+import {RightText, Thumbnail, TruncBody, Tile} from './Styles.jsx';
+import { FaCheckSquare } from "react-icons/fa";
+import { BsStarFill } from "react-icons/bs";
 
 const ReviewTile = ({review}) => {
 
   let bodyView, check;
   let recommended = review.recommend;
 
+  let ShowStars = (rating) => {
+    let stars = [];
+    for (let i = 1; i <= rating; i++) {
+      stars.push(<span><BsStarFill/></span>);
+    }
+    return(stars)
+  }
+
   if (review.body.length > 250) {
-    bodyView = <truncatedBody><p>{review.body}</p></truncatedBody>
+    bodyView = <TruncBody><p>{review.body}</p></TruncBody>
   }
    if (review.body.length <= 250) {
     bodyView = <div><p>{review.body}</p></div>
   }
-  recommended ? check = <span>✅</span> : check = <span></span>;
+  recommended ? check = <span><FaCheckSquare/></span> : check = <span></span>;
 
   return (
     <Tile>
-      <h4>{review.rating}</h4>
+      {ShowStars(review.rating)}
       <RightText>
         {check} {review.reviewer_name} {review.date}
       </RightText>

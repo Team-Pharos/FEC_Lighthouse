@@ -6,9 +6,6 @@ const AddToCart = ({currentStyle}) => {
   const [quantitySelected, setQuantitySelector] = useState('0');
   const [starClicked, setStarClicked] = useState(false);
 
-  console.log('currentStyle', currentStyle);
-  console.log('sizeSelected', sizeSelected);
-
   useEffect(() => {setSizeSelector('')}, [currentStyle])
   useEffect(() => {setQuantitySelector('0')}, [currentStyle])
 

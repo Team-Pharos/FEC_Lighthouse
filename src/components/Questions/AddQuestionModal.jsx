@@ -6,9 +6,14 @@ const Input = styled.input`
   width: 200px;
 `;
 
-const AddQuestion = (props) => {
+const AddQuestion = ({addQuestion, onClose}) => {
+
+  if(addQuestion === false) {
+    return null
+  }
+
   return (
-    <>
+    <div>
     <h3>Ask Your Question</h3>
     <h5>{"About the [Product Name Here]"}</h5>
     <p>Your Question *</p>
@@ -19,8 +24,8 @@ const AddQuestion = (props) => {
     <p>Email *</p>
     <Input type="email" required maxlength="60" placeholder="Example: jackson@email.com"/>
     <h6>For authentication reasons, you will not be emailed</h6>
-    <button>Submit Question</button><button>Close</button>
-    </>
+    <button>Submit Question</button><button onClick={onClose}>Close</button>
+    </div>
   )
 }
 

@@ -6,7 +6,12 @@ const Input = styled.input`
   width: 200px;
 `;
 
-const AddAnswer = (props) => {
+const AddAnswer = ({addAnswer, onClose}) => {
+
+  if (addAnswer === false) {
+    return null;
+  }
+
   return (
     <>
     <h3>Submit Your Answer</h3>
@@ -19,7 +24,7 @@ const AddAnswer = (props) => {
     <p>Email *</p>
     <Input type="email" required maxlength="60" placeholder="Example: jack@email.com"/>
     <h6>For authentication reasons, you will not be emailed</h6>
-    <button>Submit Answer</button><button>Close</button>
+    <button>Submit Answer</button><button onClick={onClose}>Close</button>
     </>
   )
 }

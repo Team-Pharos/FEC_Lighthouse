@@ -28,7 +28,7 @@ const RatingBreakdown = ({productId}) => {
     <h3>Ratings</h3>
     <ul>
       {Object.keys(ratings).map( rating => {
-        return <li>{rating}: {ratings[rating]}</li>;
+        return <li key={rating}>{rating}: {ratings[rating]}</li>;
       })}
     </ul>
     </div>

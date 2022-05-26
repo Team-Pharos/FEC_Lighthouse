@@ -71,6 +71,9 @@ module.exports = {
   getStyles: getStyles,
   getQuestions: getQuestions,
   getAnswers: getAnswers,
+  markQAsHelpful: markQAsHelpful,
+  markAAsHelpful: markAAsHelpful,
+  markAAsReported: markAAsReported,
   getReviews: getReviews,
   getReviewMeta: getReviewMeta,
   getRelatedProducts: getRelatedProducts

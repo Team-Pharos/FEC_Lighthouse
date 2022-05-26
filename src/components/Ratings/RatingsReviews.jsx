@@ -5,11 +5,14 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 
   //component styling
   const Reviews = styled.div`
-    width: 50%;
+    float: right;
+    width: 60%;
+    left: 25%;
     `;
 
   const Breakdown = styled.div`
     float: left;
+    position: absolute;
     width: 25%;
     height: 100%;
   `;
@@ -18,6 +21,7 @@ import RatingBreakdown from './RatingBreakdown.jsx';
     margin: 10px auto;
     width: 80%;
     height: 700px;
+    overflow: auto;
   `;
   const Header = styled.div`
     width: 100%;
@@ -27,8 +31,9 @@ const RatingsReviews = ({productId}) => {
 
   //render return
     return (
-      <Container>
+      <>
       <Header><h3>Ratings and Reviews</h3></Header>
+      <Container>
       <Breakdown>
         <RatingBreakdown productId={productId}/>
       </Breakdown>
@@ -36,6 +41,7 @@ const RatingsReviews = ({productId}) => {
         <ReviewList productId={productId}/>
       </Reviews>
       </Container>
+      </>
     )
 }
 

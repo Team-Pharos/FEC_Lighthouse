@@ -9,8 +9,8 @@ const AddToCart = ({currentStyle}) => {
   console.log('currentStyle', currentStyle);
   console.log('sizeSelected', sizeSelected);
 
-  // useEffect(() => {setSizeSelector('')}, [])
-  // useEffect(() => {setQuantitySelector('0')}, [])
+  useEffect(() => {setSizeSelector('')}, [currentStyle])
+  useEffect(() => {setQuantitySelector('0')}, [currentStyle])
 
   const addToBagHandler = () => {
     alert(`${quantitySelected} ${currentStyle.name} Add to Shopping Cart!`);
@@ -19,7 +19,7 @@ const AddToCart = ({currentStyle}) => {
   return (
     <div className='AddToCart' >
       <select name="size" defaultValue={'default'} onChange={e => {setSizeSelector(e.target.value)}}>
-        <option value="default" disabled hidden>SELECT SIZE</option>
+        <option value="default" >SELECT SIZE</option>
         {Object.keys(currentStyle.skus).map( key => {
           if (currentStyle.skus[key].quantity) {
             return <option key={key} value={key}>{currentStyle.skus[key].size}</option>
@@ -27,7 +27,7 @@ const AddToCart = ({currentStyle}) => {
         })}
       </select>
       {' '}
-      <select name="quantity" disabled={sizeSelected === '' ? true : false} onChange={e => {setQuantitySelector(e.target.value)}}>
+      <select name="quantity" defaultValue={'default'} disabled={sizeSelected === '' ? true : false} onChange={e => {setQuantitySelector(e.target.value)}}>
         {sizeSelected !== '' && currentStyle.skus[sizeSelected]
           ? (Array.from(Array(Math.min(16, currentStyle.skus[sizeSelected].quantity + 1)).keys())).slice(1).map( key => {
               return <option key={key} value={key} >{key}</option>

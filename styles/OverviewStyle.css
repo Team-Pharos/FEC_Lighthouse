@@ -1,7 +1,7 @@
 .OverView {
+  width: 70%;
   display: grid;
-  grid-template-columns: 55% 45%;
-  /* grid-template-rows: 30% 40% 15% 15%; */
+  grid-template-columns: 65% 5% 30%;
   grid-template-rows: auto auto auto auto;
 }
 
@@ -10,42 +10,45 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 4;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .ProductionInfo {
-  grid-column-start: 2;
+  grid-column-start: 3;
   grid-row-start: 1;
   grid-row-end: 2;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .StyleSelector{
-  grid-column-start: 2;
+  grid-column-start: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  border-style: solid;
-  /* overflow: auto; */
-  /* resize: vertical; */
+  /* border-style: solid; */
 }
 
 .AddToCart{
-  grid-column-start: 2;
+  grid-column-start: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .ProductOverview {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 4;
-  border-style: solid;
+  /* border-style: solid; */
+  border-right: dotted gray 6px;
 }
 
 .Features {
-  grid-column-start: 2;
+  grid-column-start: 3;
   grid-row-start: 4;
-  border-style: solid;
+  /* border-style: solid; */
 
+}
+
+.thumbnail {
+  position: absolute;
 }

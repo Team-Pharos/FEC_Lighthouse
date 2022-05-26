@@ -13,7 +13,6 @@ const RatingBreakdown = ({productId}) => {
     axios.get('/getReviewMeta', { params: {id: productId}})
     .then((returnedMeta) => {
       setMetaData(returnedMeta.data);
-      console.log(returnedMeta.data);
     })
     .catch( (err) => console.log(err));
   }, []);

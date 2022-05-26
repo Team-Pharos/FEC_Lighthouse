@@ -27,7 +27,7 @@ let getAnswers = (question_id) => {
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
     .sort(helpfulness)
     .where({answerer_name: 'Seller'})
-    .where('answerer_name').ne('Seller');
+    .where('answerer_name').ne('Seller'); //not sure this will do it
 }
 
 //==========Reviews and Ratings Models============

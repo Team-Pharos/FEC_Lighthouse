@@ -35,8 +35,8 @@ const QuestionListEntry = ({question, productName}) => {
 
   return(
     <>
-    <h4 className="question_title">{`Q: ${question.question_body}`}</h4><p className="question helpful">Helpful? <Span>Yes&#40;#&#41;</Span></p>
-    <h5>{`asked by ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</h5>
+    <h4 className="question_title">{`Q: ${question.question_body}`}</h4><p className="question helpful">Helpful? <Span>{`Yes (${question.question_helpfulness})`}</Span></p>
+    <h5>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</h5>
     <button onClick={() => {setAddAnswer(true)}} >Add An Answer</button>
     <AddAnswer productName={productName} questionBody={question.question_body} addAnswer={addAnswer} onClose={() => {setAddAnswer(false)}}/>
     <AnswersList answers={answers}/>

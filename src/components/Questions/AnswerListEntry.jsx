@@ -21,7 +21,7 @@ const AnswerListEntry = ({answer}) => {
   return (
     <>
       <Answer className="answer_title">{answer.body}</Answer>
-      <p className="answer helpful">Helpful? <Span>Yes&#40;#&#41;</Span> <Span>Report</Span></p>
+      <p className="answer helpful">Helpful? <Span>{`Yes (${answer.helpfulness})`}</Span> <Span>Report</Span></p>
       <h5>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</h5>
     </>
   )

@@ -1,7 +1,16 @@
 import styled from 'styled-components';
 
 const Input = styled.input`
-  width: 200px;
+  width: 300px;
+`;
+
+const SearchBarInput = styled.input`
+  width: 400px;
+`;
+
+const BodyInput = styled.input`
+  width: 400px;
+  height: 100px;
 `;
 
 const OuterModal = styled.div`
@@ -21,9 +30,14 @@ const InnerModal = styled.div`
   background-color:#fff;
 `;
 
+const Modal = styled.div`
+  padding: 10px;
+  margin: auto;
+`;
+
 const ModalTitle = styled.h2`
   color: blue;
 `;
 
-export { Input, OuterModal, InnerModal, ModalTitle };
+export { Input, OuterModal, InnerModal, ModalTitle, SearchBarInput, BodyInput, Modal };
 

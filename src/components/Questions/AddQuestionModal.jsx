@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Input, OuterModal, InnerModal } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, Modal } from './Styles.jsx';
 
 const AddQuestion = ({ productName, addQuestion, onClose }) => {
 
@@ -12,6 +12,7 @@ const AddQuestion = ({ productName, addQuestion, onClose }) => {
   return (
     <OuterModal>
       <InnerModal>
+        <Modal>
         <h3>Ask Your Question</h3>
         <h5>{`About the ${productName}`}</h5>
         <p>Your Question *</p>
@@ -23,6 +24,7 @@ const AddQuestion = ({ productName, addQuestion, onClose }) => {
         <Input type="email" required maxlength="60" placeholder="Example: jackson@email.com" />
         <h6>For authentication reasons, you will not be emailed</h6>
         <button>Submit Question</button><button onClick={onClose}>Close</button>
+        </Modal>
       </InnerModal>
     </OuterModal>
   )

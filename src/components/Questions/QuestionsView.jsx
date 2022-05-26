@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Input, OuterModal, InnerModal, ModalTitle } from './Styles.jsx';
 import SearchBar from './SearchBar.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import AddQuestion from './AddQuestionModal.jsx';
-import AddAnswer from './AddAnswerModal.jsx';
 
-const QuestionsView = ({productId}) => {
+const QuestionsView = ({productId, productName}) => {
 
   const [questions, setQuestions] = useState([]);
+  const [addQuestion, setAddQuestion] = useState(false);
 
   useEffect(() => {
 
@@ -23,12 +24,11 @@ const QuestionsView = ({productId}) => {
 
   return (
     <>
-    <h2>Questions and Answers</h2>
+    <h3>Questions and Answers</h3>
       <SearchBar/>
-      <QuestionsList questions={questions}/>
-      <button>Add A Question</button>
-      <AddQuestion/>
-      <AddAnswer/>
+      <QuestionsList questions={questions} productName={productName}/>
+      <button onClick={() => setAddQuestion(true) }>Add A Question</button>
+      <AddQuestion productName={productName} addQuestion={addQuestion} onClose={() => setAddQuestion(false)}/>
     </>
   )
 }

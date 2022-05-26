@@ -9,13 +9,15 @@ import axios from 'axios';
 const App = () => {
   // set default product as 37313
   const [productId, setProductId] = useState(37313);
+  const [productName, setProductName] = useState('');
   const [productDetails, setProductDetails] = useState({})
 
 
   const getOneProduct = (productId) => {
     axios.get('/getOne', {params: {id: productId}})
     .then(response => {
-      setProductDetails(response.data)
+      setProductDetails(response.data);
+      setProductName(response.data.name);
     })
     .catch(err => {
       console.log('getOneProduct err', err)
@@ -31,7 +33,7 @@ const App = () => {
     <Overview productDetails={productDetails} productId={productId} />
     <RelatedItems productDetails={productDetails} productId={productId}/>
     <YourOutfit productId={productId} productDetails={productDetails}/>
-    <QuestionsView productId={productId}/>
+    <QuestionsView productId={productId} productName={productName}/>
     <RatingsReviews productId={productId}/>
     </>
   )

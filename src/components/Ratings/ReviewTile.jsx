@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {RightText, Thumbnail, TruncBody, Tile} from './Styles.jsx';
 import { FaCheckSquare } from "react-icons/fa";
 import { BsStarFill } from "react-icons/bs";
+import moment from 'moment';
 
 const ReviewTile = ({review}) => {
 
@@ -12,7 +13,7 @@ const ReviewTile = ({review}) => {
   let ShowStars = (rating) => {
     let stars = [];
     for (let i = 1; i <= rating; i++) {
-      stars.push(<span><BsStarFill/></span>);
+      stars.push(<span key={i}><BsStarFill/></span>);
     }
     return(stars)
   }
@@ -29,7 +30,7 @@ const ReviewTile = ({review}) => {
     <Tile>
       {ShowStars(review.rating)}
       <RightText>
-        {check} {review.reviewer_name} {review.date}
+        {check} {review.reviewer_name} {moment(review.date).format('MMMM Do YYYY')}
       </RightText>
       <div><h4>{review.summary}</h4></div>
       <div>{bodyView}</div>

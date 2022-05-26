@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Input, OuterModal, InnerModal } from './Styles.jsx';
 
-const AddAnswer = ({ addAnswer, onClose }) => {
+const AddAnswer = ({ productName, addAnswer, onClose }) => {
 
   if (addAnswer === false) {
     return null;
@@ -13,7 +13,7 @@ const AddAnswer = ({ addAnswer, onClose }) => {
     <OuterModal>
       <InnerModal>
         <h3>Submit Your Answer</h3>
-        <h5>{"[Product Name]:[Question Body]"}</h5>
+        <h5>{`${productName}:[Question Body]`}</h5>
         <p>Your Answer *</p>
         <Input type="text" required maxlength="1000" />
         <p>What is your nickname? *</p>

@@ -10,6 +10,7 @@ const ReviewList = ({productId}) => {
   //State
   const [reviews, setReviews] = useState([]);
   const [displayed, setDisplayed] = useState([]);
+  const [askToShowMore, setShowMoreVisibility] = useState(true);
 
   //state population
   useEffect(() => {
@@ -26,6 +27,11 @@ const ReviewList = ({productId}) => {
     setDisplayed(reviews.slice(0, displayed.length + 2));
   };
 
+  // if (displayed.length === reviews.length) {
+  //   if (displayed.length !== 0)
+  //   setShowMoreVisibility(false);
+  // }
+
   //render return
   return (
     <div>
@@ -34,7 +40,9 @@ const ReviewList = ({productId}) => {
       {displayed.map((review => {
         return(<ReviewTile review={review} key={review.review_id}/>)
       }))}
-      <button onClick={showMoreClicked}>Show More</button>
+      {askToShowMore ?
+      <button onClick={showMoreClicked}>Show More</button> :
+      <></>}
     </div>
   )
 }

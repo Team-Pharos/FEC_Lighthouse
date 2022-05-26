@@ -13,7 +13,7 @@ const Img = styled.img`
     &:hover {
       cursor: zoom-in;
     }
-    z-index: -10；
+
 `;
 
 const ImgMini = styled.img`

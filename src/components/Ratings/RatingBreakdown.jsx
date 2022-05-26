@@ -25,7 +25,6 @@ const RatingBreakdown = ({productId}) => {
       numVotes += Number(ratingsObject[rating]);
       totalScore += rating * ratingsObject[rating];
     }
-    console.log(totalScore / numVotes);
     return (numVotes === 0) ? 5 : (totalScore / numVotes).toFixed(1);
   };
 

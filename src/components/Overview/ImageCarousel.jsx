@@ -26,10 +26,10 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
     const { left, top, width, height } = e.target.getBoundingClientRect()
     // console.log(left, top, width, height);
     // horizontal
-    const x = e.pageX - 815
+    const x = (e.pageX - 815);
     // console.log('x', x)
     //vertical
-    const y = 600 - e.pageY
+    const y = (600 - e.pageY) * 1.45;
     // console.log('y', y)
     setPosition([`${x}px`, `${y}px`]);
     // console.log(position);

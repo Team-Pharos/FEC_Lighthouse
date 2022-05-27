@@ -15,7 +15,6 @@ const ImageGallery = ({currentStyle}) => {
     {expanded ? <ImageModal setExpanded={setExpanded} zoomed={zoomed} setZoomed={setZoomed}>
     <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed}/>
     </ImageModal> : <></>}
-
   </div>)
 }
 

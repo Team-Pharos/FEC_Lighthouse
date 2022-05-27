@@ -28,6 +28,7 @@ const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }
         onClose();
       })
       .catch((err) => {
+        alert('Please fill out all fields with asterisks (*)');
         console.log(`error: ${err}`);
       })
   }

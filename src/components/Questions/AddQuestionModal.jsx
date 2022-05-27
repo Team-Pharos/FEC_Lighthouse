@@ -28,6 +28,7 @@ const AddQuestion = ({ productName, productId, addQuestion, onClose }) => {
         onClose();
       })
       .catch((err) => {
+        alert('Please fill out all fields with asterisks (*)');
         console.log(`error: ${err}`);
       });
   }

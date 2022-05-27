@@ -7,14 +7,14 @@ import ImageCarousel from './ImageCarousel.jsx';
 const ImageGallery = ({currentStyle}) => {
 
   const [expanded, setExpanded] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
 
   return (
   <div className='ImageGallery'>
-    <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded}/>
-    {expanded ? <ImageModal setExpanded={setExpanded}>
-    <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded}/>
+    <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed}/>
+    {expanded ? <ImageModal setExpanded={setExpanded} zoomed={zoomed} setZoomed={setZoomed}>
+    <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed}/>
     </ImageModal> : <></>}
-
   </div>)
 }
 

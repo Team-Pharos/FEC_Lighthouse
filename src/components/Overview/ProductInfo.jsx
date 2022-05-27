@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { FaShare, FaTwitter, FaPinterest, FaFacebook } from 'react-icons/fa';
+import { FaShareSquare, FaTwitter, FaPinterest, FaFacebook } from 'react-icons/fa';
 
 const ProductionInfo = ({productDetails, currentStyle}) => {
   return (
   <div className='ProductionInfo'>
     {/* ToDo: starts and ratings */}
-    <p>⭐️ ⭐️ ⭐️ ⭐️ ⭐️ &nbsp;&nbsp;<a href='#RatingsAndReviews'>Read All Reviews</a>&nbsp;&nbsp;&nbsp;<FaShare /></p>
+    <p>⭐️ ⭐️ ⭐️ ⭐️ ⭐️ &nbsp;&nbsp;<a href='#RatingsAndReviews'>Read All Reviews</a>&nbsp;&nbsp;&nbsp;<FaShareSquare /></p>
     {/* ToDo: 3 SocialMedia icon */}
     <h3>{productDetails.category}</h3>
 

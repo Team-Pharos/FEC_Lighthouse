@@ -1,31 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReviewList from './ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
+import NewReviewModal from './NewReviewModal.jsx';
 
-  //component styling
-  const Reviews = styled.div`
+//component styling
+const Reviews = styled.div`
     float: right;
     width: 60%;
     left: 25%;
     `;
 
-  const Breakdown = styled.div`
+const Breakdown = styled.div`
     float: left;
     position: absolute;
     margin: 50px auto;
     width: 25%;
   `;
 
-  const Container = styled.div`
+const Container = styled.div`
     margin: 10px auto;
     padding: 3px;
     width: 80%;
-    height: 700px;
+    height: 500px;
     border-radius: 15px;
     overflow: auto;
   `;
-  const Header = styled.div`
+const Header = styled.div`
     width: 80%;
     position: absolute;
     padding: 1px 5px;
@@ -34,22 +35,52 @@ import RatingBreakdown from './RatingBreakdown.jsx';
     border-radius: 15px 15px 0 0;
   `;
 
-const RatingsReviews = ({productId}) => {
+const OpenAddReview = styled.button`
+    width: 80px;
+    margin: 5px auto;
+    background-color: #F2DAAC;
+    border: 1px solid #F26938;
+    &:hover {
+      border: 1px solid #6BA69B;
+      cursor: pointer;
+    }
+  `;
 
+const ReviewsFooter = styled.div`
+    box-sizing: border-box;
+    width: 80%;
+    height: 50px;
+    padding: 3px 35%;
+    margin: 0px auto 5px;
+    background-color: #010A26;
+  `;
+
+const RatingsReviews = ({ productId, metaData, ratings }) => {
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  let openModal = (event) => {
+    event.preventDefault();
+    setModalOpen(!modalOpen);
+  }
   //render return
-    return (
+  return (
+    <div id="RatingsAndReviews">
       <Container>
-      <div id="RatingsAndReviews">
-      <Header><h3>Ratings and Reviews</h3></Header>
-      <Breakdown>
-        <RatingBreakdown productId={productId}/>
-      </Breakdown>
-      <Reviews>
-        <ReviewList productId={productId}/>
-      </Reviews>
-      </div>
+        <Header><h3>Ratings and Reviews</h3></Header>
+        <Breakdown>
+          <RatingBreakdown productId={productId} metaData={metaData} ratings={ratings} />
+        </Breakdown>
+        <Reviews>
+          <ReviewList productId={productId} />
+        </Reviews>
       </Container>
-    )
+      <ReviewsFooter>
+        <OpenAddReview value='AddReview' onClick={openModal}>Add Review</OpenAddReview>
+      </ReviewsFooter>
+      {modalOpen ? <NewReviewModal closeModal={openModal}/> : <></>}
+    </div>
+  )
 }
 
 export default RatingsReviews;

@@ -7,18 +7,11 @@ const BreakdownContainer = styled.div`
   top: 25px;
 `;
 
-const RatingContext = createContext();
+export const RatingContext = createContext();
 
 const RatingBreakdown = ({ productId }) => {
   const [metaData, setMetaData] = useState({});
-  const [ratings, setRatings] = useState(
-    {
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0
-    }
+  const [ratings, setRatings] = useState({}
   );
 
 
@@ -48,9 +41,8 @@ return (
   <BreakdownContainer>
     <h4>Overall Rating for {productId}</h4>
     <h2> {calculateOverallRating(ratings)} </h2>
-    <RatingContext.Provider value={ratings}>
-      <StarRating ratings={ratings}/>
-    </RatingContext.Provider>
+    <RatingContext.Provider value={ratings}><StarRating ratings={ratings}/></RatingContext.Provider>
+
     <h3>Ratings</h3>
     <ul>
       {Object.keys(ratings).map(rating => {

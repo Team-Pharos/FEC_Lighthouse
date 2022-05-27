@@ -1,11 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { BsStarFill } from "react-icons/bs";
-import RatingContext from './Ratings/RatingBreakdown.jsx';
 
 const StarRating = ({ratings}) => {
-
-  var rating = useContext(RatingContext);
-  //console.log(rating);
 
   let calculateOverallRating = (ratingsObject) => {
     let numVotes = 0;
@@ -19,15 +15,15 @@ const StarRating = ({ratings}) => {
     return (numVotes === 0) ? 5 : (totalScore / numVotes).toFixed(1);
   };
 
-  let calculateStarFill = () => {
-    let avgRating = calculateOverallRating(ratings);
+  let calculateStarFill = (ratingsObject) => {
+    let avgRating = calculateOverallRating(ratingsObject);
     let percentage = Math.round((avgRating / 5) * 100);
     return Math.round(percentage / 5) * 5;
   }
 
   return (
     <div>
-      <span>Stars = {calculateStarFill()}%</span>
+        <span>Stars = {calculateStarFill(ratings)}%</span>
     </div>
   )
 

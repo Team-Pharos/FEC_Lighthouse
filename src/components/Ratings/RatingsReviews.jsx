@@ -34,7 +34,7 @@ import RatingBreakdown from './RatingBreakdown.jsx';
     border-radius: 15px 15px 0 0;
   `;
 
-const RatingsReviews = ({productId}) => {
+const RatingsReviews = ({productId, metaData, ratings}) => {
 
   //render return
     return (
@@ -42,7 +42,7 @@ const RatingsReviews = ({productId}) => {
       <div id="RatingsAndReviews">
       <Header><h3>Ratings and Reviews</h3></Header>
       <Breakdown>
-        <RatingBreakdown productId={productId}/>
+        <RatingBreakdown productId={productId} metaData={metaData} ratings={ratings}/>
       </Breakdown>
       <Reviews>
         <ReviewList productId={productId}/>

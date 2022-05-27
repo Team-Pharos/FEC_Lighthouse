@@ -30,7 +30,7 @@ const ReviewTile = ({review}) => {
     <Tile>
       {ShowStars(review.rating)}
       <RightText>
-        {check} {review.reviewer_name} {moment(review.date).format('MMMM Do YYYY')}
+        {check} {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}
       </RightText>
       <div><h4>{review.summary}</h4></div>
       <div>{bodyView}</div>

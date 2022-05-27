@@ -28,7 +28,6 @@ const QuestionListEntry = ({question, productName}) => {
     }
   }
 
-
   useEffect(() => {
 
     axios.get('/getAnswers', {params: {question_id: question.question_id}})
@@ -46,7 +45,7 @@ const QuestionListEntry = ({question, productName}) => {
     <EntryTitle className="question_title">{`Q: ${question.question_body}`}</EntryTitle><p className="question helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>}</p>
     <h5>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</h5>
     <button onClick={() => {setAddAnswer(true)}} >Add An Answer</button>
-    <AddAnswer productName={productName} questionBody={question.question_body} addAnswer={addAnswer} onClose={() => {setAddAnswer(false)}}/>
+    <AddAnswer productName={productName} questionBody={question.question_body} questionID={question.question_id} addAnswer={addAnswer} onClose={() => {setAddAnswer(false); return}}/>
     <AnswersList answers={answers}/>
     </>
   )

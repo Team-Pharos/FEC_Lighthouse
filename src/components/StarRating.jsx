@@ -4,8 +4,8 @@ import RatingContext from './Ratings/RatingBreakdown.jsx';
 
 const StarRating = ({ratings}) => {
 
-  const currentRatings = useContext(RatingContext);
-  console.log(currentRatings);
+  var rating = useContext(RatingContext);
+  //console.log(rating);
 
   let calculateOverallRating = (ratingsObject) => {
     let numVotes = 0;
@@ -20,15 +20,14 @@ const StarRating = ({ratings}) => {
   };
 
   let calculateStarFill = () => {
-    let avgRating = calculateOverallRating(currentRatings);
-    console.log(avgRating);
-    let percentage = Math.round(avgRating / 5 * 100);
-    return Math.round((percentage / 5) * 5);
+    let avgRating = calculateOverallRating(ratings);
+    let percentage = Math.round((avgRating / 5) * 100);
+    return Math.round(percentage / 5) * 5;
   }
 
   return (
     <div>
-      <span>Stars = {calculateStarFill()}</span>
+      <span>Stars = {calculateStarFill()}%</span>
     </div>
   )
 

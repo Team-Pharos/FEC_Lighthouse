@@ -14,42 +14,36 @@
   grid-row-start: 1;
   grid-row-end: 4;
   position: relative;
-  /* border-style: solid; */
 }
 
 .ProductionInfo {
   grid-column-start: 3;
   grid-row-start: 1;
   grid-row-end: 2;
-  /* border-style: solid; */
 }
 
 .StyleSelector{
   grid-column-start: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  /* border-style: solid; */
 }
 
 .AddToCart{
   grid-column-start: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  /* border-style: solid; */
 }
 
 .ProductOverview {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 4;
-  /* border-style: solid; */
   border-right: dotted gray 6px;
 }
 
 .Features {
   grid-column-start: 3;
   grid-row-start: 4;
-  /* border-style: solid; */
 }
 
 .thumbnail {
@@ -72,9 +66,17 @@
 }
 
 .imageModal-content {
-  width: 80%;
-  height: 80%;
+  width: 95%;
+  height: 100%;
   background-color: white;
+}
+
+.imageModal-header {
+  position: relative;
+}
+
+.imageModal-body {
+  text-align: center;
 }
 
 .gallery {
@@ -91,4 +93,16 @@
   position: absolute;
   top: 250px;
   left: 25px;
+}
+
+.rightArrowExp {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+}
+
+.leftArrowExp {
+  position: absolute;
+  top: 50%;
+  left: 20%;
 }

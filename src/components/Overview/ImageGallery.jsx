@@ -6,13 +6,13 @@ import ImageCarousel from './ImageCarousel.jsx';
 
 const ImageGallery = ({currentStyle}) => {
 
-  const [expended, setExpended] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   return (
   <div className='ImageGallery'>
-    <ImageCarousel  currentStyle={currentStyle} setExpended={setExpended} expended={expended}/>
-    {expended ? <ImageModal setExpended={setExpended}>
-    <ImageCarousel  currentStyle={currentStyle} setExpended={setExpended} expended={expended}/>
+    <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded}/>
+    {expanded ? <ImageModal setExpanded={setExpanded}>
+    <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded}/>
     </ImageModal> : <></>}
 
   </div>)

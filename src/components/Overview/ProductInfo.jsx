@@ -5,7 +5,7 @@ const ProductionInfo = ({productDetails, currentStyle}) => {
   return (
   <div className='ProductionInfo'>
     {/* ToDo: starts and ratings */}
-    <p>⭐️ ⭐️ ⭐️ ⭐️ ⭐️ &nbsp;&nbsp;<a href=''>Read All Reviews</a>&nbsp;&nbsp;&nbsp;<FaShare /></p>
+    <p>⭐️ ⭐️ ⭐️ ⭐️ ⭐️ &nbsp;&nbsp;<a href='#RatingsAndReviews'>Read All Reviews</a>&nbsp;&nbsp;&nbsp;<FaShare /></p>
     {/* ToDo: 3 SocialMedia icon */}
     <h3>{productDetails.category}</h3>
 

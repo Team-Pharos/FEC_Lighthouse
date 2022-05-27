@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
-
-const StyleImg = styled.img`
-    width: 60px;
-    height: 50px;
-    border-radius: 50%;
-`;
+import {StyleImg} from './OverviewStyledCom.jsx';
 
 const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
   return (

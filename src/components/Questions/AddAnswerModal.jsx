@@ -13,12 +13,12 @@ const AddAnswer = ({ productName, question_id, questionBody, addAnswer, onClose 
     e.preventDefault();
     axios({
       method: 'post',
-      url: '/postQuestion',
+      url: '/postAnswer',
       data: {
+        question_id: question_id,
         body: bodyInput,
         name: nicknameInput,
         email: emailInput,
-        product_id: question_id
       }
     })
       // .then(() => {

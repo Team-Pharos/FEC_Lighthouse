@@ -26,6 +26,19 @@ let getAnswers = (question_id) => {
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
 }
 
+let postAnswer = (answer_body) => {
+  let url = `${process.env.API}qa/questions/${question_body.question_id}/answers`
+  return axios({
+    method: 'post',
+    url: url,
+    headers: {Authorization: process.env.GITHUB},
+    data: {
+      question: answer_body.question_id,
+      body: answer_body.body,
+      asker_name: answer_body.name,
+    }
+  })
+}
 
 let markQAsHelpful = (question_id) => {
   let url = `${process.env.API}qa/questions/${question_id}/helpful`
@@ -87,6 +100,8 @@ module.exports = {
   getStyles: getStyles,
   getQuestions: getQuestions,
   getAnswers: getAnswers,
+  // postQuestion: postQuestion,
+  postAnswer: postAnswer,
   markQAsHelpful: markQAsHelpful,
   markAAsHelpful: markAAsHelpful,
   markAAsReported: markAAsReported,

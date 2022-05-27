@@ -37,7 +37,7 @@ const Arrow = styled.button`
   }
 `;
 
-const ImageCarousel = ({currentStyle, setExpended, expended}) => {
+const ImageCarousel = ({currentStyle, setExpanded, expanded}) => {
 
   const urlArr = [];
   const miniUrlArr = [];
@@ -58,7 +58,7 @@ const ImageCarousel = ({currentStyle, setExpended, expended}) => {
 
       {miniUrlArr.map((img, i) => {
         return (<div key={img} >
-          <ImgMini className={expended ? 'show' : ''} src={img} style={{border: img === miniUrlArr[imageInd] ? 'solid' : '', display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : '' }} onClick={() => {setImage(i)}}/>
+          <ImgMini className={expanded ? 'show' : ''} src={img} style={{border: img === miniUrlArr[imageInd] ? 'solid' : '', display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : '' }} onClick={() => {setImage(i)}}/>
           <br />
         </div>)
       })}
@@ -68,10 +68,10 @@ const ImageCarousel = ({currentStyle, setExpended, expended}) => {
 
     {/* left and right */}
     <div className='gallery'>
-      <Arrow className={expended ? 'leftArrowExp' : 'leftArrow'} style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd - 1)}}><FaAngleLeft /></Arrow>
+      <Arrow className={expanded ? 'leftArrowExp' : 'leftArrow'} style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd - 1)}}><FaAngleLeft /></Arrow>
 
-      <Img className={expended ? 'ExpImg' : ''} src={urlArr[imageInd]} onClick={() => {setExpended(true)}}/>
-      <Arrow className={expended ? 'rightArrowExp' : 'rightArrow'} style={{visibility: imageInd < urlArr.length - 1 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd + 1)}}><FaAngleRight /></Arrow>
+      <Img className={expanded ? 'ExpImg' : ''} src={urlArr[imageInd]} onClick={() => {setExpanded(true)}}/>
+      <Arrow className={expanded ? 'rightArrowExp' : 'rightArrow'} style={{visibility: imageInd < urlArr.length - 1 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd + 1)}}><FaAngleRight /></Arrow>
     </div>
 
   </div>)

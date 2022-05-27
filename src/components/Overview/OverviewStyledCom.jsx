@@ -21,3 +21,39 @@ export const CloseButton = styled.button`
       cursor: pointer;
   }
 `;
+
+export const Img = styled.img`
+    width: ${props => props.className ? '1000px' : '400px'};
+    height: ${props => props.className ? '1200px' : '500px'};
+    border-radius: 10%;
+    object-fit: cover;
+    &:hover {
+      cursor: ${props => props.className === 'ZoomImg' ? 'zoom-out' : props.className === 'ExpImg' ? 'crosshair' : 'zoom-in'};
+    }
+    transform: ${props => props.className === 'ZoomImg' ? 'scale(2.5)' : ''};
+`;
+
+export const ImgMini = styled.img`
+  width: ${props => props.className ? '100px' : '40px'};
+  height: ${props => props.className ? '100px' : '40px'};
+  border-radius: 50%;
+  &:hover {
+      cursor: pointer;
+  }
+  display: ${props => props.className === 'ZoomImgMini' ? 'none' : ''};
+`;
+
+export const Arrow = styled.button`
+  background-color: darkgray;
+  opacity: 0.5;
+  border: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 32px;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  display: ${props => props.className === 'ZoomArrow' ? 'none' : ''};
+`;

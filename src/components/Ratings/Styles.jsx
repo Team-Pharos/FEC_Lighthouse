@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const RightText = styled.p`
-  text-align: right;
+const RightText = styled.span`
+  float: right;
   padding: 0 3px;
 `;
 

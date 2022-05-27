@@ -15,6 +15,25 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
   }
 
   const [imageInd, setImage] = useState(0);
+  const [position, setPosition] = useState(['0px', '0px'])
+
+  const mouseMoveHandler = (e) => {
+    // console.log(e.pageX);
+    // console.log(e.pageY);
+
+    // bottom: 2100; left: -434; right: 2065; top: -900
+    // center-vertical = 600; center-hor: 815
+    const { left, top, width, height } = e.target.getBoundingClientRect()
+    // console.log(left, top, width, height);
+    // horizontal
+    const x = e.pageX - 815
+    // console.log('x', x)
+    //vertical
+    const y = 600 - e.pageY
+    // console.log('y', y)
+    setPosition([`${x}px`, `${y}px`]);
+    // console.log(position);
+  }
 
 
   return (
@@ -68,6 +87,12 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
           } else {
             setExpanded(true)
           }
+        }}
+        onMouseMove={zoomed ? mouseMoveHandler : () => {}}
+        style={{
+          position: zoomed ? 'absolute' : '',
+          right: zoomed ? position[0] : '',
+          top: zoomed ? position[1] : '',
         }}
       />
       <Arrow

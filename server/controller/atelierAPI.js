@@ -55,7 +55,6 @@ let markAAsHelpful = (answer_id) => {
 }
 
 let markAAsReported = (answer_id) => {
-  console.log(answer_id);
   let url = `${process.env.API}qa/answers/${answer_id}/report`
   return axios({
     method: 'put',

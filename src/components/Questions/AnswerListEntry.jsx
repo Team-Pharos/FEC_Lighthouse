@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { Span, SpanClicked, EntryTitle } from './Styles.jsx';
 
 const AnswerListEntry = ({ answer }) => {
-  console.log(answer);
 
   const [helpfulness, setHelpfulness] = useState(answer.helpfulness);
   const [isReported, setReported] = useState(false);

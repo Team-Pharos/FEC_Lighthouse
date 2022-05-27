@@ -52,15 +52,11 @@ app.get('/getAnswers', (req, res) => {
 })
 
 app.put('/markQuestionHelpful', (req, res) => {
-  console.log('req.body.params');
-  console.log(req.body.params);
    markQAsHelpful(req.body.params.question_id)
       .then(() => {
-        console.log('here');
         res.sendStatus(204);
       })
       .catch((err) => {
-        console.log(err);
         res.sendStatus(501);
       });
 })

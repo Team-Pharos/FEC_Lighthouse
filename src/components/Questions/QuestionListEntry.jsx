@@ -28,7 +28,6 @@ const QuestionListEntry = ({question, productName}) => {
     }
   }
 
-
   useEffect(() => {
 
     axios.get('/getAnswers', {params: {question_id: question.question_id}})

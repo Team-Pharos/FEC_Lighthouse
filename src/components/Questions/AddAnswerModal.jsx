@@ -21,9 +21,9 @@ const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }
         email: emailInput,
       }
     })
-      // .then(() => {
-      //   //this is where you'll add it to state to the top of the list
-      // })
+      .then(() => {
+        alert('Answer added!');
+      })
       .then(() => {
         onClose();
       })

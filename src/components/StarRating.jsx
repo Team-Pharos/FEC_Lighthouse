@@ -1,7 +1,24 @@
 import React from 'react';
-import { BsStarFill } from "react-icons/bs";
+import { BsStarFill, BsStar } from "react-icons/bs";
+import styled from 'styled-components';
 
-const StarRating = ({ratings}) => {
+const OLStars = styled.div`
+  display: inline-block;
+  position: relative;
+`;
+const FStars = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: ${({percent}) => {
+    return percent;
+  }}%;
+`;
+
+const StarRating = ({ ratings }) => {
+
 
   let calculateOverallRating = (ratingsObject) => {
     let numVotes = 0;
@@ -21,10 +38,24 @@ const StarRating = ({ratings}) => {
     return Math.round(percentage / 5) * 5;
   }
 
+  let buildStars = (starType) => {
+    let emptyStars = [];
+    for (let i = 1; i <= 5; i++) {
+      emptyStars.push(<span key={`bs${i}`}>{starType}</span>);
+    }
+    return emptyStars;
+  }
+
   return (
-    <div>
-        <span>Stars = {calculateStarFill(ratings)}%</span>
-    </div>
+    <>
+      <OLStars>
+        {buildStars(<BsStar/>)}
+
+      <FStars percent={calculateStarFill(ratings)}>
+    {buildStars(<BsStarFill/>)}
+      </FStars>
+      </OLStars>
+    </>
   )
 
 };

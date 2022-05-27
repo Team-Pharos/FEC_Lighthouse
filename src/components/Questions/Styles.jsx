@@ -23,7 +23,7 @@ const SearchBarInput = styled.input`
   width: 400px;
 `;
 
-const BodyInput = styled.input`
+const BodyInput = styled.textarea`
   width: 400px;
   height: 100px;
 `;

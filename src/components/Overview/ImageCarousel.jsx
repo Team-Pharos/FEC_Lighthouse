@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
-// import {Img, ImgMini, Arrow} from './OverviewStyledCom.jsx';
 import { FaAngleLeft, FaAngleRight, FaAngleUp, FaAngleDown, FaExpand } from 'react-icons/fa';
 import ImageModal from './ImageModal.jsx';
 import styled from 'styled-components';
 
 const Img = styled.img`
-    ${'' /* max-width:70%; */}
-    width: 400px;
-    height:500px;
+    width: ${props => props.className ? '1000px' : '400px'};
+    height: ${props => props.className ? '1200px' : '500px'};
     border-radius: 10%;
     object-fit: cover;
     &:hover {
@@ -17,18 +15,29 @@ const Img = styled.img`
 `;
 
 const ImgMini = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%
+  width: ${props => props.className ? '100px' : '40px'};
+  height: ${props => props.className ? '100px' : '40px'};
+  border-radius: 50%;
+  &:hover {
+      cursor: pointer;
+  }
 `;
 
 const Arrow = styled.button`
-  background-color: transparent;
+  background-color: darkgray;
+  opacity: 0.5;
   border: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
   font-size: 32px;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `;
 
-const ImageCarousel = ({currentStyle, setExpended, expended}) => {
+const ImageCarousel = ({currentStyle, setExpanded, expanded}) => {
 
   const urlArr = [];
   const miniUrlArr = [];
@@ -49,7 +58,7 @@ const ImageCarousel = ({currentStyle, setExpended, expended}) => {
 
       {miniUrlArr.map((img, i) => {
         return (<div key={img} >
-          <ImgMini className='miniImg' src={img} style={{border: img === miniUrlArr[imageInd] ? 'solid' : '', display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : '' }} onClick={() => {setImage(i)}}/>
+          <ImgMini className={expanded ? 'show' : ''} src={img} style={{border: img === miniUrlArr[imageInd] ? 'solid' : '', display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : '' }} onClick={() => {setImage(i)}}/>
           <br />
         </div>)
       })}
@@ -59,10 +68,10 @@ const ImageCarousel = ({currentStyle, setExpended, expended}) => {
 
     {/* left and right */}
     <div className='gallery'>
-      <Arrow className='leftArrow' style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd - 1)}}><FaAngleLeft /></Arrow>
+      <Arrow className={expanded ? 'leftArrowExp' : 'leftArrow'} style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd - 1)}}><FaAngleLeft /></Arrow>
 
-      <Img src={urlArr[imageInd]} onClick={() => {setExpended(true)}}/>
-      <Arrow className='rightArrow' style={{visibility: imageInd < urlArr.length - 1 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd + 1)}}><FaAngleRight /></Arrow>
+      <Img className={expanded ? 'ExpImg' : ''} src={urlArr[imageInd]} onClick={() => {setExpanded(true)}}/>
+      <Arrow className={expanded ? 'rightArrowExp' : 'rightArrow'} style={{visibility: imageInd < urlArr.length - 1 ? 'visible' : 'hidden' }} onClick={() => {setImage(imageInd + 1)}}><FaAngleRight /></Arrow>
     </div>
 
   </div>)

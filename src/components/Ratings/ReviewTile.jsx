@@ -13,7 +13,6 @@ export const ShowStars = (rating) => {
   return(stars);
 }
 
-
 const ReviewTile = ({review}) => {
 
   let bodyView, check;
@@ -43,7 +42,7 @@ const ReviewTile = ({review}) => {
         })}
       </div>
       <div>
-        <p>Response: {review.response}</p>
+        <p>{review.response}</p>
       </div>
         <span>Helpfulness: {review.helpfulness}</span>
         <RightText>report</RightText>

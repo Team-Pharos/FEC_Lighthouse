@@ -4,7 +4,6 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import StarRating from '../StarRating.jsx';
 import { ShowStars } from './ReviewTile.jsx';
-import { RightText } from './Styles.jsx';
 
 const BreakdownContainer = styled.div`
   top: 25px;

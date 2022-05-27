@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import QuestionListEntry from './QuestionListEntry.jsx';
+import { Button } from './Styles.jsx';
 
 const QuestionsList = ({ productName, questions }) => {
 
@@ -13,7 +14,7 @@ const QuestionsList = ({ productName, questions }) => {
           )
         })}
       </div>
-      <button>More Answered Questions</button>
+      <Button>More Answered Questions</Button>
     </div>
   )
 

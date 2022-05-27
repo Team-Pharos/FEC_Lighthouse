@@ -1,19 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import AnswerListEntry from './AnswerListEntry.jsx';
+import { EntryTitle, Button, LeftCol, RightCol } from './Styles.jsx';
 
 const AnswersList = ({answers}) => {
 
   return (
-    <>
-    <h3>A:</h3>
+    <div>
+    <LeftCol><EntryTitle>A:</EntryTitle></LeftCol>
+    <RightCol>
       {answers.map((answer) => {
         return(
           <AnswerListEntry key={answer.answer_id} answer={answer}/>
-        )
-      })}
-      <button>See More Answers</button>
-    </>
+          )
+        })}
+      <Button>See More Answers</Button>
+        </RightCol>
+    </div>
   )
 }
 

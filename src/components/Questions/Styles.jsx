@@ -3,13 +3,13 @@ import styled from 'styled-components';
 const LeftCol = styled.div`
   float: left;
   margin: 0 1.5%;
-  width: 30%;
+  width: 15%;
 `;
 
 const RightCol = styled.div`
   float: left;
   margin: 0 1.5%;
-  width: 60%;
+  width: 75%;
 `;
 
 
@@ -33,6 +33,7 @@ const Input = styled.input`
 
 const SearchBarInput = styled.input`
   width: 400px;
+  height: 25px
 `;
 
 const BodyInput = styled.textarea`
@@ -66,13 +67,78 @@ const Modal = styled.div`
 `;
 
 const EntryTitle = styled.h4`
-color: #010a26;
+  color: #010a26;
+  font-family: "Poppins", sans-serif;
+  font-size:20px;
+  font-weight:600;
+  margin 0;
+  display: inline-block;
 `;
 
-// const ModalTitle = styled.h2`
-//   font-family: Akshar, sans-serif;
-//   color: blue;
-// `;
+const InputLabel = styled.h3`
+ color: #010a26;
+ font-family: "Akshar", sans-serif;
+`;
 
-export { Input, OuterModal, InnerModal, SearchBarInput, BodyInput, Modal, Span, SpanClicked, EntryTitle };
+const SectionTitle = styled.h2`
+  color: #010a26;
+  font-family: "Akshar", sans-serif;
+  font-size: 40px;
+  margin: 0;
+  text-decoration: underline;
+`;
+
+const SubTitle = styled.h5`
+font-family: "Poppins", sans-serif;
+font-size: 15px;
+font-weight: 500;
+margin: 0 10px;
+display: inline-block;
+`;
+
+const Description = styled.p`
+font-family: "Poppins", sans-serif;
+font-size: 10px;
+font-weight: 400;
+margin: 0;
+`;
+
+const PrimaryButton = styled.button`
+  background: #010a26;
+  color: #f2daac;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border-radius: 5px;
+  margin: 5px;
+  display: inline-block;
+`;
+
+const Button = styled.button`
+  background-color: #68a69b;
+  color: #010a26;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border-radius: 5px;
+  margin: 5px;
+  display: inline-block;
+`;
+export {
+  Input,
+  OuterModal,
+  InnerModal,
+  SearchBarInput,
+  BodyInput,
+  Modal,
+  Span,
+  SpanClicked,
+  EntryTitle,
+  InputLabel,
+  SectionTitle,
+  PrimaryButton,
+  Button,
+  SubTitle,
+  Description,
+  LeftCol,
+  RightCol
+ };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Input, OuterModal, InnerModal, BodyInput, Modal } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description } from './Styles.jsx';
 
 const AddQuestion = ({ productName, productId, addQuestion, onClose }) => {
 
@@ -41,18 +41,18 @@ const AddQuestion = ({ productName, productId, addQuestion, onClose }) => {
     <OuterModal>
       <InnerModal>
         <Modal>
-        <h3>Ask Your Question</h3>
-        <h5>{`About the ${productName}`}</h5>
+        <SectionTitle>Ask Your Question</SectionTitle>
+        <SubTitle>{`About the ${productName}`}</SubTitle>
         <form>
-        <p>Your Question *</p>
+        <InputLabel>Your Question *</InputLabel>
         <BodyInput type="text" className="bodytext" required maxlength="1000" onChange={(e) => {setBodyInput(e.target.value)}}/>
-        <p>What is your nickname? *</p>
+        <InputLabel>What is your nickname? *</InputLabel>
         <Input type="text" required maxlength="60" placeholder="Example: jackson11!" onChange={(e) => {setNicknameInput(e.target.value)}}/>
         <h6>For privacy reasons, do not use your full name or email address</h6>
-        <p>Email *</p>
+        <InputLabel>Email *</InputLabel>
         <Input type="email" required maxlength="60" placeholder="Example: jackson@email.com" onChange={(e) => {setEmailInput(e.target.value)}}/>
         <h6>For authentication reasons, you will not be emailed</h6>
-        <button onClick={submitHandler}>Submit Question</button><button onClick={onClose}>Close</button>
+        <PrimaryButton onClick={submitHandler}>Submit Question</PrimaryButton><Button onClick={onClose}>Close</Button>
         </form>
         </Modal>
       </InnerModal>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Input, OuterModal, InnerModal, ModalTitle } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, ModalTitle, SectionTitle, PrimaryButton } from './Styles.jsx';
 import SearchBar from './SearchBar.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import AddQuestion from './AddQuestionModal.jsx';
@@ -24,10 +24,10 @@ const QuestionsView = ({productId, productName}) => {
 
   return (
     <>
-    <h3>Questions and Answers</h3>
+    <SectionTitle>Questions and Answers</SectionTitle>
       <SearchBar/>
       <QuestionsList questions={questions} productName={productName}/>
-      <button onClick={() => setAddQuestion(true) }>Add A Question</button>
+      <PrimaryButton onClick={() => setAddQuestion(true) }>Add A Question</PrimaryButton>
       <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} onClose={() => setAddQuestion(false)}/>
     </>
   )

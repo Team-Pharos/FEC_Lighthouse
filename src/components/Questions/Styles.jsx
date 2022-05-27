@@ -38,6 +38,7 @@ const OuterModal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 5;
 `;
 
 const InnerModal = styled.div`

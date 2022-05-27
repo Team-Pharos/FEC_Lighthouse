@@ -1,5 +1,13 @@
 import styled from 'styled-components';
-// import FontStyles from '../../fonts/fonts.js';
+
+const Span = styled.span`
+color: #f26938;
+text-decoration: underline;
+
+&:hover {
+  color: #68a69b;
+}
+`;
 
 const Input = styled.input`
   width: 300px;
@@ -38,10 +46,11 @@ const Modal = styled.div`
   margin: auto;
 `;
 
-const ModalTitle = styled.h2`
-  // font-family: "Water Brush", sans-serif;
-  color: blue;
-`;
 
-export { Input, OuterModal, InnerModal, ModalTitle, SearchBarInput, BodyInput, Modal };
+// const ModalTitle = styled.h2`
+//   font-family: Akshar, sans-serif;
+//   color: blue;
+// `;
+
+export { Input, OuterModal, InnerModal, SearchBarInput, BodyInput, Modal, Span };
 

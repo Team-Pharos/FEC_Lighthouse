@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import WaterBrush from './WaterBrush-Regular.ttf';
+import Akshar-VariableFont_wght from './Akshar-VariableFont_wght.ttf';
 
 const FontStyles = createGlobalStyle`
    @font-face {
-     font-family: 'Water Brush';
-     src: url(${WaterBrush}) format('truetype');
-   };
+     font-family: 'Akshar';
+     src: url(${Akshar-VariableFont_wght}) format('truetype');
+   }
 
 `;
 

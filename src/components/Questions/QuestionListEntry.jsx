@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import styled from 'styled-components';
-import { Input, OuterModal, InnerModal, ModalTitle } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, Span } from './Styles.jsx';
 import AnswersList from './AnswersList.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
-// import differenceInCalendarISOYears from 'date-fns/difference_in_calendar_iso_years'
-
-const Span = styled.span`
-color: #f26938;
-text-decoration: underline;
-
-&:hover {
-  color: #68a69b;
-}
-`;
 
 const QuestionListEntry = ({question, productName}) => {
 

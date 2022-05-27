@@ -28,7 +28,7 @@ const QuestionsView = ({productId, productName}) => {
       <SearchBar/>
       <QuestionsList questions={questions} productName={productName}/>
       <button onClick={() => setAddQuestion(true) }>Add A Question</button>
-      <AddQuestion productName={productName} addQuestion={addQuestion} onClose={() => setAddQuestion(false)}/>
+      <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} onClose={() => setAddQuestion(false)}/>
     </>
   )
 }

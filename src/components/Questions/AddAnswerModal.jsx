@@ -45,7 +45,7 @@ const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }
           <h5>{`${productName}: ${questionBody}`}</h5>
           <form>
           <p>Your Answer *</p>
-          <BodyInput type="text" required maxlength="1000" onChange={(e) => {setBodyInput(e.target.value);}}/>
+          <BodyInput type="text" required maxlength="1000" onChange={(e) => {setBodyInput(e.target.value)}}/>
           <p>What is your nickname? *</p>
           <Input type="text" required maxlength="60" placeholder="Example: jack543!" onChange={(e) => {setNicknameInput(e.target.value)}}/>
           <h6>For privacy reasons, do not use your full name or email address</h6>

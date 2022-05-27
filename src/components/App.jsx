@@ -10,7 +10,7 @@ const App = () => {
   // set default product as 37313
   const [productId, setProductId] = useState(37313);
   const [productName, setProductName] = useState('');
-  const [productDetails, setProductDetails] = useState({})
+  const [productDetails, setProductDetails] = useState({});
 
 
   const getOneProduct = (productId) => {

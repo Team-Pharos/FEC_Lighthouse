@@ -1,8 +1,11 @@
 .OverView {
-  width: 70%;
+  width: 80%;
+  margin: 10px auto;
   display: grid;
   grid-template-columns: 65% 5% 30%;
   grid-template-rows: auto auto auto auto;
+  align-items: "center";
+  justify-content: "center";
 }
 
 .ImageGallery {
@@ -10,6 +13,7 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 4;
+  position: relative;
   /* border-style: solid; */
 }
 
@@ -46,9 +50,45 @@
   grid-column-start: 3;
   grid-row-start: 4;
   /* border-style: solid; */
-
 }
 
 .thumbnail {
   position: absolute;
+  z-index: 10;
+  top: 50px;
+}
+
+.imageModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+  z-index: 20;
+}
+
+.imageModal-content {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+}
+
+.gallery {
+  position: relative;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 250px;
+  left: 350px;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 250px;
+  left: 25px;
 }

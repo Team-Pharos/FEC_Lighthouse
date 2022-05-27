@@ -22,7 +22,6 @@ const StarRating = ({ratings}) => {
   let calculateStarFill = () => {
     let avgRating = calculateOverallRating(ratings);
     let percentage = Math.round((avgRating / 5) * 100);
-    console.log(percentage);
     return Math.round(percentage / 5) * 5;
   }
 

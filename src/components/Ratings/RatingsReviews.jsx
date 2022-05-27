@@ -21,7 +21,7 @@ import RatingBreakdown from './RatingBreakdown.jsx';
     margin: 10px auto;
     padding: 3px;
     width: 80%;
-    height: 700px;
+    height: 500px;
     border-radius: 15px;
     overflow: auto;
   `;

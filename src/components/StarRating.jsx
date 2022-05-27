@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsStarFill, BsStar } from "react-icons/bs";
+import { BsStarFill, BsStar } from 'react-icons/bs';
 import styled from 'styled-components';
 
 const OLStars = styled.div`

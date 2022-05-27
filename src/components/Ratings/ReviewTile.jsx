@@ -5,25 +5,28 @@ import { FaCheckSquare } from "react-icons/fa";
 import { BsStarFill } from "react-icons/bs";
 import moment from 'moment';
 
+export const ShowStars = (rating) => {
+  let stars = [];
+  for (let i = 1; i <= rating; i++) {
+    stars.push(<span key={i}><BsStarFill/></span>);
+  }
+  return(stars);
+}
+
+
 const ReviewTile = ({review}) => {
 
   let bodyView, check;
   let recommended = review.recommend;
 
-  let ShowStars = (rating) => {
-    let stars = [];
-    for (let i = 1; i <= rating; i++) {
-      stars.push(<span key={i}><BsStarFill/></span>);
-    }
-    return(stars)
-  }
-
   if (review.body.length > 250) {
     bodyView = <TruncBody><p>{review.body}</p></TruncBody>
   }
-   if (review.body.length <= 250) {
+
+  if (review.body.length <= 250) {
     bodyView = <div><p>{review.body}</p></div>
   }
+
   recommended ? check = <span><FaCheckSquare/></span> : check = <span></span>;
 
   return (

@@ -1,15 +1,13 @@
 import React from 'react';
+import {CloseButton} from './OverviewStyledCom.jsx';
 
 const ImageModal = ({expended, setExpended, children}) => {
-  // if (!expended) {
-  //   return null
-  // }
 
   return (
     <div className='imageModal' onClick={() => {setExpended(false)}}>
       <div className='imageModal-content' onClick={e => e.stopPropagation()}>
         <div className='imageModal-header'>
-          <h4 className='imageModal-title'></h4>
+          <CloseButton onClick={() => {setExpended(false)}}>❎</CloseButton>
         </div>
         <div className='imageModal-body'>
           {children}

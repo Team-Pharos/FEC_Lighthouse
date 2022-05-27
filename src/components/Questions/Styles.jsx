@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+const LeftCol = styled.div`
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+`;
+
+const RightCol = styled.div`
+  float: left;
+  margin: 0 1.5%;
+  width: 60%;
+`;
+
 
 const Span = styled.span`
 color: #f26938;

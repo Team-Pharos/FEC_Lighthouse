@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 const Span = styled.span`
 color: #f26938;
 text-decoration: underline;
@@ -7,6 +8,11 @@ text-decoration: underline;
 &:hover {
   color: #68a69b;
 }
+`;
+
+const SpanClicked = styled.span`
+  color: #68a69b;
+  text-decoration: underline;
 `;
 
 const Input = styled.input`
@@ -46,11 +52,14 @@ const Modal = styled.div`
   margin: auto;
 `;
 
+const EntryTitle = styled.h4`
+color: #010a26;
+`;
 
 // const ModalTitle = styled.h2`
 //   font-family: Akshar, sans-serif;
 //   color: blue;
 // `;
 
-export { Input, OuterModal, InnerModal, SearchBarInput, BodyInput, Modal, Span };
+export { Input, OuterModal, InnerModal, SearchBarInput, BodyInput, Modal, Span, SpanClicked, EntryTitle };
 

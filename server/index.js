@@ -100,6 +100,7 @@ app.get('/getReviews', (req, res) => {
 app.get('/getReviewMeta', (req, res) => {
   getReviewMeta(req.query.id)
     .then((metaData) => {
+      console.log('metaData Requested');
       res.send(metaData.data);
     })
     .catch((err) => {

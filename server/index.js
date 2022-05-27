@@ -2,7 +2,7 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
-const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts, getAnswers, getReviewMeta, markQAsHelpful, markAAsHelpful, markAAsReported} = require('./controller/atelierAPI');
+const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts, getAnswers, getReviewMeta, markQAsHelpful, markAAsHelpful, markAAsReported, postAnswer, postQuestion} = require('./controller/atelierAPI');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')))
@@ -51,16 +51,32 @@ app.get('/getAnswers', (req, res) => {
     })
 })
 
+app.post('/postQuestion', (req, res) => {
+  postQuestion(req.body)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      res.sendStatus(501);
+    });
+})
+
+app.post('/postAnswer', (req, res) => {
+  postAnswer(req.body)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      res.sendStatus(501);
+    })
+})
+
 app.put('/markQuestionHelpful', (req, res) => {
-  console.log('req.body.params');
-  console.log(req.body.params);
    markQAsHelpful(req.body.params.question_id)
       .then(() => {
-        console.log('here');
         res.sendStatus(204);
       })
       .catch((err) => {
-        console.log(err);
         res.sendStatus(501);
       });
 })

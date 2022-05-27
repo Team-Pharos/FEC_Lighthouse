@@ -26,6 +26,35 @@ let getAnswers = (question_id) => {
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
 }
 
+let postQuestion = ({product_id, body, name, email}) => {
+  let url = `${process.env.API}qa/questions`
+  console.log(product_id);
+  return axios({
+    method: 'post',
+    url: url,
+    headers: {Authorization: process.env.GITHUB},
+    data: {
+      product_id: product_id,
+      name: name,
+      body: body,
+      email: email
+    }
+  })
+}
+
+let postAnswer = ({question_id, body, name, email}) => {
+  let url = `${process.env.API}qa/questions/${question_id}/answers`
+  return axios({
+    method: 'post',
+    url: url,
+    headers: {Authorization: process.env.GITHUB},
+    data: {
+      name: name,
+      body: body,
+      email: email
+    }
+    });
+}
 
 let markQAsHelpful = (question_id) => {
   let url = `${process.env.API}qa/questions/${question_id}/helpful`
@@ -55,7 +84,6 @@ let markAAsHelpful = (answer_id) => {
 }
 
 let markAAsReported = (answer_id) => {
-  console.log(answer_id);
   let url = `${process.env.API}qa/answers/${answer_id}/report`
   return axios({
     method: 'put',
@@ -88,6 +116,8 @@ module.exports = {
   getStyles: getStyles,
   getQuestions: getQuestions,
   getAnswers: getAnswers,
+  postQuestion: postQuestion,
+  postAnswer: postAnswer,
   markQAsHelpful: markQAsHelpful,
   markAAsHelpful: markAAsHelpful,
   markAAsReported: markAAsReported,

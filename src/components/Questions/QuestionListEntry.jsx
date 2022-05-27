@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import styled from 'styled-components';
-import { Input, OuterModal, InnerModal, ModalTitle } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, Span, SpanClicked, EntryTitle } from './Styles.jsx';
 import AnswersList from './AnswersList.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
-// import differenceInCalendarISOYears from 'date-fns/difference_in_calendar_iso_years'
-
-const Span = styled.span`
-color: #f26938;
-text-decoration: underline;
-
-&:hover {
-  color: #68a69b;
-}
-`;
 
 const QuestionListEntry = ({question, productName}) => {
 
   const [answers, setAnswers] = useState([]);
+  const [helpfulness, setHelpfulness] = useState(question.question_helpfulness)
   const [addAnswer, setAddAnswer] = useState(false);
+  const [isHelpful, setIsHelpful] = useState(false);
+
+  const helpfulClick = (e) => {
+    e.preventDefault();
+    if (isHelpful === false) {
+      setHelpfulness(helpfulness + 1);
+      setIsHelpful(true);
+      axios.put('/markQuestionHelpful', {params: {question_id: question.question_id}})
+        .then(() => {
+          alert(`Question marked as helpful`);
+        })
+        .catch((err) => {
+          console.log(`error: ${err}`);
+        });
+
+    }
+  }
+
 
   useEffect(() => {
 
@@ -35,7 +43,7 @@ const QuestionListEntry = ({question, productName}) => {
 
   return(
     <>
-    <h4 className="question_title">{`Q: ${question.question_body}`}</h4><p className="question helpful">Helpful? <Span>{`Yes (${question.question_helpfulness})`}</Span></p>
+    <EntryTitle className="question_title">{`Q: ${question.question_body}`}</EntryTitle><p className="question helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>}</p>
     <h5>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</h5>
     <button onClick={() => {setAddAnswer(true)}} >Add An Answer</button>
     <AddAnswer productName={productName} questionBody={question.question_body} addAnswer={addAnswer} onClose={() => {setAddAnswer(false)}}/>

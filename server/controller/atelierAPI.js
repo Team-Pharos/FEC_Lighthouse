@@ -29,22 +29,39 @@ let getAnswers = (question_id) => {
 
 let markQAsHelpful = (question_id) => {
   let url = `${process.env.API}qa/questions/${question_id}/helpful`
-  return axios.put(url, {headers: {Authorization: process.env.GITHUB}})
+  return axios({
+    method: 'put',
+    url: url,
+    headers: {Authorization: process.env.GITHUB}
+  });
 }
 
 let markQAsReported = (question_id) => {
   let url = `${process.env.API}qa/questions/${question_id}/report`
-  return axios.put(url, {headers: {Authorization: process.env.GITHUB}})
+  return axios({
+    method: 'put',
+    url: url,
+    headers: {Authorization: process.env.GITHUB}
+  });
 }
 
 let markAAsHelpful = (answer_id) => {
-  let url = `${process.env.API}qa/answers/${answers_id}/helpful`
-  return axios.put(url, {headers: {Authorization: process.env.GITHUB}})
+  let url = `${process.env.API}qa/answers/${answer_id}/helpful`
+  return axios({
+    method: 'put',
+    url: url,
+    headers: {Authorization: process.env.GITHUB}
+  });
 }
 
 let markAAsReported = (answer_id) => {
+  console.log(answer_id);
   let url = `${process.env.API}qa/answers/${answer_id}/report`
-  return axios.put(url, {headers: {Authorization: process.env.GITHUB}})
+  return axios({
+    method: 'put',
+    url: url,
+    headers: {Authorization: process.env.GITHUB}
+  });
 }
 
 

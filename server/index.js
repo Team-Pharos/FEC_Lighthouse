@@ -2,7 +2,7 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
-const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts, getAnswers, getReviewMeta, markQAsHelpful, markAAsHelpful, markAAsReported} = require('../controller/atelierAPI');
+const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts, getAnswers, getReviewMeta, markQAsHelpful, markAAsHelpful, markAAsReported} = require('./controller/atelierAPI');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')))
@@ -52,17 +52,21 @@ app.get('/getAnswers', (req, res) => {
 })
 
 app.put('/markQuestionHelpful', (req, res) => {
-   markQAsHelpful(req.query.question_id)
+  console.log('req.body.params');
+  console.log(req.body.params);
+   markQAsHelpful(req.body.params.question_id)
       .then(() => {
+        console.log('here');
         res.sendStatus(204);
       })
       .catch((err) => {
+        console.log(err);
         res.sendStatus(501);
       });
 })
 
 app.put('/markAnswerHelpful', (req, res) => {
-  markAAsHelpful(req.query.answer_id)
+  markAAsHelpful(req.body.params.answer_id)
     .then(() => {
       res.sendStatus(204);
     })
@@ -72,7 +76,7 @@ app.put('/markAnswerHelpful', (req, res) => {
 })
 
 app.put('/reportAnswer', (req, res) => {
-  markAAsReported(req.query.answer_id)
+  markAAsReported(req.body.params.answer_id)
     .then(() => {
       res.sendStatus(204);
     })

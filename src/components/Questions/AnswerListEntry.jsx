@@ -19,12 +19,14 @@ color: #010a26;
 const AnswerListEntry = ({answer}) => {
   console.log(answer);
 
+  const [helpfulness, setHelpfulness] = useState(answer.helpfulness);
   const [isReported, setReported] = useState(false);
   const [isHelpful, setIsHelpful] = useState(false);
 
   const helpfulClick = (e) => {
     e.preventDefault();
     if (isHelpful === false) {
+      setHelpfulness(helpfulness + 1);
       axios.put('/markAnswerHelpful', {params: {answer_id: answer.answer_id}})
       .then(() => {
         setIsHelpful(true);
@@ -55,7 +57,7 @@ const AnswerListEntry = ({answer}) => {
   return (
     <>
       <Answer className="answer_title">{answer.body}</Answer>
-      <p className="answer helpful">Helpful? <Span onClick={helpfulClick}>{`Yes (${answer.helpfulness})`}</Span> {isReported ? <Span>Reported</Span> : <Span onClick={reportClick}>Report</Span>}</p>
+      <p className="answer helpful">Helpful? <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span> {isReported ? <Span>Reported</Span> : <Span onClick={reportClick}>Report</Span>}</p>
       <h5>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</h5>
     </>
   )

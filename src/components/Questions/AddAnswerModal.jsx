@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Input, OuterModal, InnerModal, BodyInput, Modal } from './Styles.jsx';
 
-const AddAnswer = ({ productName, question_id, questionBody, addAnswer, onClose }) => {
+const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }) => {
 
   const [bodyInput, setBodyInput] = useState(null);
   const [nicknameInput, setNicknameInput] = useState(null);
@@ -15,7 +15,7 @@ const AddAnswer = ({ productName, question_id, questionBody, addAnswer, onClose 
       method: 'post',
       url: '/postAnswer',
       data: {
-        question_id: question_id,
+        question_id: questionID,
         body: bodyInput,
         name: nicknameInput,
         email: emailInput,

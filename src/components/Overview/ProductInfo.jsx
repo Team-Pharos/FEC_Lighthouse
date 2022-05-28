@@ -10,7 +10,7 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
     ratings={ratings}
     style={{display: numOfReviews === 0 ? 'none' : ''}}
   />
-    &nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
     <a
       className='linkToReviews'
       href='#RatingsAndReviews'
@@ -18,7 +18,7 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
     >
       Read All {numOfReviews} Reviews
     </a>
-    &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <Tooltip
       content={<>
         <FaFacebook/>&nbsp;<FaTwitter/>&nbsp;<FaPinterest/>

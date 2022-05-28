@@ -37,9 +37,9 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
 
 
   return (
-  <div className='ImageGallery'>
+  <div className='ImageCarousel'>
   {/* up and down */}
-    <div className='thumbnail'>
+    <div className={expanded ? 'ExpThumbnail' : 'thumbnail'}>
       <Arrow
         className={zoomed ? 'ZoomArrow' : 'upArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}

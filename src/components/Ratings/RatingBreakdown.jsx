@@ -13,6 +13,10 @@ const RatingStat = styled.span`
   float: right;
 `;
 
+const RatingValues = styled.div`
+  border-bottom: 1px dotted black;
+`;
+
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
   let characteristics = metaData.characteristics;
@@ -38,10 +42,10 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
       <div>
         {Object.keys(ratings).map(rating => {
           return (
-            <div key={`RS${rating}`}>
+            <RatingValues key={`RS${rating}`}>
               {ShowStars(rating)}
               <RatingStat>{ratings[rating]}</RatingStat>
-            </div>);
+            </RatingValues>);
         })}
       </div>
 

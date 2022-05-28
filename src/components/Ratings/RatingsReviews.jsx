@@ -12,6 +12,7 @@ const Reviews = styled.div`
     `;
 
 const Breakdown = styled.div`
+    font-family: 'Poppins', sans-serif;
     float: left;
     position: absolute;
     margin: 50px auto;
@@ -27,6 +28,7 @@ const Container = styled.div`
     overflow: auto;
   `;
 const Header = styled.div`
+    font-family: 'Poppins', sans-serif;
     width: 80%;
     position: absolute;
     padding: 1px 5px;

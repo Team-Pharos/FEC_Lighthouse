@@ -17,6 +17,7 @@ const TruncBody = styled.div`
 `;
 
 const Tile = styled.div`
+  font-family: 'Poppins', sans-serif;
   border-bottom: 1px solid black;
   padding: 3px;
 `;

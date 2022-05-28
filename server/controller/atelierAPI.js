@@ -98,12 +98,27 @@ let markAAsReported = (answer_id) => {
 let getReviews = (product_id) => {
   let url = `${process.env.API}reviews/?product_id=${product_id}`;
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}});
-}
+};
 
 let getReviewMeta = (product_id) => {
   let url = `${process.env.API}reviews/meta/?product_id=${product_id}`;
   return axios.get(url, {headers: {Authorization: process.env.GITHUB}});
-}
+};
+
+let postReviews = ({ product_id, rating, summary, body, recommend,
+                    name, email, photos, characteristics }) => {
+
+  let url = `${process.env.API}reviews/`;
+  return axios({
+    method: 'post',
+    url: url,
+    headers: {Authorization: process.env.GITHUB},
+    data: { product_id, rating, summary, body, recommend,
+            name, email, photos, characteristics }
+  });
+};
+
+//==========Related Products============
 
 let getRelatedProducts = (product_id) => {
   console.log('request atelierAPI for products related to:', product_id);
@@ -123,8 +138,9 @@ module.exports = {
   markAAsReported: markAAsReported,
   getReviews: getReviews,
   getReviewMeta: getReviewMeta,
+  postReviews: postReviews,
   getRelatedProducts: getRelatedProducts
-}
+};
 
 
 

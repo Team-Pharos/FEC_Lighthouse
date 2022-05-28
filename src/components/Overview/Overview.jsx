@@ -8,7 +8,7 @@ import ProductOverview from './ProductOverview.jsx';
 import Features from './Features.jsx';
 import OverviewStyles from './../../../styles/OverviewStyle.css';
 
-const Overview = ({productId, productDetails}) => {
+const Overview = ({productId, productDetails, ratings, numOfReviews}) => {
   const [styles, setStyles] = useState([])
   const [currentStyle, setCurrentStyle] = useState(styles[0])
 
@@ -31,7 +31,7 @@ const Overview = ({productId, productDetails}) => {
         currentStyle ? <ImageGallery currentStyle={currentStyle}/> : <></>
       }
 
-      <ProductInfo productDetails={productDetails} currentStyle={currentStyle}/>
+      <ProductInfo productDetails={productDetails} currentStyle={currentStyle} ratings={ratings} numOfReviews={numOfReviews}/>
       <StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
       {
         currentStyle ? <AddToCart currentStyle={currentStyle}/> : <></>

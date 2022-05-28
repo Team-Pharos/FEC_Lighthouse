@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description, TitleTile } from './Styles.jsx';
 
 const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }) => {
 
@@ -42,7 +42,9 @@ const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }
     <OuterModal>
         <InnerModal>
       <Modal>
+        <TitleTile>
           <SectionTitle>Submit Your Answer</SectionTitle>
+        </TitleTile>
           <SubTitle>{`${productName}: ${questionBody}`}</SubTitle>
           <form>
           <InputLabel>Your Answer *</InputLabel>

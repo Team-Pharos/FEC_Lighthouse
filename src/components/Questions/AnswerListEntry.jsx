@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import styled from 'styled-components';
-import { Span, SpanClicked, EntryTitle, SubTitle, Description } from './Styles.jsx';
+import { Span, SpanClicked, AnswerTitle, SubTitle, Description } from './Styles.jsx';
 
 const AnswerListEntry = ({ answer }) => {
 
@@ -38,7 +38,7 @@ const AnswerListEntry = ({ answer }) => {
 
   return (
     <>
-      <EntryTitle className="answer_title">{answer.body}</EntryTitle>
+      <AnswerTitle className="answer_title">{answer.body}</AnswerTitle>
       <SubTitle className="answer helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>} {isReported ? <SpanClicked>Reported</SpanClicked> : <Span onClick={reportClick}>Report</Span>}</SubTitle>
       <Description>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</Description>
     </>

@@ -1,17 +1,30 @@
 import styled from 'styled-components';
 
+const CenterDiv = styled.div`
+width: 80%;
+margin: 10px auto;
+`;
+
 const LeftCol = styled.div`
   float: left;
   margin: 0 1.5%;
-  width: 15%;
 `;
 
 const RightCol = styled.div`
   float: left;
   margin: 0 1.5%;
-  width: 75%;
 `;
 
+const InnerContent = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`;
+
+const ClearFloat = styled.div`
+  display: block;
+  clear: left;
+  margin-bottom: 10px;
+`;
 
 const Span = styled.span`
 color: #f26938;
@@ -19,6 +32,7 @@ text-decoration: underline;
 
 &:hover {
   color: #68a69b;
+  cursor: pointer;
 }
 `;
 
@@ -27,19 +41,13 @@ const SpanClicked = styled.span`
   text-decoration: underline;
 `;
 
-const Input = styled.input`
-  width: 300px;
-`;
 
 const SearchBarInput = styled.input`
   width: 400px;
   height: 25px
 `;
 
-const BodyInput = styled.textarea`
-  width: 400px;
-  height: 100px;
-`;
+//----------- Modals -----------//
 
 const OuterModal = styled.div`
   position: fixed;
@@ -63,10 +71,39 @@ const InnerModal = styled.div`
 
 const Modal = styled.div`
   padding: 10px;
-  margin: auto;
+  margin: 0 auto;
+  width: 95%;
 `;
 
-const EntryTitle = styled.h4`
+
+const BodyInput = styled.textarea`
+  width: 400px;
+  height: 100px;
+`;
+
+
+const Input = styled.input`
+  width: 300px;
+`;
+
+//----------- fonts -----------//
+
+const TitleTile = styled.div`
+  height: 50px;
+  background-color: #010a26;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+`;
+
+const SectionTitle = styled.h2`
+  color: #f2daac;
+  font-family: "Akshar", sans-serif;
+  font-size: 40px;
+  margin: 0 auto;
+  width: 95%;
+`;
+
+const QuestionTitle = styled.h4`
   color: #010a26;
   font-family: "Poppins", sans-serif;
   font-size:20px;
@@ -75,17 +112,18 @@ const EntryTitle = styled.h4`
   display: inline-block;
 `;
 
+const AnswerTitle = styled.h4`
+  color: #010a26;
+  font-family: "Poppins", sans-serif;
+  font-size:15px;
+  font-weight:500;
+  margin 0;
+  display: inline-block;
+`;
+
 const InputLabel = styled.h3`
  color: #010a26;
  font-family: "Akshar", sans-serif;
-`;
-
-const SectionTitle = styled.h2`
-  color: #010a26;
-  font-family: "Akshar", sans-serif;
-  font-size: 40px;
-  margin: 0;
-  text-decoration: underline;
 `;
 
 const SubTitle = styled.h5`
@@ -103,6 +141,8 @@ font-weight: 400;
 margin: 0;
 `;
 
+//----------- buttons -----------//
+
 const PrimaryButton = styled.button`
   background: #010a26;
   color: #f2daac;
@@ -110,7 +150,7 @@ const PrimaryButton = styled.button`
   font-weight: 300;
   border-radius: 5px;
   margin: 5px;
-  display: inline-block;
+
 `;
 
 const Button = styled.button`
@@ -120,8 +160,9 @@ const Button = styled.button`
   font-weight: 300;
   border-radius: 5px;
   margin: 5px;
-  display: inline-block;
+
 `;
+
 export {
   Input,
   OuterModal,
@@ -131,7 +172,8 @@ export {
   Modal,
   Span,
   SpanClicked,
-  EntryTitle,
+  QuestionTitle,
+  AnswerTitle,
   InputLabel,
   SectionTitle,
   PrimaryButton,
@@ -139,6 +181,10 @@ export {
   SubTitle,
   Description,
   LeftCol,
-  RightCol
+  RightCol,
+  CenterDiv,
+  ClearFloat,
+  TitleTile,
+  InnerContent
  };
 

@@ -13,9 +13,9 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
 
     {styles.map((style, i) => {
       return (
-      <>
+      <span key={style.style_id} >
         {i % 4 === 0 && i !== 0 ? <br/> : ' '}
-        <span key={style.style_id} className='styleSelectorImg'>
+        <span className='styleSelectorImg'>
           <StyleImg
             src={style.photos[0].thumbnail_url}
             name={i}
@@ -27,7 +27,7 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
             className='checkMark'
           />
         </span>
-      </>
+      </span>
       )
     })}
     </div>

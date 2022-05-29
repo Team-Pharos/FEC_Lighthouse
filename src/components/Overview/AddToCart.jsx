@@ -6,8 +6,8 @@ const AddToCart = ({currentStyle}) => {
   const [quantitySelected, setQuantitySelector] = useState('0');
   const [starClicked, setStarClicked] = useState(false);
 
-  useEffect(() => {setSizeSelector('')}, [currentStyle])
-  useEffect(() => {setQuantitySelector('0')}, [currentStyle])
+  // useEffect(() => {setSizeSelector('')}, [currentStyle])
+  // useEffect(() => {setQuantitySelector('0')}, [currentStyle])
 
   let totalQuantity = 0;
   for (let key in currentStyle.skus) {
@@ -15,6 +15,7 @@ const AddToCart = ({currentStyle}) => {
   }
 
   const addToBagHandler = () => {
+
     alert(`${quantitySelected} ${currentStyle.name} Add to Shopping Cart!`);
   }
 
@@ -46,7 +47,10 @@ const AddToCart = ({currentStyle}) => {
       </select>
       <br />
       <br />
-      <button onClick={addToBagHandler}>ADD TO BAG 🛍</button>
+      <button
+        onClick={addToBagHandler}
+        disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
+      >ADD TO BAG 🛍</button>
       {' '}
       <button onClick={() => {setStarClicked(pre => {return !pre})}}>{starClicked ? <FaStar /> : <FaRegStar /> }</button>
     </div>

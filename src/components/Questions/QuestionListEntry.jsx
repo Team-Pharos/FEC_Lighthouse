@@ -5,7 +5,7 @@ import { Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button
 import AnswersList from './AnswersList.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
 
-const QuestionListEntry = ({question, productName}) => {
+const QuestionListEntry = ({ question, productName }) => {
 
   const [answers, setAnswers] = useState([]);
   const [helpfulness, setHelpfulness] = useState(question.question_helpfulness)
@@ -17,7 +17,7 @@ const QuestionListEntry = ({question, productName}) => {
     if (isHelpful === false) {
       setHelpfulness(helpfulness + 1);
       setIsHelpful(true);
-      axios.put('/markQuestionHelpful', {params: {question_id: question.question_id}})
+      axios.put('/markQuestionHelpful', { params: { question_id: question.question_id } })
         .catch((err) => {
           console.log(`error: ${err}`);
         });
@@ -27,23 +27,23 @@ const QuestionListEntry = ({question, productName}) => {
 
   useEffect(() => {
 
-    axios.get('/getAnswers', {params: {question_id: question.question_id}})
-    .then((answerList) => {
-      setAnswers(answerList.data.results);
-    })
-    .catch((err) => {
-      console.log(`unable to retrieve answers ${err}`);
-    })
+    axios.get('/getAnswers', { params: { question_id: question.question_id } })
+      .then((answerList) => {
+        setAnswers(answerList.data.results);
+      })
+      .catch((err) => {
+        console.log(`unable to retrieve answers ${err}`);
+      })
 
   }, []);
 
-  return(
+  return (
     <ClearFloat>
-    <QuestionTitle className="question_title">{`Q: ${question.question_body}`}</QuestionTitle><SubTitle className="question helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>}</SubTitle>
-    <Description>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</Description>
-    <Button onClick={() => {setAddAnswer(true)}} >Add An Answer</Button>
-    <AddAnswer productName={productName} questionBody={question.question_body} questionID={question.question_id} addAnswer={addAnswer} onClose={() => {setAddAnswer(false); return}}/>
-    <AnswersList answers={answers}/>
+      <QuestionTitle className="question_title">{`Q: ${question.question_body}`}</QuestionTitle><SubTitle className="question helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>}</SubTitle>
+      <Description>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</Description>
+      <Button onClick={() => { setAddAnswer(true) }} >Add An Answer</Button>
+      <AddAnswer productName={productName} questionBody={question.question_body} questionID={question.question_id} addAnswer={addAnswer} onClose={() => { setAddAnswer(false); return }} />
+      <AnswersList answers={answers} />
     </ClearFloat>
   )
 

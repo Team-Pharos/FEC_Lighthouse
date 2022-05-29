@@ -15,6 +15,46 @@ const RightCol = styled.div`
   margin: 0 1.5%;
 `;
 
+//----------- OverFlow Styles -----------//
+
+const QuestionScrollBar = styled.div`
+  height: auto;
+  max-height: 100%;
+  width: auto;
+  max-width: 90%;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #010a26;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+`;
+
+const AnswerScrollBar = styled.div`
+height: auto;
+max-height: 100%;
+width: auto;
+max-width: 90%;
+overflow: scroll;
+
+&::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+}
+
+&::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #68a69b;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+`;
+
 const InnerContent = styled.div`
   width: 90%;
   margin: 0 auto;
@@ -185,6 +225,8 @@ export {
   CenterDiv,
   ClearFloat,
   TitleTile,
-  InnerContent
- };
+  InnerContent,
+  QuestionScrollBar,
+  AnswerScrollBar
+};
 

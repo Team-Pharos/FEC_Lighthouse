@@ -118,6 +118,15 @@ let postReviews = ({ product_id, rating, summary, body, recommend,
   });
 };
 
+let putHelpfulReview = (review_id) => {
+  let url = `${process.env.API}reviews/${review_id}/helpful`
+  return axios({
+    method: 'put',
+    url: url,
+    headers: {Authorization: process.env.GITHUB}
+  });
+};
+
 //==========Related Products============
 
 let getRelatedProducts = (product_id) => {
@@ -139,6 +148,7 @@ module.exports = {
   getReviews: getReviews,
   getReviewMeta: getReviewMeta,
   postReviews: postReviews,
+  putHelpfulReview: putHelpfulReview,
   getRelatedProducts: getRelatedProducts
 };
 

@@ -6,6 +6,7 @@ import NewReviewModal from './NewReviewModal.jsx';
 
 //component styling
 const Reviews = styled.div`
+    margin: 50px auto;
     float: right;
     width: 60%;
     left: 25%;

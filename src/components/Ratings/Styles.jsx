@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+//========General Use========
+
 const RightText = styled.span`
   float: right;
   padding: 0 3px;
 `;
+
+//========Review Tile========
 
 const Thumbnail = styled.img`
   width: 50px;
@@ -22,9 +26,26 @@ const Tile = styled.div`
   padding: 3px;
 `;
 
+//=======Rating Breakdowns=======
+
+const BreakdownContainer = styled.div`
+  top: 25px;
+`;
+
+const RatingStat = styled.span`
+  float: right;
+`;
+
+const RatingValues = styled.div`
+  border-bottom: 1px dotted black;
+`;
+
 export {
   RightText,
   Thumbnail,
   TruncBody,
   Tile,
+  BreakdownContainer,
+  RatingStat,
+  RatingValues
 }

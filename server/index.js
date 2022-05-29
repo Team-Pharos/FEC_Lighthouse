@@ -2,7 +2,10 @@ const express = require('express');
 let app = express();
 const path = require('path');
 require('dotenv').config();
-const {getOneProduct, getStyles, getQuestions, getReviews, getRelatedProducts, getAnswers, getReviewMeta, markQAsHelpful, markAAsHelpful, markAAsReported, postAnswer, postQuestion, postReviews} = require('./controller/atelierAPI');
+const { getOneProduct, getStyles, getQuestions, getReviews,
+        getRelatedProducts, getAnswers, getReviewMeta, markQAsHelpful,
+        markAAsHelpful, markAAsReported, postAnswer, postQuestion, postReviews,
+        putHelpfulReview } = require('./controller/atelierAPI');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')))
@@ -125,9 +128,15 @@ app.get('/getReviewMeta', (req, res) => {
 })
 
 app.post('/postReviews', (req, res) => {
-
-  postReviews(req.body)
+  postReviews(req.query)
   .then((response) => console.log(response))
+  .catch(err => console.log(err));
+})
+
+app.put('/helpfulReview', (req, res) => {
+  console.log('Put helpfulReview triggered req.body.review_id: ', req.body.review_id);
+  putHelpfulReview(req.body.review_id)
+  .then(() => res.sendStatus(204))
   .catch(err => console.log(err));
 })
 

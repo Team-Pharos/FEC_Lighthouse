@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { CompanyCard } from '../../styles/SiteStyles.jsx';
 import Overview from './Overview/Overview.jsx';
 import QuestionsView from './Questions/QuestionsView.jsx';
 import RelatedItems from './Related/RelatedItems.jsx';
@@ -42,8 +41,6 @@ const App = () => {
   return (
     // return all 4 widgets
     <>
-    <CompanyCard></CompanyCard>
-    {/* <FontStyles /> */}
     <Overview productDetails={productDetails} productId={productId} />
     {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
     {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}

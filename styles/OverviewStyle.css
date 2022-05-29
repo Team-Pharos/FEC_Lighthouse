@@ -36,7 +36,6 @@
 
 .styleSelectorImg {
   position: relative;
-  display: inline-block;
 }
 
 .checkMark {
@@ -182,4 +181,8 @@
 
 .linkToReviews {
   color: black;
+}
+
+.reactIcon:hover {
+  transform: scale(1.5);
 }

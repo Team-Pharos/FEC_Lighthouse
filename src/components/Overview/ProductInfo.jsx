@@ -21,10 +21,9 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
     &nbsp;&nbsp;&nbsp;&nbsp;
     <Tooltip
       content={<>
-        <FaFacebook/>&nbsp;<FaTwitter/>&nbsp;<FaPinterest/>
-      </>}
-    >
-      <FaShareSquare />
+        <FaFacebook className='reactIcon'/>&nbsp;<FaTwitter className='reactIcon'/>&nbsp;<FaPinterest className='reactIcon'/>
+      </>}>
+      <FaShareSquare className='reactIcon'/>
     </Tooltip>
 
     {/* ToDo: 3 SocialMedia icon */}

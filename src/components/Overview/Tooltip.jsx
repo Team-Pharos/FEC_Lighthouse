@@ -11,8 +11,10 @@ export const Tooltip = (props) => {
   };
 
   const hideTip = () => {
-    clearInterval(timeout);
-    setActive(false);
+    // clearInterval(timeout);
+    setTimeout(() => {
+      setActive(false);
+    }, 400);
   };
 
   return (

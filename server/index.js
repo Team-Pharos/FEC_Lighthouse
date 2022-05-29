@@ -32,7 +32,7 @@ app.get('/getStyles', (req, res) => {
 //=======Q&A========
 
 app.get('/getQuestions', (req, res) => {
-  getQuestions(req.query.product_id)
+  getQuestions(req.query.product_id, req.query.filter)
     .then((relevantQuestions) => {
       res.send(relevantQuestions.data);
     })

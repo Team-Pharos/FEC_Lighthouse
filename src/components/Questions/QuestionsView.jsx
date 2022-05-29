@@ -10,15 +10,19 @@ const QuestionsView = ({ productId, productName }) => {
   const [questions, setQuestions] = useState([]);
   const [addQuestion, setAddQuestion] = useState(false);
 
-  useEffect(() => {
-
-    axios.get('/getQuestions', { params: { product_id: productId } })
+  const filterResults = (filterString) => {
+    axios.get('/getQuestions', { params: { product_id: productId, filter: filterString } })
       .then((questionList) => {
         setQuestions(questionList.data.results);
       })
       .catch((err) => {
         console.log(`unable to retrieve questions ${err}`)
       })
+  }
+
+  useEffect(() => {
+
+  filterResults()
 
   }, []);
 
@@ -28,13 +32,13 @@ const QuestionsView = ({ productId, productName }) => {
         <SectionTitle>Questions and Answers</SectionTitle>
       </TitleTile>
       <InnerContent>
-      <SearchBar />
-      <QuestionsList questions={questions} productName={productName} />
-      <ClearFloat>
-        <PrimaryButton onClick={() => setAddQuestion(true)}>Add A Question</PrimaryButton>
-        <Button>More Answered Questions</Button>
-        <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} onClose={() => setAddQuestion(false)} />
-      </ClearFloat>
+        <SearchBar filterResults={filterResults} />
+        <QuestionsList questions={questions} productName={productName} />
+        <ClearFloat>
+          <PrimaryButton onClick={() => setAddQuestion(true)}>Add A Question</PrimaryButton>
+          <Button>More Answered Questions</Button>
+          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} onClose={() => setAddQuestion(false)} />
+        </ClearFloat>
       </InnerContent>
     </CenterDiv>
   )

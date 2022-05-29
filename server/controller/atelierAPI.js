@@ -158,6 +158,7 @@ module.exports = {
   getReviewMeta: getReviewMeta,
   postReviews: postReviews,
   putHelpfulReview: putHelpfulReview,
+  putReportReview: putReportReview,
   getRelatedProducts: getRelatedProducts
 };
 

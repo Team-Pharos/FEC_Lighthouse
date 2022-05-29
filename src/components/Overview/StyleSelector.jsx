@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleImg} from './OverviewStyledCom.jsx';
+import {FaCheckCircle} from 'react-icons/fa';
 
 const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
   return (
@@ -11,12 +12,21 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
   }
 
   {styles.map((style, i) => {
-    return <span key={style.style_id} >
+    return <div key={style.style_id} className='styleSelectorImg'>
       {i % 4 === 0 && i !== 0
       ? <br/>
       : ' '}
-      <StyleImg style={{borderStyle: style === currentStyle ? 'solid' : ''}} src={style.photos[0].thumbnail_url} name={i} onClick={e => {setCurrentStyle(styles[e.target.name])}}/>
-    </span>
+      <StyleImg
+        src={style.photos[0].thumbnail_url}
+        name={i}
+        onClick={e => {setCurrentStyle(styles[e.target.name])}}
+        style={{opacity: style === currentStyle ? '0.5' : '1'}}
+      />
+      <FaCheckCircle
+        style={{display: style === currentStyle ? '' : 'none'}}
+        className='checkMark'
+      />
+    </div>
   })}
   </div>
 

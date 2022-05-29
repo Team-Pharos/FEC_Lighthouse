@@ -9,14 +9,26 @@ const AddToCart = ({currentStyle}) => {
   useEffect(() => {setSizeSelector('')}, [currentStyle])
   useEffect(() => {setQuantitySelector('0')}, [currentStyle])
 
+  let totalQuantity = 0;
+  for (let key in currentStyle.skus) {
+    totalQuantity += Number(currentStyle.skus[key].quantity);
+  }
+
   const addToBagHandler = () => {
     alert(`${quantitySelected} ${currentStyle.name} Add to Shopping Cart!`);
   }
 
   return (
     <div className='AddToCart' >
-      <select name="size" defaultValue={'default'} onChange={e => {setSizeSelector(e.target.value)}}>
-        <option value="default" >SELECT SIZE</option>
+      <select name="size"
+        defaultValue={'default'}
+        onChange={e => {setSizeSelector(e.target.value)}}
+        disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
+      >
+        {(Object.keys(currentStyle.skus)[0] !== 'null' && totalQuantity !== 0)
+          ? <option value="default" >SELECT SIZE</option>
+          : <option value="default" >OUT OF STOCK</option>
+        }
         {Object.keys(currentStyle.skus).map( key => {
           if (currentStyle.skus[key].quantity) {
             return <option key={key} value={key}>{currentStyle.skus[key].size}</option>

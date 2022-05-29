@@ -85,7 +85,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
           } else if (expanded) {
             setZoomed(true);
           } else {
-            setExpanded(true)
+            setExpanded(true);
           }
         }}
         onMouseMove={zoomed ? mouseMoveHandler : () => {}}

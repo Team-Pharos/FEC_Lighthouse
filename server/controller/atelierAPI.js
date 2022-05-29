@@ -119,7 +119,16 @@ let postReviews = ({ product_id, rating, summary, body, recommend,
 };
 
 let putHelpfulReview = (review_id) => {
-  let url = `${process.env.API}reviews/${review_id}/helpful`
+  let url = `${process.env.API}reviews/${review_id}/helpful`;
+  return axios({
+    method: 'put',
+    url: url,
+    headers: {Authorization: process.env.GITHUB}
+  });
+};
+
+let putReportReview = (review_id) => {
+  let url = `${process.env.API}reviews/${review_id}/report`;
   return axios({
     method: 'put',
     url: url,

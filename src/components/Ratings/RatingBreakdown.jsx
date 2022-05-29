@@ -4,18 +4,7 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import StarRating from '../StarRating.jsx';
 import { ShowStars } from './ReviewTile.jsx';
-
-const BreakdownContainer = styled.div`
-  top: 25px;
-`;
-
-const RatingStat = styled.span`
-  float: right;
-`;
-
-const RatingValues = styled.div`
-  border-bottom: 1px dotted black;
-`;
+import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 

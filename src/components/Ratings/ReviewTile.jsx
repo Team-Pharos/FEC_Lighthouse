@@ -62,7 +62,7 @@ const ReviewTile = ({ review }) => {
       <div>
         <p>{review.response}</p>
       </div>
-      <span onClick={helpfulClick}>Helpfulness: {helpfulCount}</span>
+      <span onClick={helpfulClick}>Helpful? {helpfulCount}</span>
       <RightText>report</RightText>
     </Tile>
   )

@@ -38,7 +38,8 @@ app.get('/getStyles', (req, res) => {
 //=======Q&A========
 
 app.get('/getQuestions', (req, res) => {
-  getQuestions(req.query.product_id, req.query.filter)
+  getQuestions(req.query.product_id)
+    // .find()
     .then((relevantQuestions) => {
       res.send(relevantQuestions.data);
     })

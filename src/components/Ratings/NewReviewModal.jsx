@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, OuterModal, InnerModal, SearchBarInput,
+import {Input, OuterModal, InnerModal,
         BodyInput, Modal, Span, SpanClicked, EntryTitle} from '../Questions/Styles.jsx';
 import styled from 'styled-components';
 

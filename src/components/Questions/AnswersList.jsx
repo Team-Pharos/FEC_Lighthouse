@@ -3,7 +3,7 @@ import axios from 'axios';
 import AnswerListEntry from './AnswerListEntry.jsx';
 import { AnswerTitle, Button, LeftCol, RightCol, AnswerScrollBar } from './Styles.jsx';
 
-const AnswersList = ({ answers }) => {
+const AnswersList = ({ answers, allVisible, showAll }) => {
 
   return (
     <div>
@@ -15,7 +15,7 @@ const AnswersList = ({ answers }) => {
               <AnswerListEntry key={answer.answer_id} answer={answer} />
             )
           })}
-          <Button>See More Answers</Button>
+          {allVisible ? <Button onClick={(e) => showAll()}>Collapse Answers</Button> : <Button onClick={(e) => showAll()}>See More Answers</Button>}
         </AnswerScrollBar>
       </RightCol>
     </div>

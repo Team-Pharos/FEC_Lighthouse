@@ -49,7 +49,7 @@ const QuestionScrollBar = styled.div`
   height: 400px;
   max-height: 100%;
   width: auto;
-  max-width: 90%;
+  max-width: 100%;
   overflow: scroll;
 
   &::-webkit-scrollbar {
@@ -68,7 +68,7 @@ const AnswerScrollBar = styled.div`
 height: auto;
 max-height: 100%;
 width: auto;
-max-width: 90%;
+max-width: 100%;
 overflow: scroll;
 
 &::-webkit-scrollbar {

@@ -18,8 +18,6 @@ const QuestionsView = ({ productId, productName }) => {
       setQuestions(questionList.data.results);
       setVisibleQuestions(questionList.data.results.slice(0, 2));
     })
-    // .then(() => {
-    // })
     .catch((err) => {
       console.log(`unable to retrieve questions ${err}`)
     })

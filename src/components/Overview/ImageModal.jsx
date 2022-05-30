@@ -1,5 +1,6 @@
 import React from 'react';
 import {CloseButton} from './OverviewStyledCom.jsx';
+import {FaWindowClose} from 'react-icons/fa';
 
 const ImageModal = ({setExpanded, children, zoomed, setZoomed}) => {
 
@@ -10,7 +11,7 @@ const ImageModal = ({setExpanded, children, zoomed, setZoomed}) => {
           <CloseButton
             style={{display: zoomed ? 'none' : ''}}
             onClick={() => {setExpanded(false); setZoomed(false);}}
-          >❎</CloseButton>
+          ><FaWindowClose /></CloseButton>
         </div>
         <div className='imageModal-body'>
           {children}

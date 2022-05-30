@@ -31,7 +31,6 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
       )
     })}
     </div>
-
   )
 }
 

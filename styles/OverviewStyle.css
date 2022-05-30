@@ -149,6 +149,10 @@
   white-space: nowrap;
 }
 
+.Tooltip-Wrapper :hover {
+  cursor: pointer;
+}
+
 .Tooltip-Tip::before {
   content: " ";
   left: 50%;
@@ -166,6 +170,10 @@
   left: calc(100% + 10px);
   top: 50%;
   transform: translateX(0) translateY(-50%);
+}
+
+.Tooltip-Tip.right:hover {
+  cursor: pointer;
 }
 
 .Tooltip-Tip.right::before {

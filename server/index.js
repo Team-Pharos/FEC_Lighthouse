@@ -162,7 +162,6 @@ app.put('/reportReview', (req, res) => {
 //=======Related Products/Outfit=======
 
 app.get('/getRelatedProducts', (req, res) => {
-  // console.log(req.query);
   getRelatedProducts(req.query.id)
     .then((relatedItems) => {
       res.send(relatedItems.data);

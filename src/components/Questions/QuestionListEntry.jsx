@@ -10,7 +10,6 @@ const QuestionListEntry = ({ question, productName }) => {
   const [answers, setAnswers] = useState([]);
   const [visibleAnswers, setVisibleAnswers] = useState([]);
   const [allVisible, setAllVisible] = useState(false);
-  const [noAnswers, setNoAnswers] = useState(true);
   const [helpfulness, setHelpfulness] = useState(question.question_helpfulness)
   const [addAnswer, setAddAnswer] = useState(false);
   const [isHelpful, setIsHelpful] = useState(false);
@@ -21,9 +20,6 @@ const QuestionListEntry = ({ question, productName }) => {
     .then((answerList) => {
       setAnswers(answerList.data.results);
       setVisibleAnswers(answerList.data.results.slice(0, 2));
-      if (answerList.data.results.length === 0) {
-        setNoAnswers(false);
-      }
     })
     .catch((err) => {
       console.log(`unable to retrieve answers ${err}`);
@@ -60,7 +56,7 @@ const QuestionListEntry = ({ question, productName }) => {
       <Description>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</Description>
       <Button onClick={() => { setAddAnswer(true) }} >Add An Answer</Button>
       <AddAnswer productName={productName} questionBody={question.question_body} questionID={question.question_id} addAnswer={addAnswer} onClose={() => { setAddAnswer(false); return }} />
-      {noAnswers && <AnswersList answers={visibleAnswers} allVisible={allVisible} noAnswers={noAnswers} showAll={showAll}/>}
+      {answers.length > 0 && <AnswersList answers={visibleAnswers} allVisible={allVisible} showAll={showAll}/>}
     </ClearFloat>
   )
 

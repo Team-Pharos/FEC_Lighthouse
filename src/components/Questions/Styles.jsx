@@ -48,7 +48,7 @@ const SpanClicked = styled.span`
 
 const QuestionScrollBar = styled.div`
   height: 400px;
-  max-height: 100%;
+  max-height: 80%;
   width: auto;
   max-width: 100%;
   overflow: scroll;
@@ -66,8 +66,8 @@ const QuestionScrollBar = styled.div`
 `;
 
 const AnswerScrollBar = styled.div`
-height: auto;
-max-height: 100%;
+height: 150px;
+max-height: 80%;
 width: auto;
 max-width: 100%;
 overflow: scroll;

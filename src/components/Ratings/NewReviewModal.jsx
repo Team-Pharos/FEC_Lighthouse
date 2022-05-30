@@ -11,6 +11,7 @@ const ReviewForm = styled(InnerModal)`
 `;
 
 const WriteReviewForm = styled.div`
+  font-family: 'Poppins', sans-serif;
   height: 100%;
   width: 60%;
   margin: 2px auto;
@@ -21,6 +22,10 @@ const Exit = styled.button`
   top: 0px;
   right: 0px;
 `;
+
+const ReviewBody = styled.textarea`
+  width: 300px;
+`
 
 const NewReviewModal = ({ closeModal }) => {
 
@@ -89,7 +94,7 @@ const NewReviewModal = ({ closeModal }) => {
             <h4>Review Summary</h4>
             <Input type='text' value='' name='summary'/>
             <h4>Review Body</h4>
-            <textarea value='Why did you like the product or not?' name='body'/>
+            <ReviewBody value='Why did you like the product or not?' name='body'/>
           </form>
         </WriteReviewForm>
         <Exit value='CloseAddReview' onClick={closeModal}>Close</Exit>

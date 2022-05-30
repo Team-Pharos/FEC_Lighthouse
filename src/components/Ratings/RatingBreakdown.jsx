@@ -9,6 +9,24 @@ import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
   let characteristics = metaData.characteristics;
+  if (characteristics !== undefined) {
+    var fit = characteristics.Fit || '';
+    var width = characteristics.Width || '';
+    var length = characteristics.Length || '';
+    var comfort = characteristics.Comfort || '';
+    var quality = characteristics.Quality || '';
+  }
+  let charBreakdown = (
+    characteristics !== undefined ?
+      <>
+        {!!fit ? <div><span>Fit: {Number(fit.value).toFixed(1)}</span></div> : <span />}
+        {!!width ? <div><span>Width: {Number(width.value).toFixed(1)}</span></div> : <span />}
+        {!!length ? <div><span>Length: {Number(length.value).toFixed(1)}</span></div> : <length />}
+        {!!comfort ? <div><span>Comfort: {Number(comfort.value).toFixed(1)}</span></div> : <span />}
+        {!!quality ? <div><span>Quality: {Number(quality.value).toFixed(1)}</span></div> : <span />}
+      </> :
+      <></>
+  );
 
   let calculateOverallRating = (ratingsObject) => {
     //let average = 0;
@@ -24,7 +42,6 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
   return (
     <BreakdownContainer>
-      <h4>Overall Rating for {productId}</h4>
       <h2> {calculateOverallRating(ratings)} </h2>
       < StarRating ratings={ratings} />
       <h3>Ratings</h3>
@@ -37,7 +54,7 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
             </RatingValues>);
         })}
       </div>
-
+        {charBreakdown}
     </BreakdownContainer>
   )
 }

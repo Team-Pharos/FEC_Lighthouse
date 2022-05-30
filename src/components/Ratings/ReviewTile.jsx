@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { RightText, Thumbnail, TruncBody, Tile } from './Styles.jsx';
+import { RightText, Thumbnail, TruncBody, Tile, Stars } from './Styles.jsx';
 import { FaCheckSquare } from "react-icons/fa";
 import { BsStarFill } from "react-icons/bs";
 import moment from 'moment';
@@ -9,7 +9,7 @@ import axios from 'axios';
 export const ShowStars = (rating) => {
   let stars = [];
   for (let i = 1; i <= rating; i++) {
-    stars.push(<span key={i}><BsStarFill /></span>);
+    stars.push(<Stars key={i}><BsStarFill /></Stars>);
   }
   return (stars);
 }

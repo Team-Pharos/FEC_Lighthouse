@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import {AddToCartButton} from './OverviewStyledCom.jsx';
 
 const AddToCart = ({currentStyle}) => {
   const [sizeSelected, setSizeSelector] = useState('default');
@@ -63,10 +64,10 @@ const AddToCart = ({currentStyle}) => {
       </select>
       <br />
       <br />
-      <button
+      <AddToCartButton
         onClick={addToBagHandler}
         disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
-      >ADD TO BAG 🛍</button>
+      >ADD TO BAG</AddToCartButton>
       {' '}
       <button onClick={() => {setStarClicked(pre => {return !pre})}}>{starClicked ? <FaStar /> : <FaRegStar /> }</button>
     </div>

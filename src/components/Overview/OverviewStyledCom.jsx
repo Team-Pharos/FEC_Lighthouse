@@ -25,7 +25,7 @@ export const CloseButton = styled.button`
 export const Img = styled.img`
     width: ${props => props.className ? '750px' : '400px'};
     height: ${props => props.className ? '950px' : '500px'};
-    max-width: 100%;
+    max-width: ${props => props.className !== 'ZoomImg' && '100%'};
     border-radius: 10%;
     object-fit: cover;
     &:hover {

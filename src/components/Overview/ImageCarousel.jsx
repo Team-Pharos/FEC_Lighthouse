@@ -39,7 +39,11 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
 
   return (
   <div className='ImageCarousel'>
-  {/* up and down */}
+
+    {/* left and right */}
+    <div className='gallery'>
+
+      {/* up and down */}
     <div className={expanded ? 'ExpThumbnail' : 'thumbnail'}>
       <Arrow
         className={zoomed ? 'ZoomArrow' : 'upArrow'}
@@ -71,8 +75,6 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
         ><FaAngleDown /></Arrow>
     </div>
 
-    {/* left and right */}
-    <div className='gallery'>
       <Arrow
         className={zoomed ? 'ZoomArrow' : expanded ? 'leftArrowExp' : 'leftArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}

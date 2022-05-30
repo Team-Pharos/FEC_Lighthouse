@@ -7,7 +7,6 @@ import AddToCart from './AddToCart.jsx';
 import ProductOverview from './ProductOverview.jsx';
 import Features from './Features.jsx';
 import OverviewStyles from './../../../styles/OverviewStyle.css';
-import OverviewStylesBig from './../../../styles/OverviewStyle-big.css';
 
 const Overview = ({productId, productDetails, ratings, numOfReviews}) => {
   const [styles, setStyles] = useState([])

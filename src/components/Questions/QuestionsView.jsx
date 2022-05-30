@@ -11,9 +11,10 @@ const QuestionsView = ({ productId, productName }) => {
   const [visibleQuestions, setVisibleQuestions] = useState([]);
   const [addQuestion, setAddQuestion] = useState(false);
   const [count, setCount] = useState(2);
+  const [filter, setFilter] = useState(null);
 
   useEffect(() => {
-    axios.get('/getQuestions', { params: { product_id: productId } })
+    axios.get('/getQuestions', { params: { product_id: productId, filter: filter } })
       .then((questionList) => {
         setQuestions(questionList.data.results);
         setVisibleQuestions(questionList.data.results.slice(0, 2));
@@ -33,13 +34,29 @@ const QuestionsView = ({ productId, productName }) => {
     setVisibleQuestions(visibleQuestions.push(currentQuestion));
   }
 
+  const searchQuestions = (query) => {
+    if (query) {
+      setVisibleQuestions(() => {
+        let results = [];
+        questions.map(question => {
+          if (question.question_body.includes(query)) {
+            results.push(question);
+          };
+        })
+        return results;
+      });
+    } else {
+      setVisibleQuestions(questions.slice(0, 2));
+    }
+  }
+
   return (
     <CenterDiv>
       <TitleTile>
         <SectionTitle>Questions and Answers</SectionTitle>
       </TitleTile>
       <InnerContent>
-        <SearchBar />
+        <SearchBar searchQuestions={searchQuestions} />
         {questions.length > 0 && <div>
           <QuestionsList questions={visibleQuestions} productName={productName} />
           <Button onClick={increaseCount}>More Answered Questions</Button>

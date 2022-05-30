@@ -23,8 +23,8 @@ export const CloseButton = styled.button`
 `;
 
 export const Img = styled.img`
-    width: ${props => props.className ? '1000px' : '400px'};
-    height: ${props => props.className ? '1200px' : '500px'};
+    width: ${props => props.className ? '750px' : '400px'};
+    height: ${props => props.className ? '950px' : '500px'};
     border-radius: 10%;
     object-fit: cover;
     &:hover {

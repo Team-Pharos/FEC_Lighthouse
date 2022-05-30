@@ -1,11 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import { FaShareSquare, FaTwitter, FaPinterest, FaFacebook } from 'react-icons/fa';
+import {Tooltip} from './Tooltip.jsx';
+import StarRating from '../StarRating.jsx';
 
-const ProductionInfo = ({productDetails, currentStyle}) => {
+const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) => {
   return (
   <div className='ProductionInfo'>
-    {/* ToDo: starts and ratings */}
-    <p>⭐️ ⭐️ ⭐️ ⭐️ ⭐️ &nbsp;&nbsp;<a href='#RatingsAndReviews'>Read All Reviews</a>&nbsp;&nbsp;&nbsp;<FaShareSquare /></p>
+   <StarRating
+    ratings={ratings}
+    style={{display: numOfReviews === 0 ? 'none' : ''}}
+  />
+    &nbsp;&nbsp;&nbsp;
+    <a
+      className='linkToReviews'
+      href='#RatingsAndReviews'
+      style={{display: numOfReviews === 0 ? 'none' : ''}}
+    >
+      Read All {numOfReviews} Reviews
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <Tooltip
+      content={<>
+        <FaFacebook className='reactIcon' onClick={() => {open('https://www.facebook.com')}}/>&nbsp;<FaTwitter className='reactIcon' onClick={() => {open('https://twitter.com')}}/>&nbsp;<FaPinterest className='reactIcon' onClick={() => {open('https://www.pinterest.com/')}}/>
+      </>}>
+      <FaShareSquare className='reactIcon'/>
+    </Tooltip>
+
     {/* ToDo: 3 SocialMedia icon */}
     <h3>{productDetails.category}</h3>
 

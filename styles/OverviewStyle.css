@@ -13,7 +13,13 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 4;
+}
+
+.ImageCarousel {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ProductionInfo {
@@ -22,13 +28,23 @@
   grid-row-end: 2;
 }
 
-.StyleSelector{
+.StyleSelector {
   grid-column-start: 3;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 
-.AddToCart{
+.styleSelectorImg {
+  position: relative;
+}
+
+.checkMark {
+  position: absolute;
+  right: 10%;
+  z-index: 10;
+}
+
+.AddToCart {
   grid-column-start: 3;
   grid-row-start: 3;
   grid-row-end: 4;
@@ -38,6 +54,7 @@
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 4;
+  text-align: center;
   border-right: dotted gray 6px;
 }
 
@@ -50,6 +67,13 @@
   position: absolute;
   z-index: 10;
   top: 50px;
+  left: 30%;
+}
+
+.ExpThumbnail {
+  position: absolute;
+  left:20%;
+  z-index: 10;
 }
 
 .imageModal {
@@ -86,23 +110,87 @@
 .rightArrow {
   position: absolute;
   top: 250px;
-  left: 350px;
+  left: 345px;
 }
 
 .leftArrow {
   position: absolute;
   top: 250px;
-  left: 25px;
+  left: 40px;
 }
 
 .rightArrowExp {
   position: absolute;
   top: 50%;
-  right: 20%;
+  right: 15%;
 }
 
 .leftArrowExp {
   position: absolute;
   top: 50%;
-  left: 20%;
+  left: 15%;
+}
+
+.Tooltip-Wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.Tooltip-Tip {
+  position: absolute;
+  border-radius: 4px;
+  border-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px;
+  color: black;
+  background: white;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.Tooltip-Wrapper :hover {
+  cursor: pointer;
+}
+
+.Tooltip-Tip::before {
+  content: " ";
+  left: 50%;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.Tooltip-Tip.right {
+  border: solid black;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+}
+
+.Tooltip-Tip.right:hover {
+  cursor: pointer;
+}
+
+.Tooltip-Tip.right::before {
+  left: -6px;
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  border-right-color: black;
+}
+
+.linkToReviews:visited {
+  color: black;
+}
+
+.linkToReviews {
+  color: black;
+}
+
+.reactIcon:hover {
+  transform: scale(1.5);
 }

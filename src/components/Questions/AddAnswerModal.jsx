@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Input, OuterModal, InnerModal, BodyInput, Modal } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description, TitleBackground } from './Styles.jsx';
 
 const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }) => {
 
@@ -42,18 +42,20 @@ const AddAnswer = ({ productName, questionID, questionBody, addAnswer, onClose }
     <OuterModal>
         <InnerModal>
       <Modal>
-          <h3>Submit Your Answer</h3>
-          <h5>{`${productName}: ${questionBody}`}</h5>
+        <TitleBackground>
+          <SectionTitle>Submit Your Answer</SectionTitle>
+        </TitleBackground>
+          <SubTitle>{`${productName}: ${questionBody}`}</SubTitle>
           <form>
-          <p>Your Answer *</p>
+          <InputLabel>Your Answer *</InputLabel>
           <BodyInput type="text" required maxlength="1000" onChange={(e) => {setBodyInput(e.target.value)}}/>
-          <p>What is your nickname? *</p>
+          <InputLabel>What is your nickname? *</InputLabel>
           <Input type="text" required maxlength="60" placeholder="Example: jack543!" onChange={(e) => {setNicknameInput(e.target.value)}}/>
-          <h6>For privacy reasons, do not use your full name or email address</h6>
-          <p>Email *</p>
+          <Description>For privacy reasons, do not use your full name or email address</Description>
+          <InputLabel>Email *</InputLabel>
           <Input type="email" required maxlength="60" placeholder="Example: jack@email.com" onChange={(e) => {setEmailInput(e.target.value)}}/>
-          <h6>For authentication reasons, you will not be emailed</h6>
-          <button onClick={submitHandler}>SubmitAnswer</button><button onClick={onClose}>Close</button>
+          <Description>For authentication reasons, you will not be emailed</Description>
+          <PrimaryButton onClick={submitHandler}>SubmitAnswer</PrimaryButton><Button onClick={onClose}>Close</Button>
           </form>
       </Modal>
         </InnerModal>

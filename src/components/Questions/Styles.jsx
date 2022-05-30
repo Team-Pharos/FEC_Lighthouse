@@ -66,7 +66,7 @@ const QuestionScrollBar = styled.div`
 `;
 
 const AnswerScrollBar = styled.div`
-height: 150px;
+height: auto;
 max-height: 80%;
 width: auto;
 max-width: 100%;

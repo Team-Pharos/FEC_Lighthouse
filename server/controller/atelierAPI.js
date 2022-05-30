@@ -22,7 +22,7 @@ let getQuestions = (product_id, count) => {
 }
 
 let getAnswers = (question_id) => {
-  let url = `${process.env.API}qa/questions/${question_id}/answers&page=1&count=500`
+  let url = `${process.env.API}qa/questions/${question_id}/answers?page=1&count=500`
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 

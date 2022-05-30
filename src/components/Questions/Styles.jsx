@@ -15,6 +15,7 @@ const LeftCol = styled.div`
 const RightCol = styled.div`
   float: left;
   margin: 0 1.5%;
+  max-height: 100%;
 `;
 
 const InnerContent = styled.div`
@@ -121,6 +122,7 @@ const TitleBackground = styled.div`
 
 const SearchBarInput = styled.input`
   width: 400px;
+  max-width: 80%;
   height: 25px
 `;
 
@@ -208,7 +210,6 @@ const Button = styled.button`
   font-weight: 300;
   border-radius: 5px;
   margin: 5px;
-
 `;
 
 export {

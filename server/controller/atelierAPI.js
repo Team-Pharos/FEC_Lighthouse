@@ -28,7 +28,6 @@ let getAnswers = (question_id) => {
 
 let postQuestion = ({ product_id, body, name, email }) => {
   let url = `${process.env.API}qa/questions`
-  console.log(product_id);
   return axios({
     method: 'post',
     url: url,

@@ -26,12 +26,15 @@
   grid-column-start: 3;
   grid-row-start: 1;
   grid-row-end: 2;
+  font-family: "Akshar", sans-serif;
 }
 
 .StyleSelector {
   grid-column-start: 3;
   grid-row-start: 2;
   grid-row-end: 3;
+  font-family: "Poppins", sans-serif;
+  font-weight:400;
 }
 
 .styleSelectorImg {
@@ -56,11 +59,13 @@
   grid-row-start: 4;
   text-align: center;
   border-right: dotted gray 6px;
+  font-family: "Poppins", sans-serif;
 }
 
 .Features {
   grid-column-start: 3;
   grid-row-start: 4;
+  font-family: "Poppins", sans-serif;
 }
 
 .thumbnail {
@@ -68,6 +73,15 @@
   z-index: 10;
   top: 50px;
   left: 30%;
+}
+
+@media screen and (min-width: 1921px) {
+  .thumbnail {
+    position: absolute;
+    z-index: 10;
+    top: 50px;
+    left: 35%;
+  }
 }
 
 .ExpThumbnail {
@@ -109,14 +123,14 @@
 
 .rightArrow {
   position: absolute;
-  top: 250px;
-  left: 345px;
+  top: 50%;
+  right: 10%;
 }
 
 .leftArrow {
   position: absolute;
-  top: 250px;
-  left: 40px;
+  top: 50%;
+  left: 10%;
 }
 
 .rightArrowExp {

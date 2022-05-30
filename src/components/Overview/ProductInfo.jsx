@@ -26,7 +26,6 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
       <FaShareSquare className='reactIcon'/>
     </Tooltip>
 
-    {/* ToDo: 3 SocialMedia icon */}
     <h3>{productDetails.category}</h3>
 
     <h2>{productDetails.name}</h2>

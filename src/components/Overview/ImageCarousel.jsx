@@ -22,14 +22,17 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
     // console.log(e.pageY);
 
     // bottom: 2100; left: -434; right: 2065; top: -900
+    // bottom: 2375; left: -352.5; right: 1875; top: -712.5
     // center-vertical = 600; center-hor: 815
     const { left, top, width, height } = e.target.getBoundingClientRect()
     // console.log(left, top, width, height);
     // horizontal
-    const x = (e.pageX - 815);
+    // let centerX = right - (right - left) / 2
+    const x = (e.pageX - 1200);
     // console.log('x', x)
     //vertical
-    const y = (600 - e.pageY) * 1.45;
+    // let centerY = bottom - (bottom - top) / 2
+    const y = (500 - e.pageY) * 1.4
     // console.log('y', y)
     setPosition([`${x}px`, `${y}px`]);
     // console.log(position);
@@ -38,7 +41,11 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
 
   return (
   <div className='ImageCarousel'>
-  {/* up and down */}
+
+    {/* left and right */}
+    <div className='gallery'>
+
+      {/* up and down */}
     <div className={expanded ? 'ExpThumbnail' : 'thumbnail'}>
       <Arrow
         className={zoomed ? 'ZoomArrow' : 'upArrow'}
@@ -70,8 +77,6 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
         ><FaAngleDown /></Arrow>
     </div>
 
-    {/* left and right */}
-    <div className='gallery'>
       <Arrow
         className={zoomed ? 'ZoomArrow' : expanded ? 'leftArrowExp' : 'leftArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}

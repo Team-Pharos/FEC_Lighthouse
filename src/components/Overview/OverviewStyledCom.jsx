@@ -62,3 +62,15 @@ export const Arrow = styled.button`
   }
   display: ${props => props.className === 'ZoomArrow' ? 'none' : ''};
 `;
+
+export const AddToCartButton = styled.button`
+  background-color: #68a69b;
+  color: #010a26;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  padding: 1px 32px;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+`;

@@ -21,7 +21,21 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
     &nbsp;&nbsp;&nbsp;&nbsp;
     <Tooltip
       content={<>
-        <FaFacebook className='reactIcon' onClick={() => {open('https://www.facebook.com')}}/>&nbsp;<FaTwitter className='reactIcon' onClick={() => {open('https://twitter.com')}}/>&nbsp;<FaPinterest className='reactIcon' onClick={() => {open('https://www.pinterest.com/')}}/>
+        <FaFacebook
+          className='reactIcon'
+          onClick={() => {open('https://www.facebook.com')}}
+          // style={{color: '#68a69b'}}
+        />&nbsp;
+        <FaTwitter
+          className='reactIcon'
+          onClick={() => {open('https://twitter.com')}}
+          // style={{color: '#68a69b'}}
+        />&nbsp;
+        <FaPinterest
+          className='reactIcon'
+          onClick={() => {open('https://www.pinterest.com/')}}
+          // style={{color: '#68a69b'}}
+        />
       </>}>
       <FaShareSquare className='reactIcon'/>
     </Tooltip>

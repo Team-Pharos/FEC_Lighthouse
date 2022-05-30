@@ -14,6 +14,7 @@ const App = () => {
   const [productDetails, setProductDetails] = useState({});
   const [metaData, setMetaData] = useState({});
   const [ratings, setRatings] = useState({1:0, 2:0, 3:0, 4:0, 5:0});
+  const [numOfReviews, setNumOfReviews] = useState(0);
 
 
   const getOneProduct = (productId) => {
@@ -37,11 +38,18 @@ const App = () => {
 
   // act as componentDidUpdate
   useEffect(() => {getOneProduct(productId)}, [productId])
+  useEffect(() => {
+    let reviewsNum = 0
+    for (let key in ratings) {
+      reviewsNum += Number(ratings[key]);
+    }
+    setNumOfReviews(reviewsNum);
+  }, [ratings]);
 
   return (
     // return all 4 widgets
     <>
-    <Overview productDetails={productDetails} productId={productId} />
+    <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews}/>
     {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
     {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
     <QuestionsView productId={productId} productName={productName}/>

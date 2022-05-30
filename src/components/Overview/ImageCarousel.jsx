@@ -37,9 +37,9 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
 
 
   return (
-  <div className='ImageGallery'>
+  <div className='ImageCarousel'>
   {/* up and down */}
-    <div className='thumbnail'>
+    <div className={expanded ? 'ExpThumbnail' : 'thumbnail'}>
       <Arrow
         className={zoomed ? 'ZoomArrow' : 'upArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}
@@ -48,17 +48,19 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
       <br/>
 
       {miniUrlArr.map((img, i) => {
-        return (<div key={img} >
-          <ImgMini
-            className={zoomed ? 'ZoomImgMini' : expanded ? 'ExpImgMini' : ''}
-            src={img}
-            style={{
-              border: img === miniUrlArr[imageInd] ? 'solid' : '',
-              display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : ''
-            }}
-            onClick={() => {setImage(i)}}/>
-          <br />
-        </div>)
+        return (
+          <div
+            key={img}
+            style={{display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : ''}}>
+            <ImgMini
+              className={zoomed ? 'ZoomImgMini' : expanded ? 'ExpImgMini' : ''}
+              src={img}
+              style={{
+                border: img === miniUrlArr[imageInd] ? 'solid' : ''
+              }}
+              onClick={() => {setImage(i)}}/>
+            <br />
+          </div>)
       })}
 
       <Arrow
@@ -85,7 +87,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
           } else if (expanded) {
             setZoomed(true);
           } else {
-            setExpanded(true)
+            setExpanded(true);
           }
         }}
         onMouseMove={zoomed ? mouseMoveHandler : () => {}}

@@ -48,17 +48,19 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
       <br/>
 
       {miniUrlArr.map((img, i) => {
-        return (<div key={img} >
-          <ImgMini
-            className={zoomed ? 'ZoomImgMini' : expanded ? 'ExpImgMini' : ''}
-            src={img}
-            style={{
-              border: img === miniUrlArr[imageInd] ? 'solid' : '',
-              display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : ''
-            }}
-            onClick={() => {setImage(i)}}/>
-          <br />
-        </div>)
+        return (
+          <div
+            key={img}
+            style={{display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : ''}}>
+            <ImgMini
+              className={zoomed ? 'ZoomImgMini' : expanded ? 'ExpImgMini' : ''}
+              src={img}
+              style={{
+                border: img === miniUrlArr[imageInd] ? 'solid' : ''
+              }}
+              onClick={() => {setImage(i)}}/>
+            <br />
+          </div>)
       })}
 
       <Arrow

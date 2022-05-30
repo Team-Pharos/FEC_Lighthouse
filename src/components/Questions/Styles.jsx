@@ -111,6 +111,12 @@ const Modal = styled.div`
   width: 95%;
 `;
 
+const TitleBackground = styled.div`
+  height: 50px;
+  background-color: #010a26;
+  width: 100%;
+`;
+
 //----------- Inputs -----------//
 
 const SearchBarInput = styled.input`
@@ -229,6 +235,7 @@ export {
   TitleTile,
   InnerContent,
   QuestionScrollBar,
-  AnswerScrollBar
+  AnswerScrollBar,
+  TitleBackground
 };
 

@@ -14,20 +14,24 @@ const QuestionsView = ({ productId, productName }) => {
 
   useEffect(() => {
     axios.get('/getQuestions', { params: { product_id: productId } })
-    .then((questionList) => {
-      setQuestions(questionList.data.results);
-      setVisibleQuestions(questionList.data.results.slice(0, 2));
-    })
-    .catch((err) => {
-      console.log(`unable to retrieve questions ${err}`)
-    })
+      .then((questionList) => {
+        setQuestions(questionList.data.results);
+        setVisibleQuestions(questionList.data.results.slice(0, 2));
+      })
+      .catch((err) => {
+        console.log(`unable to retrieve questions ${err}`)
+      })
   }, []);
 
-    const increaseCount = (e) => {
-      e.preventDefault();
-      setVisibleQuestions(questions.slice(0, count + 2));
-      setCount(count + 2);
-    };
+  const increaseCount = (e) => {
+    e.preventDefault();
+    setVisibleQuestions(questions.slice(0, count + 2));
+    setCount(count + 2);
+  };
+
+  const addAQuestion = (currentQuestion) => {
+    setVisibleQuestions(visibleQuestions.push(currentQuestion));
+  }
 
   return (
     <CenterDiv>
@@ -36,11 +40,13 @@ const QuestionsView = ({ productId, productName }) => {
       </TitleTile>
       <InnerContent>
         <SearchBar />
-        <QuestionsList questions={visibleQuestions} productName={productName} />
+        {questions.length > 0 && <div>
+          <QuestionsList questions={visibleQuestions} productName={productName} />
+          <Button onClick={increaseCount}>More Answered Questions</Button>
+        </div>}
         <ClearFloat>
           <PrimaryButton onClick={() => setAddQuestion(true)}>Add A Question</PrimaryButton>
-          <Button onClick={increaseCount}>More Answered Questions</Button>
-          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} onClose={() => setAddQuestion(false)} />
+          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} addAQuestion={addAQuestion} onClose={() => setAddQuestion(false)} />
         </ClearFloat>
       </InnerContent>
     </CenterDiv>

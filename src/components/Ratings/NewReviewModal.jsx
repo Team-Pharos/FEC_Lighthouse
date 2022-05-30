@@ -29,7 +29,7 @@ const ReviewBody = styled.textarea`
   width: 300px;
 `
 
-const NewReviewModal = ({ closeModal, metaData, productId }) => {
+const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
 
   let [reviewBody, setReviewBody] = useState('');
   let [summary, setSummary] = useState('');
@@ -43,7 +43,6 @@ const NewReviewModal = ({ closeModal, metaData, productId }) => {
     let name = event.target.name;
 
     setReviewForm({ ...reviewForm, [name]: event.target.value });
-    console.log(reviewForm);
 
     if (name === 'body') {
       setReviewBody(event.target.value);
@@ -64,7 +63,7 @@ const NewReviewModal = ({ closeModal, metaData, productId }) => {
         <WriteReviewForm >
           <form onSubmit={handleSubmit} onChange={formHandler}>
             <h2>Write You Review</h2>
-            <h3>About the [Product Name Here]</h3>
+            <h3>About the {productName}</h3>
             <Input
               type='email'
               name='email'
@@ -156,7 +155,7 @@ const NewReviewModal = ({ closeModal, metaData, productId }) => {
             </div>
             <div>
               <h4>Submit Your Photos</h4>
-              <Input name='photos' type='file' accept='.png, .jpeg, .gif' />
+              <Input name='photos' type='file' accept='.png, .jpeg, .gif' multiple/>
             </div>
             <div>
               <input type='submit' />

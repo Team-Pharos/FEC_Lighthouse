@@ -2,30 +2,28 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SearchBarInput, Button } from './Styles.jsx';
 
-const SearchBar = ({ filterResults }) => {
+const SearchBar = ({ searchQuestions }) => {
 
   const [search, setSearch] = useState('');
 
-  // const searchInput = (e) => {
-  //   e.preventDefault();
-  //   setSearch(e.target.value);
-  //   if (search.length > 2) {
-  //     console.log(search);
-  //     filterResults(search);
-  //   } else {
-  //     filterResults();
-  //   }
-  // }
+  const searchInput = (query) => {
+    setSearch(query);
+    if (query.length > 2) {
+      searchQuestions(query);
+    } else {
+      searchQuestions();
+    }
+  }
 
-  // const officiallySearch = (e) => {
-  //   e.preventDefault();
-
-  // }
+  const officiallySearch = (e) => {
+    e.preventDefault();
+    searchQuestions(search);
+  }
 
   return (
     <>
-      <SearchBarInput type="text" id="search" name="search" placeholder="Have a question? Search for the answers…" />
-      <Button>&#128269;</Button>
+      <SearchBarInput type="text" id="search" name="search" placeholder="Have a question? Search for the answers…" onChange={e => searchInput(e.target.value)}/>
+      <Button onClick={officiallySearch}>&#128269;</Button>
     </>
   )
 }

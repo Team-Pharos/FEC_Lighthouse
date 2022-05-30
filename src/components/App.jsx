@@ -49,7 +49,6 @@ const App = () => {
   return (
     // return all 4 widgets
     <>
-    {/* <FontStyles /> */}
     <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews}/>
     {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
     {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}

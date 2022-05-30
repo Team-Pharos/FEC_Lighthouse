@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import QuestionListEntry from './QuestionListEntry.jsx';
+import { Button, InnerContent, ClearFloat, QuestionScrollBar } from './Styles.jsx';
 
 const QuestionsList = ({ productName, questions }) => {
 
   return (
-    <div>
+    <InnerContent>
       <div>
-        {questions.map((question) => {
-          return (
-            <QuestionListEntry key={question.question_id} question={question} productName={productName} />
-          )
-        })}
+        <QuestionScrollBar>
+          {questions.map((question) => {
+            return (
+              <QuestionListEntry key={question.question_id} question={question} productName={productName} />
+            )
+          })}
+        </QuestionScrollBar>
       </div>
-      <button>More Answered Questions</button>
-    </div>
+    </InnerContent>
   )
 
 }

@@ -16,13 +16,13 @@ let getStyles = (product_id) => {
 
 //==========Q&A============
 
-let getQuestions = (product_id) => {
-  let url = `${process.env.API}qa/questions?product_id=${product_id}`
+let getQuestions = (product_id, count) => {
+  let url = `${process.env.API}qa/questions?product_id=${product_id}&page=1&count=500`
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } });
 }
 
 let getAnswers = (question_id) => {
-  let url = `${process.env.API}qa/questions/${question_id}/answers`
+  let url = `${process.env.API}qa/questions/${question_id}/answers&page=1&count=500`
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 

@@ -8,23 +8,28 @@ import AddQuestion from './AddQuestionModal.jsx';
 const QuestionsView = ({ productId, productName }) => {
 
   const [questions, setQuestions] = useState([]);
+  const [visibleQuestions, setVisibleQuestions] = useState([]);
   const [addQuestion, setAddQuestion] = useState(false);
-
-  const filterResults = (filterString) => {
-    axios.get('/getQuestions', { params: { product_id: productId, filter: filterString } })
-      .then((questionList) => {
-        setQuestions(questionList.data.results);
-      })
-      .catch((err) => {
-        console.log(`unable to retrieve questions ${err}`)
-      })
-  }
+  const [count, setCount] = useState(2);
 
   useEffect(() => {
-
-  filterResults()
-
+    axios.get('/getQuestions', { params: { product_id: productId } })
+    .then((questionList) => {
+      setQuestions(questionList.data.results);
+      setVisibleQuestions(questionList.data.results.slice(0, 2));
+    })
+    // .then(() => {
+    // })
+    .catch((err) => {
+      console.log(`unable to retrieve questions ${err}`)
+    })
   }, []);
+
+    const increaseCount = (e) => {
+      e.preventDefault();
+      setVisibleQuestions(questions.slice(0, count + 2));
+      setCount(count + 2);
+    };
 
   return (
     <CenterDiv>
@@ -32,11 +37,11 @@ const QuestionsView = ({ productId, productName }) => {
         <SectionTitle>Questions and Answers</SectionTitle>
       </TitleTile>
       <InnerContent>
-        <SearchBar filterResults={filterResults} />
-        <QuestionsList questions={questions} productName={productName} />
+        <SearchBar />
+        <QuestionsList questions={visibleQuestions} productName={productName} />
         <ClearFloat>
           <PrimaryButton onClick={() => setAddQuestion(true)}>Add A Question</PrimaryButton>
-          <Button>More Answered Questions</Button>
+          <Button onClick={increaseCount}>More Answered Questions</Button>
           <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} onClose={() => setAddQuestion(false)} />
         </ClearFloat>
       </InnerContent>

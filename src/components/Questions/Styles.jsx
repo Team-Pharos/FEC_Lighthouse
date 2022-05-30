@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+//----------- Positional Styles -----------//
+
 const CenterDiv = styled.div`
 width: 80%;
 margin: 10px auto;
@@ -15,10 +17,36 @@ const RightCol = styled.div`
   margin: 0 1.5%;
 `;
 
+const InnerContent = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`;
+
+const ClearFloat = styled.div`
+  display: block;
+  clear: left;
+  margin-bottom: 10px;
+`;
+
+const Span = styled.span`
+color: #f26938;
+text-decoration: underline;
+
+&:hover {
+  color: #68a69b;
+  cursor: pointer;
+}
+`;
+
+const SpanClicked = styled.span`
+  color: #68a69b;
+  text-decoration: underline;
+`;
+
 //----------- OverFlow Styles -----------//
 
 const QuestionScrollBar = styled.div`
-  height: auto;
+  height: 400px;
   max-height: 100%;
   width: auto;
   max-width: 90%;
@@ -55,38 +83,6 @@ overflow: scroll;
 }
 `;
 
-const InnerContent = styled.div`
-  width: 90%;
-  margin: 0 auto;
-`;
-
-const ClearFloat = styled.div`
-  display: block;
-  clear: left;
-  margin-bottom: 10px;
-`;
-
-const Span = styled.span`
-color: #f26938;
-text-decoration: underline;
-
-&:hover {
-  color: #68a69b;
-  cursor: pointer;
-}
-`;
-
-const SpanClicked = styled.span`
-  color: #68a69b;
-  text-decoration: underline;
-`;
-
-
-const SearchBarInput = styled.input`
-  width: 400px;
-  height: 25px
-`;
-
 //----------- Modals -----------//
 
 const OuterModal = styled.div`
@@ -115,6 +111,12 @@ const Modal = styled.div`
   width: 95%;
 `;
 
+//----------- Inputs -----------//
+
+const SearchBarInput = styled.input`
+  width: 400px;
+  height: 25px
+`;
 
 const BodyInput = styled.textarea`
   width: 400px;

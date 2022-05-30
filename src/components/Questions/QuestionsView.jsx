@@ -31,7 +31,9 @@ const QuestionsView = ({ productId, productName }) => {
   };
 
   const addAQuestion = (currentQuestion) => {
-    setVisibleQuestions(visibleQuestions.push(currentQuestion));
+    let oldState = visibleQuestions;
+    setVisibleQuestions(oldState.push(currentQuestion));
+    console.log(visibleQuestions);
   }
 
   const searchQuestions = (query) => {
@@ -39,7 +41,7 @@ const QuestionsView = ({ productId, productName }) => {
       setVisibleQuestions(() => {
         let results = [];
         questions.map(question => {
-          if (question.question_body.includes(query)) {
+          if (question.question_body.toLowerCase().includes(query.toLowerCase())) {
             results.push(question);
           };
         })

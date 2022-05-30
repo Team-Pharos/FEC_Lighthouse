@@ -60,7 +60,6 @@ const App = () => {
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />
       <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} />
-    </>
   )
 }
 

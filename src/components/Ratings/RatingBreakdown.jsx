@@ -4,14 +4,7 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import StarRating from '../StarRating.jsx';
 import { ShowStars } from './ReviewTile.jsx';
-
-const BreakdownContainer = styled.div`
-  top: 25px;
-`;
-
-const RatingStat = styled.span`
-  float: right;
-`;
+import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
@@ -38,10 +31,10 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
       <div>
         {Object.keys(ratings).map(rating => {
           return (
-            <div key={`RS${rating}`}>
+            <RatingValues key={`RS${rating}`}>
               {ShowStars(rating)}
               <RatingStat>{ratings[rating]}</RatingStat>
-            </div>);
+            </RatingValues>);
         })}
       </div>
 

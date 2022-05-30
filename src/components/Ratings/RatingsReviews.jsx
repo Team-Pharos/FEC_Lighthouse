@@ -6,12 +6,14 @@ import NewReviewModal from './NewReviewModal.jsx';
 
 //component styling
 const Reviews = styled.div`
+    margin: 50px auto;
     float: right;
     width: 60%;
     left: 25%;
     `;
 
 const Breakdown = styled.div`
+    font-family: 'Poppins', sans-serif;
     float: left;
     position: absolute;
     margin: 50px auto;
@@ -27,6 +29,7 @@ const Container = styled.div`
     overflow: auto;
   `;
 const Header = styled.div`
+    font-family: 'Poppins', sans-serif;
     width: 80%;
     position: absolute;
     padding: 1px 5px;

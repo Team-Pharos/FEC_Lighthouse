@@ -29,22 +29,20 @@ const ReviewBody = styled.textarea`
   width: 300px;
 `
 
-const NewReviewModal = ({ closeModal }) => {
+const NewReviewModal = ({ closeModal, metaData, productId }) => {
 
   let [reviewBody, setReviewBody] = useState('');
   let [summary, setSummary] = useState('');
   let [reviewForm, setReviewForm] = useState({});
 
-  let createdForm = {};
+  let characteristics = metaData.characteristics;
+  let availableCharacteristics = Object.keys(characteristics);
 
   let formHandler = (event) => {
     event.preventDefault();
     let name = event.target.name;
-    console.log(name);
 
-    createdForm[name] = event.target.value;
-    setReviewForm({...reviewForm, [name]: event.target.value});
-    console.log(createdForm);
+    setReviewForm({ ...reviewForm, [name]: event.target.value });
     console.log(reviewForm);
 
     if (name === 'body') {
@@ -53,10 +51,6 @@ const NewReviewModal = ({ closeModal }) => {
     if (name === 'summary') {
       setSummary(event.target.value);
     }
-  }
-
-  let radioHandler = (event) => {
-    event.preventDefault();
   }
 
   let handleSubmit = (event) => {
@@ -68,7 +62,7 @@ const NewReviewModal = ({ closeModal }) => {
     <OuterModal>
       <ReviewForm>
         <WriteReviewForm >
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} onChange={formHandler}>
             <h2>Write You Review</h2>
             <h3>About the [Product Name Here]</h3>
             <Input
@@ -78,88 +72,100 @@ const NewReviewModal = ({ closeModal }) => {
               placeholder='kjbnjken@gmail.com'
               require
             />
+            <Input
+              type='text'
+              name='name'
+              placeholder='Your Name'
+              require
+            />
             <div><span>[Insert interactive star component here]</span></div>
-            <h4>Recommend this product?</h4>
             <div>
+              <h4>Recommend this product?</h4>
               <input
                 type='radio'
                 value={'true'}
-                name='recommendation'
-                onChange={formHandler} />recommended
+                name='recommendation' />recommended
               <input
                 type='radio'
                 value={'false'}
-                name='recommendation'
-                onChange={formHandler} />not recommended
+                name='recommendation' />not recommended
             </div>
-            <h4>How was the sizing?</h4>
-            <div>
-              <input type='radio' value='1' name='Size' label='a size too small' />
-              <input type='radio' value='2' name='Size' />
-              <input type='radio' value='3' name='Size' />
-              <input type='radio' value='4' name='Size' />
-              <input type='radio' value='5' name='Size' label='a size too big' />
-            </div>
-            <h4>How was the width?</h4>
-            <div>
-              <input type='radio' value='1' name='Width' label='too narrow' />
-              <input type='radio' value='2' name='Width' />
-              <input type='radio' value='3' name='Width' />
-              <input type='radio' value='4' name='Width' />
-              <input type='radio' value='5' name='Width' label='too wide' />
-            </div>
-            <h4>How comfortable was this?</h4>
-            <div>
-              <input type='radio' value='1' name='Comfort' label='uncomfortable' />
-              <input type='radio' value='2' name='Comfort' />
-              <input type='radio' value='3' name='Comfort' />
-              <input type='radio' value='4' name='Comfort' />
-              <input type='radio' value='5' name='Comfort' label='perfect' />
-            </div>
-            <h4>How was the quality?</h4>
-            <div>
-              <input type='radio' value='1' name='Quality' label='poor' />
-              <input type='radio' value='2' name='Quality' />
-              <input type='radio' value='3' name='Quality' />
-              <input type='radio' value='4' name='Quality' />
-              <input type='radio' value='5' name='Quality' label='perfect' />
-            </div>
-            <h4>How was the length?</h4>
-            <div>
-              <input type='radio' value='1' name='Length' label='runs short' />
-              <input type='radio' value='2' name='Length' />
-              <input type='radio' value='3' name='Length' />
-              <input type='radio' value='4' name='Length' />
-              <input type='radio' value='5' name='Length' label='runs long' />
-            </div>
-            <h4>How was the fit?</h4>
-            <div>
-              <input type='radio' value='1' name='Fit' label='runs short' />
-              <input type='radio' value='2' name='Fit' />
-              <input type='radio' value='3' name='Fit' />
-              <input type='radio' value='4' name='Fit' />
-              <input type='radio' value='5' name='Fit' label='runs long' />
-            </div>
+            {availableCharacteristics.includes('Size') && (<div>
+              <h4>How was the sizing?</h4>
+              <input type='radio' value='1' name={characteristics['Size'].id} label='a size too small' />
+              <input type='radio' value='2' name={characteristics['Size'].id} />
+              <input type='radio' value='3' name={characteristics['Size'].id} />
+              <input type='radio' value='4' name={characteristics['Size'].id} />
+              <input type='radio' value='5' name={characteristics['Size'].id} label='a size too big' />
+            </div>)}
+            {availableCharacteristics.includes('Width') && (<div>
+              <h4>How was the width?</h4>
+              <input type='radio' value='1' name={characteristics['Width'].id} label='too narrow' />
+              <input type='radio' value='2' name={characteristics['Width'].id} />
+              <input type='radio' value='3' name={characteristics['Width'].id} />
+              <input type='radio' value='4' name={characteristics['Width'].id} />
+              <input type='radio' value='5' name={characteristics['Width'].id} label='too wide' />
+            </div>)}
+            {availableCharacteristics.includes('Comfort') && (<div>
+              <h4>How comfortable was this?</h4>
+              <input type='radio' value='1' name={characteristics['Comfort'].id} label='uncomfortable' />
+              <input type='radio' value='2' name={characteristics['Comfort'].id} />
+              <input type='radio' value='3' name={characteristics['Comfort'].id} />
+              <input type='radio' value='4' name={characteristics['Comfort'].id} />
+              <input type='radio' value='5' name={characteristics['Comfort'].id} label='perfect' />
+            </div>)}
+            {availableCharacteristics.includes('Quality') && (<div>
+              <h4>How was the quality?</h4>
+              <input type='radio' value='1' name={characteristics['Quality'].id} label='poor' />
+              <input type='radio' value='2' name={characteristics['Quality'].id} />
+              <input type='radio' value='3' name={characteristics['Quality'].id} />
+              <input type='radio' value='4' name={characteristics['Quality'].id} />
+              <input type='radio' value='5' name={characteristics['Quality'].id} label='perfect' />
+            </div>)}
+            {availableCharacteristics.includes('Length') && (<div>
+              <h4>How was the length?</h4>
+              <input type='radio' value='1' name={characteristics['Length'].id} label='runs short' />
+              <input type='radio' value='2' name={characteristics['Length'].id} />
+              <input type='radio' value='3' name={characteristics['Length'].id} />
+              <input type='radio' value='4' name={characteristics['Length'].id} />
+              <input type='radio' value='5' name={characteristics['Length'].id} label='runs long' />
+            </div>)}
+            {availableCharacteristics.includes('Fit') && (<div>
+              <h4>How was the fit?</h4>
+              <input type='radio' value='1' name={characteristics['Fit'].id} label='runs short' />
+              <input type='radio' value='2' name={characteristics['Fit'].id} />
+              <input type='radio' value='3' name={characteristics['Fit'].id} />
+              <input type='radio' value='4' name={characteristics['Fit'].id} />
+              <input type='radio' value='5' name={characteristics['Fit'].id} label='runs long' />
+            </div>)}
             <h4>Review Summary</h4>
             <Input type='text'
               value={summary}
-              name='summary'
-              onChange={formHandler} />
-            <h4>Review Body</h4>
-            <ReviewBody
-              placeholder='Why did you like the product or not?'
-              name='body'
-              value={reviewBody}
-              onChange={formHandler}
-            />
-            {reviewBody.length < 50 ?
-              (<span>{50 - reviewBody.length} More Chars Required</span>) :
-              (<span>Requirement Met</span>)
-            }
+              name='summary' />
+            <div>
+              <h4>Review Body</h4>
+              <ReviewBody
+                placeholder='Why did you like the product or not?'
+                name='body'
+                value={reviewBody}
+              />
+              {reviewBody.length < 50 ?
+                (<span>{50 - reviewBody.length} More Chars Required</span>) :
+                (<span>Requirement Met</span>)
+              }
+            </div>
+            <div>
+              <h4>Submit Your Photos</h4>
+              <Input name='photos' type='file' accept='.png, .jpeg, .gif' />
+            </div>
+            <div>
+              <input type='submit' />
+            </div>
           </form>
         </WriteReviewForm>
-        <Exit value='CloseAddReview' onClick={closeModal}>Close</Exit>
-
+        <div>
+          <Exit value='CloseAddReview' onClick={closeModal}>Close</Exit>
+        </div>
       </ReviewForm>
     </OuterModal>
   )

@@ -82,7 +82,7 @@ const RatingsReviews = ({ productId, metaData, ratings }) => {
       <ReviewsFooter>
         <OpenAddReview value='AddReview' onClick={openModal}>Add Review</OpenAddReview>
       </ReviewsFooter>
-      {modalOpen ? <NewReviewModal closeModal={openModal}/> : <></>}
+      {modalOpen && <NewReviewModal closeModal={openModal} metaData={metaData} productId={productId}/>}
     </div>
   )
 }

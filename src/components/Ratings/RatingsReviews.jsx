@@ -46,6 +46,7 @@ const OpenAddReview = styled.button`
     &:hover {
       border: 1px solid #6BA69B;
       cursor: pointer;
+      color: #6BA69B;
     }
   `;
 

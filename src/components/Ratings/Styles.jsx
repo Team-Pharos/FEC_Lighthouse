@@ -40,6 +40,10 @@ const RatingValues = styled.div`
   border-bottom: 1px dotted black;
 `;
 
+const Stars = styled.span`
+  color: #F26938;
+`;
+
 export {
   RightText,
   Thumbnail,
@@ -47,5 +51,6 @@ export {
   Tile,
   BreakdownContainer,
   RatingStat,
-  RatingValues
+  RatingValues,
+  Stars
 }

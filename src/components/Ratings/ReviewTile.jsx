@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { RightText, Thumbnail, TruncBody, Tile } from './Styles.jsx';
+import { RightText, Thumbnail, TruncBody, Tile, Stars } from './Styles.jsx';
 import { FaCheckSquare } from "react-icons/fa";
 import { BsStarFill } from "react-icons/bs";
 import moment from 'moment';
@@ -9,7 +9,7 @@ import axios from 'axios';
 export const ShowStars = (rating) => {
   let stars = [];
   for (let i = 1; i <= rating; i++) {
-    stars.push(<span key={i}><BsStarFill /></span>);
+    stars.push(<Stars key={i}><BsStarFill /></Stars>);
   }
   return (stars);
 }
@@ -17,6 +17,7 @@ export const ShowStars = (rating) => {
 const ReviewTile = ({ review }) => {
   const [helpfulCount, setHelpfulCount] = useState(0);
   const [helpfulMarked, setHelpfulMarked] = useState(false);
+  const [reported, setReported] = useState(false);
 
   let bodyView, check;
   let recommended = review.recommend;
@@ -28,12 +29,26 @@ const ReviewTile = ({ review }) => {
   let helpfulClick = (event) => {
     event.preventDefault();
     if (!helpfulMarked) {
-      axios.put('/helpfulReview', { 'review_id': review.review_id })
+      axios.put('/helpfulReview', {
+        'review_id': review.review_id
+      })
         .then(() => {
           setHelpfulCount(helpfulCount + 1);
           setHelpfulMarked(true);
         })
+        .catch(err => console.log(err));
     }
+  }
+
+  let reportClick = (event) => {
+    event.preventDefault();
+    axios.put('/reportReview', {
+      'review_id': review.review_id
+    })
+      .then(() => {
+        setReported(true);
+      })
+      .catch(err => console.log(err));
   }
 
   if (review.body.length > 250) {
@@ -48,6 +63,8 @@ const ReviewTile = ({ review }) => {
 
   return (
     <Tile>
+      { !reported ?
+      <>
       {ShowStars(review.rating)}
       <RightText>
         {check} {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}
@@ -63,7 +80,10 @@ const ReviewTile = ({ review }) => {
         <p>{review.response}</p>
       </div>
       <span onClick={helpfulClick}>Helpful? {helpfulCount}</span>
-      <RightText>report</RightText>
+      <RightText onClick={reportClick}>report</RightText>
+      </> :
+      <></>
+      }
     </Tile>
   )
 }

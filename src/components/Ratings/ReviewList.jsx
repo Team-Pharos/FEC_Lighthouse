@@ -5,6 +5,7 @@ import ReviewTile from './ReviewTile.jsx';
 
 //Component Styling
 const List = styled.div`
+  font-family: 'Poppins', sans-serif;
   padding: 2px 2px;
 `;
 
@@ -32,7 +33,7 @@ const ReviewList = ({ productId }) => {
 
   return (
     <List>
-      <h3>Reviews for {productId}</h3>
+      {/* <h3>Reviews for {productId}</h3> */}
       <form>
         <h3>Sorted by
           <select value={sort}>

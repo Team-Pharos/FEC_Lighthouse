@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import styled from 'styled-components';
-import { Span, SpanClicked, EntryTitle } from './Styles.jsx';
+import { Span, SpanClicked, AnswerTitle, SubTitle, Description } from './Styles.jsx';
 
 const AnswerListEntry = ({ answer }) => {
 
@@ -14,13 +14,8 @@ const AnswerListEntry = ({ answer }) => {
     e.preventDefault();
     if (isHelpful === false) {
       setHelpfulness(helpfulness + 1);
+      setIsHelpful(true);
       axios.put('/markAnswerHelpful', { params: { answer_id: answer.answer_id } })
-        .then(() => {
-          setIsHelpful(true);
-        })
-        .then(() => {
-          alert('Answer has been marked as helpful');
-        })
         .catch((err) => {
           console.log(`error: ${err}`);
         })
@@ -43,9 +38,9 @@ const AnswerListEntry = ({ answer }) => {
 
   return (
     <>
-      <EntryTitle className="answer_title">{answer.body}</EntryTitle>
-      <p className="answer helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>} {isReported ? <SpanClicked>Reported</SpanClicked> : <Span onClick={reportClick}>Report</Span>}</p>
-      <h5>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</h5>
+      <AnswerTitle className="answer_title">{answer.body}</AnswerTitle>
+      <SubTitle className="answer helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>} {isReported ? <SpanClicked>Reported</SpanClicked> : <Span onClick={reportClick}>Report</Span>}</SubTitle>
+      <Description>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</Description>
     </>
   )
 }

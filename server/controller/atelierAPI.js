@@ -6,33 +6,33 @@ require('dotenv').config();
 let getOneProduct = (product_id) => {
   let url = `${process.env.API}products/${product_id}`
   console.log(url);
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 
 let getStyles = (product_id) => {
   let url = `${process.env.API}products/${product_id}/styles`
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 
 //==========Q&A============
 
-let getQuestions = (product_id) => {
-  let url = `${process.env.API}qa/questions?product_id=${product_id}`
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+let getQuestions = (product_id, count) => {
+  let url = `${process.env.API}qa/questions?product_id=${product_id}&page=1&count=500`
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } });
 }
 
 let getAnswers = (question_id) => {
-  let url = `${process.env.API}qa/questions/${question_id}/answers`
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+  let url = `${process.env.API}qa/questions/${question_id}/answers?page=1&count=500`
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 
-let postQuestion = ({product_id, body, name, email}) => {
+let postQuestion = ({ product_id, body, name, email }) => {
   let url = `${process.env.API}qa/questions`
   console.log(product_id);
   return axios({
     method: 'post',
     url: url,
-    headers: {Authorization: process.env.GITHUB},
+    headers: { Authorization: process.env.GITHUB },
     data: {
       product_id: product_id,
       name: name,
@@ -42,18 +42,18 @@ let postQuestion = ({product_id, body, name, email}) => {
   })
 }
 
-let postAnswer = ({question_id, body, name, email}) => {
+let postAnswer = ({ question_id, body, name, email }) => {
   let url = `${process.env.API}qa/questions/${question_id}/answers`
   return axios({
     method: 'post',
     url: url,
-    headers: {Authorization: process.env.GITHUB},
+    headers: { Authorization: process.env.GITHUB },
     data: {
       name: name,
       body: body,
       email: email
     }
-    });
+  });
 }
 
 let markQAsHelpful = (question_id) => {
@@ -61,7 +61,7 @@ let markQAsHelpful = (question_id) => {
   return axios({
     method: 'put',
     url: url,
-    headers: {Authorization: process.env.GITHUB}
+    headers: { Authorization: process.env.GITHUB }
   });
 }
 
@@ -70,7 +70,7 @@ let markQAsReported = (question_id) => {
   return axios({
     method: 'put',
     url: url,
-    headers: {Authorization: process.env.GITHUB}
+    headers: { Authorization: process.env.GITHUB }
   });
 }
 
@@ -79,7 +79,7 @@ let markAAsHelpful = (answer_id) => {
   return axios({
     method: 'put',
     url: url,
-    headers: {Authorization: process.env.GITHUB}
+    headers: { Authorization: process.env.GITHUB }
   });
 }
 
@@ -88,7 +88,7 @@ let markAAsReported = (answer_id) => {
   return axios({
     method: 'put',
     url: url,
-    headers: {Authorization: process.env.GITHUB}
+    headers: { Authorization: process.env.GITHUB }
   });
 }
 
@@ -97,24 +97,26 @@ let markAAsReported = (answer_id) => {
 
 let getReviews = (product_id) => {
   let url = `${process.env.API}reviews/?product_id=${product_id}`;
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}});
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } });
 };
 
 let getReviewMeta = (product_id) => {
   let url = `${process.env.API}reviews/meta/?product_id=${product_id}`;
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}});
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } });
 };
 
 let postReviews = ({ product_id, rating, summary, body, recommend,
-                    name, email, photos, characteristics }) => {
+  name, email, photos, characteristics }) => {
 
   let url = `${process.env.API}reviews/`;
   return axios({
     method: 'post',
     url: url,
-    headers: {Authorization: process.env.GITHUB},
-    data: { product_id, rating, summary, body, recommend,
-            name, email, photos, characteristics }
+    headers: { Authorization: process.env.GITHUB },
+    data: {
+      product_id, rating, summary, body, recommend,
+      name, email, photos, characteristics
+    }
   });
 };
 
@@ -123,7 +125,7 @@ let putHelpfulReview = (review_id) => {
   return axios({
     method: 'put',
     url: url,
-    headers: {Authorization: process.env.GITHUB}
+    headers: { Authorization: process.env.GITHUB }
   });
 };
 
@@ -132,7 +134,7 @@ let putReportReview = (review_id) => {
   return axios({
     method: 'put',
     url: url,
-    headers: {Authorization: process.env.GITHUB}
+    headers: { Authorization: process.env.GITHUB }
   });
 };
 
@@ -140,8 +142,8 @@ let putReportReview = (review_id) => {
 
 let getRelatedProducts = (product_id) => {
   console.log('request atelierAPI for products related to:', product_id);
-  let url=`${process.env.API}products/${product_id}/related`;
-  return axios.get(url, {headers: {Authorization: process.env.GITHUB}})
+  let url = `${process.env.API}products/${product_id}/related`;
+  return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 
 module.exports = {

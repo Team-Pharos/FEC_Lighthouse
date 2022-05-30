@@ -13,17 +13,6 @@ const QuestionsView = ({ productId, productName }) => {
   const [count, setCount] = useState(2);
   const [filter, setFilter] = useState(null);
 
-  useEffect(() => {
-    axios.get('/getQuestions', { params: { product_id: productId, filter: filter } })
-      .then((questionList) => {
-        setQuestions(questionList.data.results);
-        setVisibleQuestions(questionList.data.results.slice(0, 2));
-      })
-      .catch((err) => {
-        console.log(`unable to retrieve questions ${err}`)
-      })
-  }, []);
-
   const increaseCount = (e) => {
     e.preventDefault();
     setVisibleQuestions(questions.slice(0, count + 2));
@@ -34,7 +23,7 @@ const QuestionsView = ({ productId, productName }) => {
     let oldState = visibleQuestions;
     setVisibleQuestions(oldState.push(currentQuestion));
     console.log(visibleQuestions);
-  }
+  };
 
   const searchQuestions = (query) => {
     if (query) {
@@ -50,7 +39,22 @@ const QuestionsView = ({ productId, productName }) => {
     } else {
       setVisibleQuestions(questions.slice(0, 2));
     }
+  };
+
+  const getAllQuestions = () => {
+    axios.get('/getQuestions', { params: { product_id: productId} })
+      .then((questionList) => {
+        setQuestions(questionList.data.results);
+        setVisibleQuestions(questionList.data.results.slice(0, 2));
+      })
+      .catch((err) => {
+        console.log(`unable to retrieve questions ${err}`)
+      })
   }
+
+  useEffect(() => {
+    getAllQuestions();
+  }, []);
 
   return (
     <CenterDiv>
@@ -65,7 +69,7 @@ const QuestionsView = ({ productId, productName }) => {
         </div>}
         <ClearFloat>
           <PrimaryButton onClick={() => setAddQuestion(true)}>Add A Question</PrimaryButton>
-          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} addAQuestion={addAQuestion} onClose={() => setAddQuestion(false)} />
+          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} addAQuestion={addAQuestion} getAllQuestions={getAllQuestions} onClose={() => setAddQuestion(false)} />
         </ClearFloat>
       </InnerContent>
     </CenterDiv>

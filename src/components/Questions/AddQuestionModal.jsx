@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description, TitleBackground } from './Styles.jsx';
 
-const AddQuestion = ({ productName, productId, addQuestion, onClose }) => {
+const AddQuestion = ({ productName, productId, addQuestion, getAllQuestions, onClose }) => {
 
   const [bodyInput, setBodyInput] = useState(null);
   const [nicknameInput, setNicknameInput] = useState(null);
@@ -21,6 +21,9 @@ const AddQuestion = ({ productName, productId, addQuestion, onClose }) => {
         email: emailInput
       }
     })
+      .then(() => {
+        getAllQuestions()
+      })
       .then(() => {
         alert('Question added!');
       })

@@ -57,7 +57,7 @@ const App = () => {
       {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />
-      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} />
+      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
     </>
   )
 }

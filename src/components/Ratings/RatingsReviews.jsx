@@ -59,7 +59,7 @@ const ReviewsFooter = styled.div`
     background-color: #010A26;
   `;
 
-const RatingsReviews = ({ productId, metaData, ratings }) => {
+const RatingsReviews = ({ productId, metaData, ratings, productName }) => {
 
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -82,7 +82,7 @@ const RatingsReviews = ({ productId, metaData, ratings }) => {
       <ReviewsFooter>
         <OpenAddReview value='AddReview' onClick={openModal}>Add Review</OpenAddReview>
       </ReviewsFooter>
-      {modalOpen ? <NewReviewModal closeModal={openModal}/> : <></>}
+      {modalOpen && <NewReviewModal closeModal={openModal} metaData={metaData} productId={productId} productName={productName}/>}
     </div>
   )
 }

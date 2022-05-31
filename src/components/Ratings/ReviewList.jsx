@@ -36,7 +36,10 @@ const ReviewList = ({ productId }) => {
       {/* <h3>Reviews for {productId}</h3> */}
       <form>
         <h3>Sorted by
-          <select value={sort}>
+          <select value={sort} onChange={(e) => {
+          e.preventDefault();
+          setSort(e.target.value);
+          }}>
             <option value='relevant'>Relevant</option>
             <option value='newest'>Newest</option>
             <option value='helpful'>Helpful</option>

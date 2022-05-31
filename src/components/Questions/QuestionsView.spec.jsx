@@ -1,5 +1,6 @@
 import renderer from 'react-test-renderer';
 import React, { useEffect, useState } from 'react';
+import ReactDOM from "react-dom";
 
 import QuestionsView from './QuestionsView.jsx';
 
@@ -20,4 +21,10 @@ test ('only two questions rendered on initial page load', () => {
     let productQuestions = QuestionsView(product);
     expect(productQuestions.visibleQuestions.length).toBe(2);
   }
+});
+
+it("renders Questions component without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(<QuestionsView />, div);
+  ReactDOM.unmountComponentAtNode(div);
 });

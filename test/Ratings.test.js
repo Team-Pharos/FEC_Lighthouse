@@ -1,6 +1,9 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import ReviewTile from '../src/components/Ratings/ReviewTile.jsx';
+import RatingsBreakdown from '../src/components/RatingsBreakdown.jsx';
+
+
 
 
 describe('Review Tile', () => {
@@ -18,7 +21,7 @@ describe('Review Tile', () => {
       expect(tree).toMatchInlineSnapshot(`
 Array [
   <h2>
-    Rating: 
+    Rating:
     3
   </h2>,
   <h5>

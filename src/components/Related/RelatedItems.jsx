@@ -1,40 +1,57 @@
-import React, {useState, useEffect} from "react";
-import ProductCardRI from "./ProductCardRI.jsx";
-import ComparisonModal from "./ComparisonModal.jsx";
+import React, { useState, useEffect } from "react";
+import { CenterDiv, RelatedContent, Span, QuestionScrollBar, TitleTile, SectionTitle, ProductTitle, SubTitle, Description, Button, ProductCard } from '../Questions/Styles.jsx';
+import ProductCardList from "./ProductCardList.jsx";
 import axios from 'axios';
 
-const RelatedItems = ({productId, productDetails}) => {
-  const [relatedItems, setItems] = useState([]);
-  // const relatedItemsCardList = [];
+const RelatedItems = ({ productId, productDetails, getOneProduct }) => {
+  const [relatedItemsID, setRelatedItemsID] = useState([]);
+  const [relatedItems, setRelatedItems] = useState([]);
 
+  const itemHolder = [];
 
-  // replace line 14 with this: setItems(relatedItems.data.results)
-  useEffect(() => {
-    axios.get(`/getRelatedProducts`, { params: {id: productId}})
-      // .then((relatedProducts) => (setItems(relatedProducts.data)))
-      // .then((response) => (console.log('relatedItems from API response', response.data)))
-      .then((response) => (setItems(response.data)))
-      // .then(console.log('relatedItems variable:', relatedItems))
-      .catch((error) => (
+  const getAllRelated = () => {
+    axios.get(`/getRelatedProducts`, { params: { id: productId } })
+      .then((response) => {
+        setRelatedItemsID(response.data)
+        return response.data;
+      })
+      .then((relatedIDs) => {
+        relatedIDs.map((productID) => {
+          getRelatedProducts(productID);
+        });
+      })
+      .then(() => {
+        setRelatedItems(itemHolder);
+      })
+      .catch((error) => {
         console.log(error)
-      ));
+      });
+  };
+
+
+  const getRelatedProducts = (relatedID) => {
+    return axios.get('/getOne', { params: { id: relatedID } })
+      .then((res) => {
+        itemHolder.push(res.data);
+      })
+      .catch(error => {
+        console.log('error getting product details', error);
+      });
+  }
+
+  useEffect(() => {
+    getAllRelated();
   }, []);
 
-  const [comparedItem, setCompared] = useState({id: '', details: {}});
-
-    // handler fn
-    const clickStar = (e) => {
-      console.log('Show Comparison Modal');
-      console.log('e target value:', e.target);
-    }
-
-
   return (
-    <div>
-      <h1>Related Items Carousel</h1>
-      {relatedItems.map(relatedItem => <ProductCardRI key={relatedItem} relatedItem={relatedItem} clickStar={clickStar}/>)}
-      <ComparisonModal productId={productId} productDetails={productDetails}/>
-    </div>
+    <CenterDiv>
+      <TitleTile>
+        <SectionTitle>Related Items</SectionTitle>
+      </TitleTile>
+      <RelatedContent>
+        <ProductCardList relatedItems={relatedItems} />
+      </RelatedContent>
+    </CenterDiv>
   );
 }
 

@@ -20,6 +20,13 @@ const RightCol = styled.div`
 
 const InnerContent = styled.div`
   width: 90%;
+  height: auto;
+  margin: 0 auto;
+`;
+
+const RelatedContent = styled.div`
+  width: 90%;
+  height: 200px;
   margin: 0 auto;
 `;
 
@@ -42,6 +49,14 @@ text-decoration: underline;
 const SpanClicked = styled.span`
   color: #68a69b;
   text-decoration: underline;
+`;
+
+const ProductCard = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color:#fff;
+  border: 5px solid #F26938;
+  border-radius: 5px;
 `;
 
 //----------- OverFlow Styles -----------//
@@ -162,6 +177,15 @@ const QuestionTitle = styled.h4`
   display: inline-block;
 `;
 
+const ProductTitle = styled.h4`
+color: #010a26;
+font-family: "Poppins", sans-serif;
+font-size:20px;
+font-weight:600;
+margin 0;
+display: inline-block;
+`;
+
 const AnswerTitle = styled.h4`
   color: #010a26;
   font-family: "Poppins", sans-serif;
@@ -237,6 +261,9 @@ export {
   InnerContent,
   QuestionScrollBar,
   AnswerScrollBar,
-  TitleBackground
+  TitleBackground,
+  ProductTitle,
+  ProductCard,
+  RelatedContent
 };
 

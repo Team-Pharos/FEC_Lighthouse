@@ -171,5 +171,5 @@ app.get('/getRelatedProducts', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-  console.log(`success listening to ${PORT}`);
+  console.log(`success listening to ${process.env.PORT}`);
 })

@@ -19,7 +19,6 @@ app.get('/getOne', (req, res) => {
     res.send(product.data);
   })
   .catch (err => {
-    console.log('getOne err', err);
     res.sendStatus(501);
   });
 })
@@ -172,5 +171,5 @@ app.get('/getRelatedProducts', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-  console.log('success listen to 3000');
+  console.log(`success listening to ${PORT}`);
 })

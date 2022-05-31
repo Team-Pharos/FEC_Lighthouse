@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Questions/AnswersList.jsx</title>
+    <title>Code coverage report for components/Overview/ImageModal.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Questions</a> AnswersList.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Overview</a> ImageModal.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>1/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
@@ -87,19 +87,15 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,42 +107,45 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import AnswerListEntry from './AnswerListEntry.jsx';
-import { AnswerTitle, Button, LeftCol, RightCol, AnswerScrollBar } from './Styles.jsx';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import {CloseButton} from './OverviewStyledCom.jsx';
+import {FaWindowClose} from 'react-icons/fa';
 &nbsp;
-const AnswersList = <span class="fstat-no" title="function not covered" >({</span> answers, length, allVisible, showAll }) =&gt; {
+const ImageModal = <span class="fstat-no" title="function not covered" >({</span>setExpanded, children, zoomed, setZoomed}) =&gt; {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;div&gt;
-      &lt;LeftCol&gt;&lt;AnswerTitle&gt;A:&lt;/AnswerTitle&gt;&lt;/LeftCol&gt;
-      &lt;RightCol&gt;
-        &lt;AnswerScrollBar&gt;
-          {answers.map(<span class="fstat-no" title="function not covered" >(a</span>nswer) =&gt; {
-<span class="cstat-no" title="statement not covered" >            return (</span>
-              &lt;AnswerListEntry key={answer.answer_id} answer={answer} /&gt;
-            )
-          })}
-          {length &gt; 2 &amp;&amp; (allVisible ? &lt;Button onClick={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >showAll()}</span>&gt;Collapse Answers&lt;/Button&gt; : &lt;Button onClick={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >showAll()}</span>&gt;See More Answers&lt;/Button&gt;)}
-        &lt;/AnswerScrollBar&gt;
-      &lt;/RightCol&gt;
+    &lt;div className='imageModal' onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >setExpanded(false); <span class="cstat-no" title="statement not covered" ></span>setZoomed(false);}</span>}&gt;
+      &lt;div className='imageModal-content' onClick={<span class="fstat-no" title="function not covered" >e </span>=&gt; <span class="cstat-no" title="statement not covered" >e.stopPropagation()}</span>&gt;
+        &lt;div className='imageModal-header'&gt;
+          &lt;CloseButton
+            style={{display: zoomed ? 'none' : ''}}
+            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >setExpanded(false); <span class="cstat-no" title="statement not covered" ></span>setZoomed(false);}</span>}
+          &gt;&lt;FaWindowClose /&gt;&lt;/CloseButton&gt;
+        &lt;/div&gt;
+        &lt;div className='imageModal-body'&gt;
+          {children}
+        &lt;/div&gt;
+        &lt;div className='imageModal-footer'&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   )
 }
 &nbsp;
-export default AnswersList</pre></td></tr></table></pre>
+export default ImageModal;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at Tue May 31 2022 11:25:00 GMT-0400 (Eastern Daylight Time)
-=======
                 at Tue May 31 2022 13:43:03 GMT-0400 (Eastern Daylight Time)
->>>>>>> d1476aa6d2441aaa3862084f21ba149f631038a5
             </div>
         <script src="../../prettify.js"></script>
         <script>

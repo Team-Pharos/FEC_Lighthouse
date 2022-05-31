@@ -95,7 +95,7 @@ let markAAsReported = (answer_id) => {
 //==========Reviews and Ratings Models============
 
 let getReviews = (product_id) => {
-  let url = `${process.env.API}reviews/?product_id=${product_id}`;
+  let url = `${process.env.API}reviews/?count=100&product_id=${product_id}`;
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } });
 };
 

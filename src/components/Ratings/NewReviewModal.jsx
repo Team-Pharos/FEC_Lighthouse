@@ -76,9 +76,6 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
     setCharForm({ ...charForm, [name]: Number(event.target.value) })
   }
 
-  console.log('reviewForm: ', reviewForm);
-  console.log('charForm: ', charForm);
-
   let handleSubmit = (event) => {
     event.preventDefault();
     let submittedForm = { ...reviewForm, 'characteristics': charForm };

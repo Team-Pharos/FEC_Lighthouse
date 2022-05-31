@@ -65,7 +65,7 @@ export const Arrow = styled.button`
 
 export const AddToCartButton = styled.button`
   background-color: #68a69b;
-  color: #010a26;
+  color: white;
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   padding: 1px 32px;

@@ -1,5 +1,6 @@
 import renderer from 'react-test-renderer';
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 import RatingsBreakdown from './RatingBreakdown.jsx';
@@ -822,10 +823,9 @@ describe('Review Breakdown', () => {
 describe('Review List', () => {
 
   let productId = {productId: 37313}
-  let wrapper = ReviewList;
+  let wrapper = renderer.create(<ReviewList productId={productId}/>)
 
   it('displays two tiles initially', () => {
-    wrapper(productId);
-    expect(wrapper.displayed.length).toBe(2);
+    expect(wrapper.toJSON().children.length).toEqual(2);
   })
 })

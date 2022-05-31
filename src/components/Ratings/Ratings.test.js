@@ -1,10 +1,10 @@
 import renderer from 'react-test-renderer';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ReviewTile from '../src/components/Ratings/ReviewTile.jsx';
-import RatingsBreakdown from '../src/components/Ratings/RatingBreakdown.jsx';
-
-jest.mock('axios');
+import ReviewTile from './ReviewTile.jsx';
+import RatingsBreakdown from './RatingBreakdown.jsx';
+import ReviewList from './ReviewList.jsx';
+import RatingsReviews from './RatingsReviews.jsx';
 
 
 describe('Review Tile', () => {
@@ -819,3 +819,13 @@ describe('Review Breakdown', () => {
   });
 });
 
+describe('Review List', () => {
+
+  let productId = {productId: 37313}
+  let wrapper = ReviewList;
+
+  it('displays two tiles initially', () => {
+    wrapper(productId);
+    expect(wrapper.displayed.length).toBe(2);
+  })
+})

@@ -67,6 +67,7 @@ const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
       <br />
       <br />
       <AddToCartButton
+        data-tested='addToCartButton'
         onClick={addToBagHandler}
         disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
       >ADD TO BAG</AddToCartButton>

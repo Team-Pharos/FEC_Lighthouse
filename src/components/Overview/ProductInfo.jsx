@@ -42,13 +42,13 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
 
     <h3>{productDetails.category}</h3>
 
-    <h2>{productDetails.name}</h2>
+    <h1 style={{color: '#68a69b'}}>{productDetails.name}</h1>
     {currentStyle
     ? <span style={{textDecoration: currentStyle.sale_price ? 'line-through' : ''}}>${currentStyle.original_price}</span>
     : <></>}
     {' '}
     {currentStyle && currentStyle.sale_price
-    ? <span style={{color: 'red'}}>&nbsp;&nbsp;&nbsp;${currentStyle.sale_price}</span>
+    ? <span style={{color: '#f26938', fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;${currentStyle.sale_price}</span>
     : <></>}
   </div>
   )

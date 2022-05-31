@@ -17,6 +17,7 @@ const App = () => {
   const [metaData, setMetaData] = useState({});
   const [ratings, setRatings] = useState({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
   const [numOfReviews, setNumOfReviews] = useState(0);
+  const [quantityInCart, setQuantityInCart] = useState(0)
 
 
   const getOneProduct = (productId) => {
@@ -51,8 +52,8 @@ const App = () => {
   return (
     // return all 4 widgets
     <>
-      <Heading />
-      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} />
+      <Heading quantityInCart={quantityInCart}/>
+      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart}/>
       {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />

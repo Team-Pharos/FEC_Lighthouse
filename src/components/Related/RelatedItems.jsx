@@ -5,42 +5,17 @@ import axios from 'axios';
 
 const RelatedItems = ({ productId, productDetails, getOneProduct }) => {
   const [relatedItemsID, setRelatedItemsID] = useState([]);
-  const [relatedItems, setRelatedItems] = useState([]);
-
-  const itemHolder = [];
-
-  const getAllRelated = () => {
-    axios.get(`/getRelatedProducts`, { params: { id: productId } })
-      .then((response) => {
-        setRelatedItemsID(response.data)
-        return response.data;
-      })
-      .then((relatedIDs) => {
-        relatedIDs.map((productID) => {
-          getRelatedProducts(productID);
-        });
-      })
-      .then(() => {
-        setRelatedItems(itemHolder);
-      })
-      .catch((error) => {
-        console.log(error)
-      });
-  };
-
-
-  const getRelatedProducts = (relatedID) => {
-    return axios.get('/getOne', { params: { id: relatedID } })
-      .then((res) => {
-        itemHolder.push(res.data);
-      })
-      .catch(error => {
-        console.log('error getting product details', error);
-      });
-  }
 
   useEffect(() => {
-    getAllRelated();
+    const getAllRelated = () => {
+      axios.get(`/getRelatedProducts`, { params: { id: productId } })
+        .then((response) => {
+          setRelatedItemsID(response.data);
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    };
   }, []);
 
   return (
@@ -49,7 +24,7 @@ const RelatedItems = ({ productId, productDetails, getOneProduct }) => {
         <SectionTitle>Related Items</SectionTitle>
       </TitleTile>
       <RelatedContent>
-        <ProductCardList relatedItems={relatedItems} />
+        <ProductCardList relatedIDs={relatedItemsID} />
       </RelatedContent>
     </CenterDiv>
   );

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import { RelatedList, ProductTitle, SubTitle, Description, Button, ProductCard } from '../Questions/Styles.jsx';
 import ProductCardEntry from './ProductCardEntry.jsx';
-import { CenterDiv, RelatedContent, Span, QuestionScrollBar, TitleTile, SectionTitle, ProductTitle, SubTitle, Description, Button, ProductCard } from '../Questions/Styles.jsx';
+import axios from 'axios';
 
-const ProductCardList = ({ relatedItems }) => {
+const ProductCardList = ({ relatedIDs }) => {
+
+  console.log(relatedIDs);
 
   return (
-    <>
-      {relatedItems.map((relatedItem) => {
-        <ProductCardEntry key={relatedItem.id} relatedItem={relatedItem}></ProductCardEntry>
+    <RelatedList>
+      {relatedIDs.map((relatedID) => {
+        console.log(relatedID);
+        <ProductCardEntry key={relatedID} relatedID={relatedID}></ProductCardEntry>
       })}
-    </>
+    </RelatedList>
   );
 }
 

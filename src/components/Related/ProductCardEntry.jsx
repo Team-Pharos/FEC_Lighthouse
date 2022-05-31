@@ -1,19 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CenterDiv, RelatedContent, Span, QuestionScrollBar, TitleTile, SectionTitle, ProductTitle, SubTitle, Description, Button, ProductCard } from '../Questions/Styles.jsx';
+import { ProductTitle, SubTitle, Description, Button, ProductCard } from '../Questions/Styles.jsx';
 
-const ProductCardEntry = ({ relatedItem }) => {
+const ProductCardEntry = ({ relatedID }) => {
 
-  return (
+  console.log(relatedID);
 
-    <ProductCard className="product-card-ri">
-      <div>
-        <div><Button className="star">⭐️</Button></div>
-        <ProductTitle className="center-text">{relatedItem.name}</ProductTitle>
-        <SubTitle className="center-text">{relatedItem}</SubTitle>
-      </div>
-    </ProductCard>
-  );
+  // const [item, setItem] = useState({})
+
+  // const getRelatedProduct = (relatedID) => {
+  //   return axios.get('/getOne', { params: { id: relatedID } })
+  //     .then((res) => {
+  //       setItem(res.data);
+  //     })
+  //     .catch(error => {
+  //       console.log('error getting product details', error);
+  //     });
+  // }
+
+  // return (
+
+  //   <ProductCard>
+
+  //     <Button>⭐️</Button>
+  //     <ProductTitle>{item.name}</ProductTitle>
+  //     {/* <SubTitle>{item}</SubTitle> */}
+
+  //   </ProductCard>
+  // );
 }
 
 export default ProductCardEntry;

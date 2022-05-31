@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { CompanyHeading, InnerDiv, CompanyTitle, CompanyLogo } from '../../styles/SiteStyles.jsx';
 import Overview from './Overview/Overview.jsx';
 import QuestionsView from './Questions/QuestionsView.jsx';
 import RelatedItems from './Related/RelatedItems.jsx';
 import YourOutfit from './Related/YourOutfit.jsx';
 import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
+import IndexStyles from './../../styles/index.css';
+import Heading from './Heading.jsx';
 
 
 const App = () => {
@@ -50,11 +51,7 @@ const App = () => {
   return (
     // return all 4 widgets
     <>
-      <CompanyHeading>
-        <InnerDiv>
-          <CompanyTitle>Pharos</CompanyTitle>
-        </InnerDiv>
-      </CompanyHeading>
+      <Heading />
       <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} />
       {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}

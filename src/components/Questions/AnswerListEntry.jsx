@@ -40,7 +40,7 @@ const AnswerListEntry = ({ answer }) => {
     <>
       <AnswerTitle className="answer_title">{answer.body}</AnswerTitle>
       <SubTitle className="answer helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>} {isReported ? <SpanClicked>Reported</SpanClicked> : <Span onClick={reportClick}>Report</Span>}</SubTitle>
-      <Description>{`by: ${answer.answerer_name} ${moment(answer.date).format('MMMM DD, YYYY')}`}</Description>
+      <Description>by: {answer.answerer_name === "Seller" ? <b>{answer.answerer_name}</b> : <span>{answer.answerer_name}</span>} <span>{moment(answer.date).format('MMMM DD, YYYY')}</span></Description>
     </>
   )
 }

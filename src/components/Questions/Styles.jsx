@@ -96,7 +96,7 @@ const OuterModal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  z-index: 11;
 `;
 
 const InnerModal = styled.div`

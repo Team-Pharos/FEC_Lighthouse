@@ -1,11 +1,23 @@
+import renderer from 'react-test-renderer';
 import React, { useEffect, useState } from 'react';
+
 import QuestionsView from './QuestionsView.jsx';
 
-console.log(JSON.stringify(QuestionsView));
+const product = {
+  productId: 37311,
+  productName: "Camo Onesie"
+};
 
-QuestionsView.setQuestions = [{product_id: '456'}];
+test ('returns array filled with questions related to product', () => {
+  function updateQuestions () {
+    let productQuestions = QuestionsView(product);
+    expect(productQuestions.questions.length).toBe(80);
+  }
+});
 
-test('setQuestions sets questions state to new object', () => {
-  expect(QuestionsView.questions).toBe('456');
-})
-
+test ('only two questions rendered on initial page load', () => {
+  function updateQuestions () {
+    let productQuestions = QuestionsView(product);
+    expect(productQuestions.visibleQuestions.length).toBe(2);
+  }
+});

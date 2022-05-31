@@ -50,10 +50,10 @@ const QuestionsView = ({ productId, productName }) => {
       .catch((err) => {
         console.log(`unable to retrieve questions ${err}`)
       })
-  }
+    }
 
-  useEffect(() => {
-    getAllQuestions();
+    useEffect(() => {
+      getAllQuestions();
   }, []);
 
   return (

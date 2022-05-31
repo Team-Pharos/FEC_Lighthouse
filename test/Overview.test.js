@@ -12,6 +12,5 @@ const setCurrentStyle = () => {}
 
 it("render styleSelector with StyleSelector className", () => {
   const styleSelector = renderer.create(<StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>)
-
   expect(styleSelector.toJSON().props.className).toEqual('StyleSelector');
 });

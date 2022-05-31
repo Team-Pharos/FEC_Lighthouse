@@ -88,7 +88,6 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;;
@@ -199,4 +198,24 @@
 
 .reactIcon:hover {
   transform: scale(1.5);
+}
+
+.shoppingCart {
+  font-size: 40px;
+  height: 100%;
+  float: right;
+  position: relative;
+  color: #010a26;
+}
+
+.shoppingCartNum {
+  font-size: 20px;
+  font-family: "Akshar", sans-serif;
+  left: 45%;
+  top: 37%;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
 }

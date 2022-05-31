@@ -8,6 +8,9 @@ import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
+  // console.log({metaData});
+  // console.log({ratings});
+
   let characteristics = metaData.characteristics;
   if (characteristics !== undefined) {
     var fit = characteristics.Fit || '';

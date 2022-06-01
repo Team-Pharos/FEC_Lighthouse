@@ -114,7 +114,7 @@ it('renders submit question list without crashing', () => {
 
 it('renders submit question list without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.createRoot(<SearchBar/>, div);
+  ReactDOM.render(<SearchBar/>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 

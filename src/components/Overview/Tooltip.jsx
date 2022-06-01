@@ -19,13 +19,16 @@ export const Tooltip = (props) => {
 
   return (
     <div
+      data-testid='testTooltip'
       className='Tooltip-Wrapper'
       onMouseEnter={showTip}
       onMouseLeave={hideTip}
     >
       {props.children}
       {active && (
-        <div className='Tooltip-Tip right'>
+        <div
+          data-testid='testTooltipContent'
+          className='Tooltip-Tip right'>
           {props.content}
         </div>
       )}

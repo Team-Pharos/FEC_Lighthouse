@@ -2,11 +2,12 @@ import renderer from 'react-test-renderer';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { render } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import ReviewTile from './ReviewTile.jsx';
 import RatingsBreakdown from './RatingBreakdown.jsx';
 import ReviewList from './ReviewList.jsx';
 import RatingsReviews from './RatingsReviews.jsx';
+import AddStarRating from './AddStarRating.jsx';
 
 
 describe('Review Tile', () => {
@@ -14,7 +15,8 @@ describe('Review Tile', () => {
     let review = {
       review_id: 12345,
       rating: 3,
-      body: 'This was great!',
+      summary: 'AWESOME',
+      body: `This was great! I'm going to type even more because I want this to try to activate the truncBody conditional rendering so that more test points are covered. If that if Statement can be hit it would help immensely. Hopefully this is enough to hit that mark.`,
       photos: ['http://imgur/img/183y58']
     }
 
@@ -96,17 +98,21 @@ describe('Review Tile', () => {
     className="sc-bczRLJ fFnuja"
   >
     <span />
-
-
+     
+     
     May 31, 2022
   </span>
   <div>
-    <h4 />
+    <h4>
+      AWESOME
+    </h4>
   </div>
   <div>
-    <div>
+    <div
+      className="sc-dkzDqf jeFvdf"
+    >
       <p>
-        This was great!
+        This was great! I'm going to type even more because I want this to try to activate the truncBody conditional rendering so that more test points are covered. If that if Statement can be hit it would help immensely. Hopefully this is enough to hit that mark.
       </p>
     </div>
   </div>
@@ -117,7 +123,7 @@ describe('Review Tile', () => {
   <span
     onClick={[Function]}
   >
-    Helpful?
+    Helpful? 
     0
   </span>
   <span
@@ -201,9 +207,9 @@ describe('Review Breakdown', () => {
   className="sc-eCYdqJ jWlxCE"
 >
   <h2>
-
+     
     4.1
-
+     
   </h2>
   <div
     className="sc-ftvSup kslLaj"
@@ -795,25 +801,25 @@ describe('Review Breakdown', () => {
   </div>
   <div>
     <span>
-      Fit:
+      Fit: 
       2.4
     </span>
   </div>
   <div>
     <span>
-      Length:
+      Length: 
       2.8
     </span>
   </div>
   <div>
     <span>
-      Comfort:
+      Comfort: 
       2.8
     </span>
   </div>
   <div>
     <span>
-      Quality:
+      Quality: 
       3.4
     </span>
   </div>
@@ -870,12 +876,38 @@ describe('Ratings Reviews', () => {
   }
 
   it('renders ReviewRatings without crashing', () => {
-    let div = document.createElement('div')
+    let div = document.createElement('div');
     ReactDOM.render(
-    <RatingsReviews
-    productId={productId}
-    productName={productName}
-    metaData={metaData}
-    ratings={metaData.ratings} />, div);
+      <RatingsReviews
+        productId={productId}
+        productName={productName}
+        metaData={metaData}
+        ratings={metaData.ratings} />, div);
+  });
+
+  it('Sets modalOpen to true', () => {
+    render(<RatingsReviews
+      productId={productId}
+      productName={productName}
+      metaData={metaData}
+      ratings={metaData.ratings} />)
+
+      fireEvent.click(screen.getByText('Add Review'));
+
+      let modal = RatingsReviews.toJSON().modalOpen;
+      expect(modal).toBe(true);
+  })
+});
+
+
+describe('AddStarRating', () => {
+  let rating = 0;
+  let transferRating = (newRating) => { rating = newRating };
+
+  it('renders AddStarRating without crashing', () => {
+    let div = document.createElement('div');
+    ReactDOM.render(
+      <AddStarRating transferRating={transferRating}/>, div
+    )
   });
 });

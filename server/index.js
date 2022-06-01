@@ -121,7 +121,7 @@ app.put('/reportAnswer', (req, res) => {
 //=======Ratings Reviews========
 
 app.get('/getReviews', (req, res) => {
-  getReviews(req.query.id)
+  getReviews(req.query.id, req.query.sort)
     .then((relevantReviews) => {
       res.send(relevantReviews.data);
     })

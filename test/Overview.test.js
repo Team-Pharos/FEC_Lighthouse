@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import { render, cleanup, fireEvent, screen } from '@testing-library/react';
+import 'regenerator-runtime/runtime';
 import StyleSelector from './../src/components/Overview/StyleSelector';
 import {AddToCartButton, Img} from './../src/components/Overview/OverviewStyledCom'
 import {Tooltip} from './../src/components/Overview/Tooltip';
@@ -15,13 +16,14 @@ import Features from './../src/components/Overview/Features';
 import ImageModal from './../src/components/Overview/ImageModal';
 
 
+
 afterEach(cleanup);
 
 it("render styleSelector with StyleSelector className", () => {
   const currentStyle = {
     name: "modern"
   };
-  const styles = [];
+  const styles = [{style_id: 1, photos: [{thumbnail_url: 'https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg'}]}];
   const setCurrentStyle = () => {}
   const styleSelector = renderer.create(<StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>)
   expect(styleSelector.toJSON().props.className).toEqual('StyleSelector');
@@ -43,15 +45,12 @@ it('Tooltip renders without crashing', () => {
   })
 })
 
-test('Click social media icone', () => {
-  const setExpanded = jest.fn();
-  const children = <h1>testing</h1>;
-  const zoomed = false;
-  const setZoomed = () => {};
-  render(<ImageModal setExpanded={setExpanded} children={children} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
-  fireEvent.click(screen.getByTestId('testImageModal'))
-  expect(setExpanded).toHaveBeenCalledTimes(1);
-})
+// test('show the content on mouseEnter', async () => {
+//   const MouseHandle = jest.fn();
+//   render(<Tooltip/>)
+//   fireEvent.mouseEnter(screen.getByTestId('testTooltip'))
+//   await expect(screen.getByTestId('testTooltipContent')).toBeInTheDocument();
+// })
 
 
 it("render ProductInfo correctly", () => {
@@ -124,6 +123,39 @@ it("render ImageCarousel correctly", () => {
   const zoomed = false;
   const ImageCarouselInstance = renderer.create(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} setZoomed={setZoomed} expanded={expanded} zoomed={zoomed}/>)
   expect(ImageCarouselInstance.toJSON().props.className).toEqual('ImageCarousel');
+});
+
+it("setZoomed been called when image is zoomed", () => {
+  const currentStyle = {photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }]};
+  const setExpanded = jest.fn();
+  const setZoomed = jest.fn();
+  const expanded = true;
+  const zoomed = true;
+  render(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
+  fireEvent.click(screen.getByTestId('testImage'))
+  expect(setZoomed).toHaveBeenCalledTimes(1);
+});
+
+it("setZoomed been called when image is expanded", () => {
+  const currentStyle = {photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }]};
+  const setExpanded = jest.fn();
+  const setZoomed = jest.fn();
+  const expanded = true;
+  const zoomed = false;
+  render(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
+  fireEvent.click(screen.getByTestId('testImage'))
+  expect(setZoomed).toHaveBeenCalledTimes(1);
+});
+
+it("setExpanded been called when image is not expanded", () => {
+  const currentStyle = {photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }]};
+  const setExpanded = jest.fn();
+  const setZoomed = jest.fn();
+  const expanded = false;
+  const zoomed = false;
+  render(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
+  fireEvent.click(screen.getByTestId('testImage'))
+  expect(setExpanded).toHaveBeenCalledTimes(1);
 });
 
 

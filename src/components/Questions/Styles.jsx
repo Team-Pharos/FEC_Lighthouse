@@ -30,7 +30,7 @@ const ClearFloat = styled.div`
 `;
 
 const Span = styled.span`
-color: #f26938;
+color: #ab4a27;
 text-decoration: underline;
 
 &:hover {
@@ -207,8 +207,9 @@ const Button = styled.button`
   background-color: #68a69b;
   color: #010a26;
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 5px;
+  border: 2px solid #010a26;
   margin: 5px;
 `;
 

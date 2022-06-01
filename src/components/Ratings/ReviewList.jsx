@@ -16,12 +16,16 @@ const ReviewList = ({ productId }) => {
   const [askToShowMore, setShowMoreVisibility] = useState(true);
   const [sort, setSort] = useState('relevant');
 
+  let updateList = (data) => {
+    setReviews(data.results);
+    setDisplayed((data.results.slice(0, 2)));
+  }
+
   //state population
   useEffect(() => {
     axios.get('/getReviews', { params: { id: productId } })
       .then((reviews) => {
-        setReviews(reviews.data.results);
-        setDisplayed(reviews.data.results.slice(0, 2));
+        updateList(reviews.data)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -31,6 +35,12 @@ const ReviewList = ({ productId }) => {
     setDisplayed(reviews.slice(0, displayed.length + 2));
   };
 
+  let reSort = (sortType) => {
+    axios.get('/getReviews', {params: { id: productId, sort: sortType}})
+      .then((reviews) => {updateList(reviews.data)})
+      .catch((err) => console.log(err));
+  }
+
   return (
     <List>
       {/* <h3>Reviews for {productId}</h3> */}
@@ -39,6 +49,7 @@ const ReviewList = ({ productId }) => {
           <select value={sort} onChange={(e) => {
           e.preventDefault();
           setSort(e.target.value);
+          reSort(e.target.value);
           }}>
             <option value='relevant'>Relevant</option>
             <option value='newest'>Newest</option>

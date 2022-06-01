@@ -14,6 +14,7 @@ import ProductOverview from './../src/components/Overview/ProductOverview';
 import ImageCarousel from './../src/components/Overview/ImageCarousel';
 import Features from './../src/components/Overview/Features';
 import ImageModal from './../src/components/Overview/ImageModal';
+import ImageGallery from './../src/components/Overview/ImageGallery';
 
 
 
@@ -23,6 +24,14 @@ it("render styleSelector with StyleSelector className", () => {
   const currentStyle = {
     name: "modern"
   };
+  const styles = [{style_id: 1, photos: [{thumbnail_url: 'https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg'}]}];
+  const setCurrentStyle = () => {}
+  const styleSelector = renderer.create(<StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>)
+  expect(styleSelector.toJSON().props.className).toEqual('StyleSelector');
+});
+
+it("render styleSelector with StyleSelector className", () => {
+  const currentStyle = undefined;
   const styles = [{style_id: 1, photos: [{thumbnail_url: 'https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg'}]}];
   const setCurrentStyle = () => {}
   const styleSelector = renderer.create(<StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>)
@@ -44,14 +53,6 @@ it('Tooltip renders without crashing', () => {
     root.render(<Tooltip />)
   })
 })
-
-// test('show the content on mouseEnter', async () => {
-//   const MouseHandle = jest.fn();
-//   render(<Tooltip/>)
-//   fireEvent.mouseEnter(screen.getByTestId('testTooltip'))
-//   await expect(screen.getByTestId('testTooltipContent')).toBeInTheDocument();
-// })
-
 
 it("render ProductInfo correctly", () => {
   const productDetails = {
@@ -184,4 +185,16 @@ it("render Features correctly", () => {
   };
   const FeaturesInstance = renderer.create(<Features productDetails={productDetails} />)
   expect(FeaturesInstance.toJSON().children[0].children[0].includes('testValue')).toEqual(true);
+});
+
+it("render ImageGallery correctly", () => {
+  const currentStyle = {
+    style_id: 221008,
+    name: 'Black',
+    original_price: '40.00',
+    photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }],
+    skus: {1: {quantity: 1, }}
+  };
+  const ImageGalleryInstance = renderer.create(<ImageGallery currentStyle={currentStyle} />)
+  expect(ImageGalleryInstance.toJSON().props.className).toEqual('ImageGallery');
 });

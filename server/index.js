@@ -19,7 +19,6 @@ app.get('/getOne', (req, res) => {
     res.send(product.data);
   })
   .catch (err => {
-    console.log('getOne err', err);
     res.sendStatus(501);
   });
 })
@@ -142,8 +141,10 @@ app.get('/getReviewMeta', (req, res) => {
 });
 
 app.post('/postReviews', (req, res) => {
-  postReviews(req.query)
-  .then((response) => console.log(response))
+  postReviews(req.body)
+  .then((response) => {
+    res.sendStatus(201);
+  })
   .catch(err => console.log(err));
 });
 
@@ -172,5 +173,5 @@ app.get('/getRelatedProducts', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-  console.log('success listen to 3000');
+  console.log(`success listening to ${process.env.PORT}`);
 })

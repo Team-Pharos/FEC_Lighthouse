@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import {AddToCartButton} from './OverviewStyledCom.jsx';
 
-const AddToCart = ({currentStyle}) => {
+const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
   const [sizeSelected, setSizeSelector] = useState('default');
   const [quantitySelected, setQuantitySelector] = useState('1');
   const [starClicked, setStarClicked] = useState(false);
@@ -22,12 +22,14 @@ const AddToCart = ({currentStyle}) => {
       inputElement.current.click();
     } else {
       alert(`${quantitySelected} ${currentStyle.name} Add to Shopping Cart!`);
+      setQuantityInCart(Number(quantityInCart) + Number(quantitySelected));
     }
   }
 
   return (
     <div className='AddToCart' >
-      <p style={{display: (sizeSelected !== 'none') ? 'none' : '', color: 'red'}}>Please Select Size</p>
+      <p style={{display: (sizeSelected !== 'none') ? 'none' : '', color: '#f26938', fontWeight: 'bold'}}
+      >Please Select Size</p>
       <select
         onClick={() => {}}
         id='sizeSelector'
@@ -65,6 +67,7 @@ const AddToCart = ({currentStyle}) => {
       <br />
       <br />
       <AddToCartButton
+        data-tested='addToCartButton'
         onClick={addToBagHandler}
         disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
       >ADD TO BAG</AddToCartButton>

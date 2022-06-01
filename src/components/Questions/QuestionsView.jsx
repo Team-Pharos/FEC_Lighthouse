@@ -20,9 +20,7 @@ const QuestionsView = ({ productId, productName }) => {
   };
 
   const addAQuestion = (currentQuestion) => {
-    let oldState = visibleQuestions;
     setVisibleQuestions(oldState.push(currentQuestion));
-    console.log(visibleQuestions);
   };
 
   const searchQuestions = (query) => {
@@ -50,10 +48,10 @@ const QuestionsView = ({ productId, productName }) => {
       .catch((err) => {
         console.log(`unable to retrieve questions ${err}`)
       })
-  }
+    }
 
-  useEffect(() => {
-    getAllQuestions();
+    useEffect(() => {
+      getAllQuestions();
   }, []);
 
   return (

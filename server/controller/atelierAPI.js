@@ -5,7 +5,6 @@ require('dotenv').config();
 
 let getOneProduct = (product_id) => {
   let url = `${process.env.API}products/${product_id}`
-  console.log(url);
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }
 
@@ -95,7 +94,7 @@ let markAAsReported = (answer_id) => {
 //==========Reviews and Ratings Models============
 
 let getReviews = (product_id) => {
-  let url = `${process.env.API}reviews/?product_id=${product_id}`;
+  let url = `${process.env.API}reviews/?count=100&product_id=${product_id}`;
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } });
 };
 
@@ -140,7 +139,6 @@ let putReportReview = (review_id) => {
 //==========Related Products============
 
 let getRelatedProducts = (product_id) => {
-  console.log('request atelierAPI for products related to:', product_id);
   let url = `${process.env.API}products/${product_id}/related`;
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 }

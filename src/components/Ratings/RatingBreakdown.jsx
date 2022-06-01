@@ -8,6 +8,9 @@ import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
+  // console.log({metaData});
+  // console.log({ratings});
+
   let characteristics = metaData.characteristics;
   if (characteristics !== undefined) {
     var fit = characteristics.Fit || '';
@@ -19,11 +22,11 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
   let charBreakdown = (
     characteristics !== undefined ?
       <>
-        {!!fit ? <div><span>Fit: {Number(fit.value).toFixed(1)}</span></div> : <span />}
-        {!!width ? <div><span>Width: {Number(width.value).toFixed(1)}</span></div> : <span />}
-        {!!length ? <div><span>Length: {Number(length.value).toFixed(1)}</span></div> : <length />}
-        {!!comfort ? <div><span>Comfort: {Number(comfort.value).toFixed(1)}</span></div> : <span />}
-        {!!quality ? <div><span>Quality: {Number(quality.value).toFixed(1)}</span></div> : <span />}
+        {!!fit && <div><span>Fit: {Number(fit.value).toFixed(1)}</span></div>}
+        {!!width && <div><span>Width: {Number(width.value).toFixed(1)}</span></div>}
+        {!!length && <div><span>Length: {Number(length.value).toFixed(1)}</span></div>}
+        {!!comfort && <div><span>Comfort: {Number(comfort.value).toFixed(1)}</span></div>}
+        {!!quality && <div><span>Quality: {Number(quality.value).toFixed(1)}</span></div>}
       </> :
       <></>
   );

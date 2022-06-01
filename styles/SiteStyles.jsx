@@ -29,8 +29,8 @@ const CompanyTitle = styled.h1`
   margin: 5px auto;
 `;
 
-const CompanyLogo = styled.img`
-  padding: 5px;
+const CompanyLogo = styled.div`
+  background-image: url("/lighthouse.png")
   height: 100%;
   vertical-align: center;
   float: left;

@@ -28,7 +28,7 @@ const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
 
   return (
     <div className='AddToCart' >
-      <p style={{display: (sizeSelected !== 'none') ? 'none' : '', color: '#f26938', fontWeight: 'bold'}}
+      <p style={{display: (sizeSelected !== 'none') ? 'none' : '', color: '#AB4A27', fontWeight: 'bold'}}
       >Please Select Size</p>
       <select
         onClick={() => {}}
@@ -72,7 +72,10 @@ const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
         disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
       >ADD TO BAG</AddToCartButton>
       {' '}
-      <button onClick={() => {setStarClicked(pre => {return !pre})}}>{starClicked ? <FaStar /> : <FaRegStar /> }</button>
+      <button
+        onClick={() => {setStarClicked(pre => {return !pre})}}
+        aria-label='saveButton'
+      >{starClicked ? <FaStar /> : <FaRegStar /> }</button>
     </div>
   )
 }

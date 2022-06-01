@@ -1,0 +1,221 @@
+.OverView {
+  width: 80%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 65% 5% 30%;
+  grid-template-rows: auto auto auto auto;
+  align-items: "center";
+  justify-content: "center";
+}
+
+.ImageGallery {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.ImageCarousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProductionInfo {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-family: "Akshar", sans-serif;
+}
+
+.StyleSelector {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-family: "Poppins", sans-serif;
+  font-weight:400;
+}
+
+.styleSelectorImg {
+  position: relative;
+}
+
+.checkMark {
+  position: absolute;
+  right: 10%;
+  z-index: 10;
+}
+
+.AddToCart {
+  grid-column-start: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.ProductOverview {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  text-align: center;
+  border-right: dotted gray 6px;
+  font-family: "Poppins", sans-serif;
+}
+
+.Features {
+  grid-column-start: 3;
+  grid-row-start: 4;
+  font-family: "Poppins", sans-serif;
+}
+
+.thumbnail {
+  position: absolute;
+  z-index: 10;
+  top: 10%;
+  left: 5%;
+}
+
+.ExpThumbnail {
+  position: absolute;
+  left:-20%;
+  top: 10%;
+  z-index: 10;
+}
+
+.imageModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+  z-index: 20;
+}
+
+.imageModal-content {
+  width: 100%;
+  height: 100%;
+  background-color: darkgray;
+}
+
+.imageModal-header {
+  position: relative;
+}
+
+.imageModal-body {
+  text-align: center;
+}
+
+.gallery {
+  position: relative;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+}
+
+.rightArrowExp {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+}
+
+.leftArrowExp {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+}
+
+.Tooltip-Wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.Tooltip-Tip {
+  position: absolute;
+  border-radius: 4px;
+  border-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px;
+  color: black;
+  background: white;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.Tooltip-Wrapper :hover {
+  cursor: pointer;
+}
+
+.Tooltip-Tip::before {
+  content: " ";
+  left: 50%;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.Tooltip-Tip.right {
+  border: solid black;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+}
+
+.Tooltip-Tip.right:hover {
+  cursor: pointer;
+}
+
+.Tooltip-Tip.right::before {
+  left: -6px;
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  border-right-color: black;
+}
+
+.linkToReviews:visited {
+  color: black;
+}
+
+.linkToReviews {
+  color: black;
+}
+
+.reactIcon:hover {
+  transform: scale(1.5);
+}
+
+.shoppingCart {
+  font-size: 40px;
+  height: 100%;
+  float: right;
+  position: relative;
+  color: #010a26;
+}
+
+.shoppingCartNum {
+  font-size: 20px;
+  font-family: "Akshar", sans-serif;
+  left: 45%;
+  top: 37%;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+}

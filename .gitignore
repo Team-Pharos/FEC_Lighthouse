@@ -1,1 +1,8 @@
 node_modules
+.env
+bundle.js
+.DS_Store
+node_modules
+package-lock.json
+coverage
+*.pem

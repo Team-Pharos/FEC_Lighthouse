@@ -20,9 +20,7 @@ const QuestionsView = ({ productId, productName }) => {
   };
 
   const addAQuestion = (currentQuestion) => {
-    let oldState = visibleQuestions;
     setVisibleQuestions(oldState.push(currentQuestion));
-    console.log(visibleQuestions);
   };
 
   const searchQuestions = (query) => {

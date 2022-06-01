@@ -48,6 +48,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
       {/* up and down */}
     <div className={expanded ? 'ExpThumbnail' : 'thumbnail'}>
       <Arrow
+        aria-label='upArrow'
         className={zoomed ? 'ZoomArrow' : 'upArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}
         onClick={() => {setImage(imageInd - 1)}}
@@ -60,6 +61,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
             key={img}
             style={{display: (i > imageInd + 6 || (i < imageInd && i < miniUrlArr.length - 7))? 'none' : ''}}>
             <ImgMini
+              alt='product thumbnail image'
               className={zoomed ? 'ZoomImgMini' : expanded ? 'ExpImgMini' : ''}
               src={img}
               style={{
@@ -71,6 +73,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
       })}
 
       <Arrow
+        aria-label='downArrow'
         className={zoomed ? 'ZoomArrow' : 'downArrow'}
         style={{visibility: imageInd < miniUrlArr.length - 1 ? 'visible' : 'hidden' }}
         onClick={() => {setImage(imageInd + 1)}}
@@ -78,12 +81,15 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
     </div>
 
       <Arrow
+        aria-label='LeftArrow'
         className={zoomed ? 'ZoomArrow' : expanded ? 'leftArrowExp' : 'leftArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}
         onClick={() => {setImage(imageInd - 1)}}
       ><FaAngleLeft /></Arrow>
 
       <Img
+        data-testid='testImage'
+        alt='product image'
         className={zoomed ? 'ZoomImg' : expanded ? 'ExpImg' : ''}
         src={urlArr[imageInd]}
         onClick={() => {
@@ -103,6 +109,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
         }}
       />
       <Arrow
+        aria-label='rightArrow'
         className={zoomed ? 'ZoomArrow' : expanded ? 'rightArrowExp' : 'rightArrow'}
         style={{visibility: imageInd < urlArr.length - 1 ? 'visible' : 'hidden' }}
         onClick={() => {setImage(imageInd + 1)}}

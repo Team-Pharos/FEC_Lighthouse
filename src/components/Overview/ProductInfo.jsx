@@ -48,7 +48,7 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
     : <></>}
     {' '}
     {currentStyle && currentStyle.sale_price
-    ? <span style={{color: '#f26938', fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;${currentStyle.sale_price}</span>
+    ? <span style={{color: '#AB4A27', fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;${currentStyle.sale_price}</span>
     : <></>}
   </div>
   )

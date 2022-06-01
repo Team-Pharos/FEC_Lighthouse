@@ -17,6 +17,7 @@ const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
         {i % 4 === 0 && i !== 0 ? <br/> : ' '}
         <span className='styleSelectorImg'>
           <StyleImg
+            alt='image for different styles'
             src={style.photos[0].thumbnail_url}
             name={i}
             onClick={e => {setCurrentStyle(styles[e.target.name])}}

@@ -142,7 +142,9 @@ app.get('/getReviewMeta', (req, res) => {
 
 app.post('/postReviews', (req, res) => {
   postReviews(req.body)
-  .then((response) => console.log(response.statusMessage))
+  .then((response) => {
+    res.sendStatus(201);
+  })
   .catch(err => console.log(err));
 });
 

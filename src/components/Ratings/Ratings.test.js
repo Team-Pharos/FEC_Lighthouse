@@ -1,10 +1,12 @@
 import renderer from 'react-test-renderer';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
-import ReviewTile from '../src/components/Ratings/ReviewTile.jsx';
-import RatingsBreakdown from '../src/components/Ratings/RatingBreakdown.jsx';
-
-jest.mock('axios');
+import { render } from '@testing-library/react';
+import ReviewTile from './ReviewTile.jsx';
+import RatingsBreakdown from './RatingBreakdown.jsx';
+import ReviewList from './ReviewList.jsx';
+import RatingsReviews from './RatingsReviews.jsx';
 
 
 describe('Review Tile', () => {
@@ -94,8 +96,8 @@ describe('Review Tile', () => {
     className="sc-bczRLJ fFnuja"
   >
     <span />
-     
-     
+
+
     May 31, 2022
   </span>
   <div>
@@ -115,7 +117,7 @@ describe('Review Tile', () => {
   <span
     onClick={[Function]}
   >
-    Helpful? 
+    Helpful?
     0
   </span>
   <span
@@ -138,21 +140,22 @@ describe('Review Breakdown', () => {
       "2": "2",
       "3": "1",
       "4": "18",
-      "5": "12"}
+      "5": "12"
+    }
 
-      let calculateOverallRating = (ratingsObject) => {
-        //let average = 0;
-        let numVotes = 0;
-        let totalScore = 0;
+    let calculateOverallRating = (ratingsObject) => {
+      //let average = 0;
+      let numVotes = 0;
+      let totalScore = 0;
 
-        for (let rating in ratingsObject) {
-          numVotes += Number(ratingsObject[rating]);
-          totalScore += rating * ratingsObject[rating];
-        }
-        return (numVotes === 0) ? 5 : (totalScore / numVotes).toFixed(1);
-      };
+      for (let rating in ratingsObject) {
+        numVotes += Number(ratingsObject[rating]);
+        totalScore += rating * ratingsObject[rating];
+      }
+      return (numVotes === 0) ? 5 : (totalScore / numVotes).toFixed(1);
+    };
 
-      expect(calculateOverallRating(ratings)).toBe('4.1');
+    expect(calculateOverallRating(ratings)).toBe('4.1');
   });
 
   it('renders Breakdown correctly', () => {
@@ -198,9 +201,9 @@ describe('Review Breakdown', () => {
   className="sc-eCYdqJ jWlxCE"
 >
   <h2>
-     
+
     4.1
-     
+
   </h2>
   <div
     className="sc-ftvSup kslLaj"
@@ -792,25 +795,25 @@ describe('Review Breakdown', () => {
   </div>
   <div>
     <span>
-      Fit: 
+      Fit:
       2.4
     </span>
   </div>
   <div>
     <span>
-      Length: 
+      Length:
       2.8
     </span>
   </div>
   <div>
     <span>
-      Comfort: 
+      Comfort:
       2.8
     </span>
   </div>
   <div>
     <span>
-      Quality: 
+      Quality:
       3.4
     </span>
   </div>
@@ -819,3 +822,60 @@ describe('Review Breakdown', () => {
   });
 });
 
+describe('Review List', () => {
+
+  let productId = { productId: 37313 }
+  let wrapper = renderer.create(<ReviewList productId={productId} />)
+
+  it('displays two tiles initially', () => {
+    expect(wrapper.toJSON().children.length).toEqual(2);
+  });
+});
+
+describe('Ratings Reviews', () => {
+
+  let productId = { product_id: 37313 };
+  let productName = { productName: 'Morning Joggers' };
+  let metaData = {
+    "product_id": "37313",
+    "ratings": {
+      "1": "1",
+      "2": "2",
+      "3": "1",
+      "4": "18",
+      "5": "12"
+    },
+    "recommended": {
+      "false": "5",
+      "true": "29"
+    },
+    "characteristics": {
+      "Fit": {
+        "id": 125036,
+        "value": "2.4375000000000000"
+      },
+      "Length": {
+        "id": 125037,
+        "value": "2.8125000000000000"
+      },
+      "Comfort": {
+        "id": 125038,
+        "value": "2.8437500000000000"
+      },
+      "Quality": {
+        "id": 125039,
+        "value": "3.4375000000000000"
+      }
+    }
+  }
+
+  it('renders ReviewRatings without crashing', () => {
+    let div = document.createElement('div')
+    ReactDOM.render(
+    <RatingsReviews
+    productId={productId}
+    productName={productName}
+    metaData={metaData}
+    ratings={metaData.ratings} />, div);
+  });
+});

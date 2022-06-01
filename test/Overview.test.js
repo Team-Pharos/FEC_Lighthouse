@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import { render, cleanup, fireEvent, screen } from '@testing-library/react';
+import 'regenerator-runtime/runtime';
 import StyleSelector from './../src/components/Overview/StyleSelector';
 import {AddToCartButton, Img} from './../src/components/Overview/OverviewStyledCom'
 import {Tooltip} from './../src/components/Overview/Tooltip';
@@ -13,6 +14,8 @@ import ProductOverview from './../src/components/Overview/ProductOverview';
 import ImageCarousel from './../src/components/Overview/ImageCarousel';
 import Features from './../src/components/Overview/Features';
 import ImageModal from './../src/components/Overview/ImageModal';
+import ImageGallery from './../src/components/Overview/ImageGallery';
+
 
 
 afterEach(cleanup);
@@ -21,7 +24,15 @@ it("render styleSelector with StyleSelector className", () => {
   const currentStyle = {
     name: "modern"
   };
-  const styles = [];
+  const styles = [{style_id: 1, photos: [{thumbnail_url: 'https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg'}]}];
+  const setCurrentStyle = () => {}
+  const styleSelector = renderer.create(<StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>)
+  expect(styleSelector.toJSON().props.className).toEqual('StyleSelector');
+});
+
+it("render styleSelector with StyleSelector className", () => {
+  const currentStyle = undefined;
+  const styles = [{style_id: 1, photos: [{thumbnail_url: 'https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg'}]}];
   const setCurrentStyle = () => {}
   const styleSelector = renderer.create(<StyleSelector styles={styles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>)
   expect(styleSelector.toJSON().props.className).toEqual('StyleSelector');
@@ -42,17 +53,6 @@ it('Tooltip renders without crashing', () => {
     root.render(<Tooltip />)
   })
 })
-
-test('Click social media icone', () => {
-  const setExpanded = jest.fn();
-  const children = <h1>testing</h1>;
-  const zoomed = false;
-  const setZoomed = () => {};
-  render(<ImageModal setExpanded={setExpanded} children={children} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
-  fireEvent.click(screen.getByTestId('testImageModal'))
-  expect(setExpanded).toHaveBeenCalledTimes(1);
-})
-
 
 it("render ProductInfo correctly", () => {
   const productDetails = {
@@ -126,6 +126,39 @@ it("render ImageCarousel correctly", () => {
   expect(ImageCarouselInstance.toJSON().props.className).toEqual('ImageCarousel');
 });
 
+it("setZoomed been called when image is zoomed", () => {
+  const currentStyle = {photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }]};
+  const setExpanded = jest.fn();
+  const setZoomed = jest.fn();
+  const expanded = true;
+  const zoomed = true;
+  render(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
+  fireEvent.click(screen.getByTestId('testImage'))
+  expect(setZoomed).toHaveBeenCalledTimes(1);
+});
+
+it("setZoomed been called when image is expanded", () => {
+  const currentStyle = {photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }]};
+  const setExpanded = jest.fn();
+  const setZoomed = jest.fn();
+  const expanded = true;
+  const zoomed = false;
+  render(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
+  fireEvent.click(screen.getByTestId('testImage'))
+  expect(setZoomed).toHaveBeenCalledTimes(1);
+});
+
+it("setExpanded been called when image is not expanded", () => {
+  const currentStyle = {photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }]};
+  const setExpanded = jest.fn();
+  const setZoomed = jest.fn();
+  const expanded = false;
+  const zoomed = false;
+  render(<ImageCarousel currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed} onClick={setExpanded}/>)
+  fireEvent.click(screen.getByTestId('testImage'))
+  expect(setExpanded).toHaveBeenCalledTimes(1);
+});
+
 
 it("render ImageModal correctly", () => {
   const setExpanded = () => {};
@@ -152,4 +185,16 @@ it("render Features correctly", () => {
   };
   const FeaturesInstance = renderer.create(<Features productDetails={productDetails} />)
   expect(FeaturesInstance.toJSON().children[0].children[0].includes('testValue')).toEqual(true);
+});
+
+it("render ImageGallery correctly", () => {
+  const currentStyle = {
+    style_id: 221008,
+    name: 'Black',
+    original_price: '40.00',
+    photos: [{url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg', thumbnail_url: 'https://images.newscientist.com/wp-content/uploads/2021/06/03141753/03-june_puppies.jpg' }],
+    skus: {1: {quantity: 1, }}
+  };
+  const ImageGalleryInstance = renderer.create(<ImageGallery currentStyle={currentStyle} />)
+  expect(ImageGalleryInstance.toJSON().props.className).toEqual('ImageGallery');
 });

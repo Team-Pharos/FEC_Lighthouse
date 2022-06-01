@@ -5,7 +5,7 @@ import {FaWindowClose} from 'react-icons/fa';
 const ImageModal = ({setExpanded, children, zoomed, setZoomed}) => {
 
   return (
-    <div className='imageModal' onClick={() => {setExpanded(false); setZoomed(false);}}>
+    <div data-testid='testImageModal' className='imageModal' onClick={() => {setExpanded(false); setZoomed(false);}}>
       <div className='imageModal-content' onClick={e => e.stopPropagation()}>
         <div className='imageModal-header'>
           <CloseButton

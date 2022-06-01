@@ -94,8 +94,8 @@ describe('Review Tile', () => {
     className="sc-bczRLJ fFnuja"
   >
     <span />
-
-
+     
+     
     May 31, 2022
   </span>
   <div>
@@ -115,7 +115,7 @@ describe('Review Tile', () => {
   <span
     onClick={[Function]}
   >
-    Helpful?
+    Helpful? 
     0
   </span>
   <span
@@ -198,9 +198,9 @@ describe('Review Breakdown', () => {
   className="sc-eCYdqJ jWlxCE"
 >
   <h2>
-
+     
     4.1
-
+     
   </h2>
   <div
     className="sc-ftvSup kslLaj"
@@ -792,25 +792,25 @@ describe('Review Breakdown', () => {
   </div>
   <div>
     <span>
-      Fit:
+      Fit: 
       2.4
     </span>
   </div>
   <div>
     <span>
-      Length:
+      Length: 
       2.8
     </span>
   </div>
   <div>
     <span>
-      Comfort:
+      Comfort: 
       2.8
     </span>
   </div>
   <div>
     <span>
-      Quality:
+      Quality: 
       3.4
     </span>
   </div>

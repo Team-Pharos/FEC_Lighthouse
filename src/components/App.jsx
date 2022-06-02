@@ -40,8 +40,9 @@ const App = () => {
   };
 
   const getRelatedIds = (productId) => {
-    axios.get('/getRelatedProducts', { params: { id: productId }})
+    axios.get('/getRelatedIds', { params: { id: productId }})
       .then((numbers) => {
+        console.log(numbers.data);
       setRelatedIds(numbers.data);
       })
     .catch((err) => {

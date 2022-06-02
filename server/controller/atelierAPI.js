@@ -138,10 +138,18 @@ let putReportReview = (review_id) => {
 
 //==========Related Products============
 
-let getRelatedProducts = (product_id) => {
+let getRelatedIds = (product_id) => {
   let url = `${process.env.API}products/${product_id}/related`;
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
-}
+};
+
+// let getRelatedProducts = (...product_ids) => {
+//   let queryList = product_ids.map((Id) => {
+//     let url = `${process.env.API}products/${Id}`;
+//     axios.get(url, { headers: { Authorization: process.env.GITHUB } });
+//   });
+//   return Promise.all(queryList);
+// }
 
 module.exports = {
   getOneProduct: getOneProduct,
@@ -158,7 +166,7 @@ module.exports = {
   postReviews: postReviews,
   putHelpfulReview: putHelpfulReview,
   putReportReview: putReportReview,
-  getRelatedProducts: getRelatedProducts
+  getRelatedIds: getRelatedIds
 };
 
 

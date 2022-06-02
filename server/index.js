@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config();
 const {
   getOneProduct, getStyles, getQuestions,
-  getReviews, getRelatedProducts, getAnswers,
+  getReviews, getRelatedIds, getAnswers,
   getReviewMeta, markQAsHelpful, markAAsHelpful,
   markAAsReported, postAnswer, postQuestion,
   postReviews, putHelpfulReview, putReportReview
@@ -162,15 +162,26 @@ app.put('/reportReview', (req, res) => {
 
 //=======Related Products/Outfit=======
 
-app.get('/getRelatedProducts', (req, res) => {
-  getRelatedProducts(req.query.id)
+app.get('/getRelatedIds', (req, res) => {
+  getRelatedIds(req.query.id)
     .then((relatedItems) => {
       res.send(relatedItems.data);
     })
     .catch((error) => {
       res.sendStatus(501);
     })
-})
+});
+
+// app.get('/getRelatedProducts', (req, res) => {
+//   getRelatedProducts(req.query.id)
+//     .then((relatedProducts) => {
+//       console.log(relatedProducts.data);
+//       res.send(relatedProducts.data);
+//     })
+//     .catch((error) => {
+//       res.sendStatus(501);
+//     });
+// })
 
 app.listen(process.env.PORT, () => {
   console.log(`success listening to ${process.env.PORT}`);

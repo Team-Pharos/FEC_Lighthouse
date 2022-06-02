@@ -5,34 +5,25 @@ import RelatedList from './RelatedList.jsx';
 
 const RelatedView = ({ relatedIds, setNewProduct }) => {
 
-  const [relatedProducts, setRelatedProducts] = useState([]);
+  // const [relatedProducts, setRelatedProducts] = useState([]);
 
-  const getProductList = (relatedIds) => {
-    relatedIds.map((relatedId) => {
-      let products = []
-      axios.get('/getOne', {params: {id: relatedId}})
-        .then((product) => {
-          console.log(product);
-          products.push(product.data);
-        })
-        .then(() => {
-          setRelatedProducts(products);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
-  };
+  // const getProductList = (relatedIds) => {
+  //     axios.get('/getRelatedProducts', {params: {id: relatedIds}})
+  //       .then((products) => {
+  //         console.log(products.data);
+  //         setRelatedProducts(products.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  // };
 
-    useEffect (() => {
-      getProductList(relatedIds);
-    }, [])
 
   return (
     <>
     <h3>Related Products</h3>
     <div>
-      <RelatedList relatedProducts={relatedProducts} setNewProduct={setNewProduct}></RelatedList>
+      <RelatedList relatedProducts={relatedIds} setNewProduct={setNewProduct}></RelatedList>
     </div>
     </>
   )

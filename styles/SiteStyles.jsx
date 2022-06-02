@@ -35,6 +35,7 @@ const CompanyLogo = styled.div`
   vertical-align: center;
   float: left;
 `;
+CompanyLogo.defaultProps = {src: ''};
 
 export {
   CompanyHeading,

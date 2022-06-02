@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { RightText, Thumbnail, TruncBody, Tile, Stars } from './Styles.jsx';
+import { RightText, Thumbnail, TruncBody, Tile, Stars, RatingsSummary, AnswerTitle, InnerContent, QuestionScrollBar, Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from '../Styles.jsx';
 import { FaCheckSquare } from "react-icons/fa";
 import { BsStarFill } from "react-icons/bs";
 import moment from 'moment';
@@ -69,18 +68,18 @@ const ReviewTile = ({ review }) => {
       <RightText>
         {check} {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}
       </RightText>
-      <div><h4>{review.summary}</h4></div>
-      <div>{bodyView}</div>
+      <div><QuestionTitle>{review.summary}</QuestionTitle></div>
+      <AnswerTitle>{bodyView}</AnswerTitle>
       <div>
         {review.photos.map((photo) => {
           <Thumbnail src={photo.url} />
         })}
       </div>
       <div>
-        <p>{review.response}</p>
+        <p>{review.response}</p>AnswerTitle
       </div>
-      <span onClick={helpfulClick}>Helpful? {helpfulCount}</span>
-      <RightText onClick={reportClick}>report</RightText>
+      <Span onClick={helpfulClick}>Helpful? {helpfulCount}</Span>
+      <RightText onClick={reportClick}><Span>report</Span></RightText>
       </> :
       <></>
       }

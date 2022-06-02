@@ -102,7 +102,7 @@ const OuterModal = styled.div`
 const InnerModal = styled.div`
   width: 500px;
   background-color:#fff;
-  border: 5px solid #F26938;
+  border: 5px solid #ab4a27;
   border-radius: 5px;
 `;
 
@@ -153,7 +153,7 @@ const SectionTitle = styled.h2`
   width: 95%;
 `;
 
-const QuestionTitle = styled.h4`
+const QuestionTitle = styled.h3`
   color: #010a26;
   font-family: "Poppins", sans-serif;
   font-size:20px;
@@ -162,16 +162,16 @@ const QuestionTitle = styled.h4`
   display: inline-block;
 `;
 
-const AnswerTitle = styled.h4`
+const AnswerTitle = styled.h3`
   color: #010a26;
   font-family: "Poppins", sans-serif;
   font-size:15px;
   font-weight:500;
   margin 0;
-  display: inline-block;
+
 `;
 
-const InputLabel = styled.h3`
+const InputLabel = styled.h4`
  color: #010a26;
  font-family: "Akshar", sans-serif;
 `;
@@ -200,7 +200,9 @@ const PrimaryButton = styled.button`
   font-weight: 300;
   border-radius: 5px;
   margin: 5px;
-
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Button = styled.button`
@@ -211,9 +213,144 @@ const Button = styled.button`
   border-radius: 5px;
   border: 2px solid #010a26;
   margin: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+//========General Use========
+
+const RightText = styled.p`
+font-family: "Poppins", sans-serif;
+font-size: 10px;
+font-weight: 400;
+margin: 0;
+float: right;
+`;
+
+//========Review Tile========
+
+const Thumbnail = styled.img`
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+`;
+
+const TruncBody = styled.div`
+  height: 75px;
+  overflow: auto;
+`;
+
+const Tile = styled.div`
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid black;
+  padding: 3px;
+  margin-right: 50px;
+`;
+
+const RatingsSummary = styled.h3`
+  color: #010a26;
+  font-family: "Poppins", sans-serif;
+  font-size:20px;
+  font-weight:600;
+  margin 10px;
+  display: inline-block;
+`;
+
+//=======Rating Breakdowns=======
+
+const BreakdownContainer = styled.div`
+  top: 25px;
+`;
+
+const RatingStat = styled.span`
+  float: right;
+`;
+
+const RatingValues = styled.div`
+  border-bottom: 1px dotted #010a26;
+`;
+
+const Stars = styled.span`
+  color: #ab4a27;
+`;
+
+//component styling
+const Reviews = styled.div`
+    margin: 50px auto;
+    float: left;
+    margin: 0;
+    margin-left: 10px;
+    width: 60%;
+    `;
+
+const Breakdown = styled.div`
+    font-family: 'Poppins', sans-serif;
+    float: left;
+    margin: 5px;
+    width: 30%;
+  `;
+
+const Container = styled.div`
+    margin: 10px auto;
+    padding: 3px;
+    width: 80%;
+    height: 500px;
+    border-radius: 15px;
+    overflow: auto;
+  `;
+const Header = styled.div`
+    font-family: 'Poppins', sans-serif;
+    width: 80%;
+    position: absolute;
+    padding: 1px 5px;
+    color: #F2DAAC;
+    background-color: #010A26;
+    border-radius: 15px 15px 0 0;
+  `;
+
+const OpenAddReview = styled.button`
+    width: 80px;
+    margin: 5px auto;
+    background-color: #F2DAAC;
+    border: 1px solid #ab4a27;
+    &:hover {
+      border: 1px solid #6BA69B;
+      cursor: pointer;
+      color: #6BA69B;
+    }
+  `;
+
+const ReviewsFooter = styled.div`
+    box-sizing: border-box;
+    width: 80%;
+    height: 50px;
+    padding: 3px 35%;
+    margin: 0px auto 5px;
+    background-color: #010A26;
+  `;
+
+const Category = styled.div`
+  height: 40px;
+  padding: 0 auto;
+`;
+
+const InnerCategory = styled.div`
+  margin: 0 auto;
+  height: auto;
+`;
+
+const ProductTitle = styled.h1`
+  color: #68a69b;
+  font-family: "Akshar", sans-serif;
+  font-size: 100px;
+  text-decoration: underline;
 `;
 
 export {
+  ProductTitle,
+  InnerCategory,
+  Category,
   Input,
   OuterModal,
   InnerModal,
@@ -238,6 +375,21 @@ export {
   InnerContent,
   QuestionScrollBar,
   AnswerScrollBar,
-  TitleBackground
+  TitleBackground,
+  RightText,
+  Thumbnail,
+  TruncBody,
+  Tile,
+  BreakdownContainer,
+  RatingStat,
+  RatingValues,
+  Stars,
+  ReviewsFooter,
+  OpenAddReview,
+  Header,
+  Container,
+  Breakdown,
+  Reviews,
+  RatingsSummary
 };
 

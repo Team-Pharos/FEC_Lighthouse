@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from '../Styles.jsx';
 import AnswersList from './AnswersList.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
 

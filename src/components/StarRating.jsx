@@ -1,12 +1,15 @@
 import React from 'react';
 import { BsStarFill, BsStar } from 'react-icons/bs';
 import styled from 'styled-components';
+import { RatingsSummary, AnswerTitle, InnerContent, QuestionScrollBar, Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from './Styles.jsx';
 
 const OLStars = styled.div`
   display: inline-block;
   position: relative;
+  color: #010a26;
 `;
 const FStars = styled.div`
+  color: #010a26;
   position: absolute;
   top: 0;
   left: 0;

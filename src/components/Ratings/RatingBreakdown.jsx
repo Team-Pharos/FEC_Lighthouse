@@ -4,7 +4,8 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import StarRating from '../StarRating.jsx';
 import { ShowStars } from './ReviewTile.jsx';
-import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
+import { BreakdownContainer, RatingStat, RatingValues } from '../Styles.jsx';
+import { RatingsSummary, AnswerTitle, InnerContent, QuestionScrollBar, Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from '../Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
@@ -22,11 +23,11 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
   let charBreakdown = (
     characteristics !== undefined ?
       <>
-        {!!fit && <div><span>Fit: {Number(fit.value).toFixed(1)}</span></div>}
-        {!!width && <div><span>Width: {Number(width.value).toFixed(1)}</span></div>}
-        {!!length && <div><span>Length: {Number(length.value).toFixed(1)}</span></div>}
-        {!!comfort && <div><span>Comfort: {Number(comfort.value).toFixed(1)}</span></div>}
-        {!!quality && <div><span>Quality: {Number(quality.value).toFixed(1)}</span></div>}
+        {!!fit && <div><AnswerTitle>Fit: {Number(fit.value).toFixed(1)}</AnswerTitle></div>}
+        {!!width && <div><AnswerTitle>Width: {Number(width.value).toFixed(1)}</AnswerTitle></div>}
+        {!!length && <div><AnswerTitle>Length: {Number(length.value).toFixed(1)}</AnswerTitle></div>}
+        {!!comfort && <div><AnswerTitle>Comfort: {Number(comfort.value).toFixed(1)}</AnswerTitle></div>}
+        {!!quality && <div><AnswerTitle>Quality: {Number(quality.value).toFixed(1)}</AnswerTitle></div>}
       </> :
       <></>
   );
@@ -44,10 +45,10 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
   };
 
   return (
-    <BreakdownContainer>
-      <h2> {calculateOverallRating(ratings)} </h2>
+    <InnerContent>
+      <RatingsSummary> {calculateOverallRating(ratings)} </RatingsSummary>
       < StarRating ratings={ratings} />
-      <h3>Ratings</h3>
+      <QuestionTitle>Ratings</QuestionTitle>
       <div>
         {Object.keys(ratings).map(rating => {
           return (
@@ -58,7 +59,7 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
         })}
       </div>
         {charBreakdown}
-    </BreakdownContainer>
+    </InnerContent>
   )
 }
 

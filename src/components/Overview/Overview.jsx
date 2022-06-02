@@ -8,6 +8,7 @@ import ProductOverview from './ProductOverview.jsx';
 import Features from './Features.jsx';
 import OverviewStyles from './../../../styles/OverviewStyle.css';
 
+
 const Overview = ({productId, productDetails, ratings, numOfReviews, setQuantityInCart, quantityInCart}) => {
   const [styles, setStyles] = useState([])
   const [currentStyle, setCurrentStyle] = useState(styles[0])

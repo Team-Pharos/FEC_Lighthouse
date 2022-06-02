@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description, TitleBackground } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, BodyInput, Modal, InputLabel, SectionTitle, PrimaryButton, Button, SubTitle, Description, TitleBackground } from '../Styles.jsx';
 
 const AddQuestion = ({ productName, productId, addQuestion, getAllQuestions, onClose }) => {
 

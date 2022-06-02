@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import ReviewTile from './ReviewTile.jsx';
+import { RatingsSummary, AnswerTitle, InnerContent, QuestionScrollBar, Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from '../Styles.jsx';
 
 //Component Styling
-const List = styled.div`
-  font-family: 'Poppins', sans-serif;
-  padding: 2px 2px;
-`;
+
 
 const ReviewList = ({ productId }) => {
   //State
@@ -42,30 +40,35 @@ const ReviewList = ({ productId }) => {
   }
 
   return (
-    <List>
+      <InnerContent>
+
       {/* <h3>Reviews for {productId}</h3> */}
+
       <form>
-        <h3>Sorted by
+        <RatingsSummary>Sorted by: </RatingsSummary>
           <select value={sort} onChange={(e) => {
-          e.preventDefault();
-          setSort(e.target.value);
-          reSort(e.target.value);
+            e.preventDefault();
+            setSort(e.target.value);
+            reSort(e.target.value);
           }}>
             <option value='relevant'>Relevant</option>
             <option value='newest'>Newest</option>
             <option value='helpful'>Helpful</option>
           </select>
-        </h3>
       </form>
+      <QuestionScrollBar>
+
       {displayed.map((review => {
         return (<ReviewTile
           review={review}
           key={review.review_id} />)
-      }))}
+        }))}
+        </QuestionScrollBar>
       {askToShowMore ?
-        <button onClick={showMoreClicked}>Show More</button> :
+        <Button onClick={showMoreClicked}>Show More</Button> :
         <></>}
-    </List>
+
+        </InnerContent>
   )
 }
 

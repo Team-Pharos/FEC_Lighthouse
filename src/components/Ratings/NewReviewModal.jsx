@@ -5,7 +5,7 @@ import { BsStarFill, BsStar } from 'react-icons/bs';
 import {
   Input, OuterModal, InnerModal,
   BodyInput, Modal, Span, SpanClicked, EntryTitle
-} from '../Questions/Styles.jsx';
+} from '../Styles.jsx';
 import AddStarRating from './AddStarRating.jsx';
 
 const ReviewForm = styled(InnerModal)`
@@ -99,7 +99,7 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
 
   return (
     <OuterModal>
-      <ReviewForm>
+      <InnerModal>
           <Exit value='CloseAddReview' onClick={closeModal}>X</Exit>
         <WriteReviewForm >
           <form onSubmit={handleSubmit}>
@@ -218,7 +218,7 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
             </div>
           </form>
         </WriteReviewForm>
-      </ReviewForm>
+      </InnerModal>
     </OuterModal>
   )
 };

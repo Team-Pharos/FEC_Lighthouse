@@ -85,7 +85,7 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
         className={zoomed ? 'ZoomArrow' : expanded ? 'leftArrowExp' : 'leftArrow'}
         style={{visibility: imageInd !== 0 ? 'visible' : 'hidden' }}
         onClick={() => {setImage(imageInd - 1)}}
-      ><FaAngleLeft /></Arrow>
+      ><FaAngleLeft/></Arrow>
 
       <Img
         data-testid='testImage'

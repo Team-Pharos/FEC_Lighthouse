@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { SearchBarInput, Button } from './Styles.jsx';
+import { SearchBarInput, Button } from '../Styles.jsx';
 
 const SearchBar = ({ searchQuestions }) => {
 

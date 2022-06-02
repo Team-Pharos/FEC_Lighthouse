@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerListEntry from './AnswerListEntry.jsx';
-import { AnswerTitle, Button, LeftCol, RightCol, AnswerScrollBar } from './Styles.jsx';
+import { AnswerTitle, Button, LeftCol, RightCol, AnswerScrollBar } from '../Styles.jsx';
 
 const AnswersList = ({ answers, length, allVisible, showAll }) => {
 

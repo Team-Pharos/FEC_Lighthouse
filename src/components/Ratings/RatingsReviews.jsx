@@ -29,10 +29,12 @@ const Container = styled.div`
     overflow: auto;
   `;
 const Header = styled.div`
-    font-family: 'Poppins', sans-serif;
+    font-family: "Akshar", sans-serif;
+    font-size: 20px;
     width: 80%;
+    height: 50px;
     position: absolute;
-    padding: 1px 5px;
+    padding: 1px 1px;
     color: #F2DAAC;
     background-color: #010A26;
     border-radius: 15px 15px 0 0;
@@ -71,7 +73,7 @@ const RatingsReviews = ({ productId, metaData, ratings, productName }) => {
   return (
     <div id="RatingsAndReviews">
       <Container>
-        <Header><h3>Ratings and Reviews</h3></Header>
+        <Header><h2>Ratings and Reviews</h2></Header>
         <Breakdown>
           <RatingBreakdown productId={productId} metaData={metaData} ratings={ratings} />
         </Breakdown>

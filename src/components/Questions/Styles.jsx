@@ -219,32 +219,35 @@ const Button = styled.button`
 
 const RelatedContent = styled.div`
   width: 90%;
-  height: 400px;
+  max-height: auto;
   margin: 0 auto;
 `;
 
-const RelatedList = styled.div`
-  width: 100%;
-  height: 100%;
+const RelatedListDiv = styled.div`
+  max-width: 100%;
+  max-height: 70px;
   margin: 0;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #010a26;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
 `;
 
 const ProductCard = styled.div`
-  width: 50px;
-  height: 80px;
-  background-color:#fff;
-  border: 5px solid #F26938;
-  border-radius: 5px;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  display: inline-block;
 `;
 
-const ProductTitle = styled.h4`
-color: #010a26;
-font-family: "Poppins", sans-serif;
-font-size:20px;
-font-weight:600;
-margin 0;
-display: inline-block;
-`;
 
 export {
   Input,
@@ -272,9 +275,8 @@ export {
   QuestionScrollBar,
   AnswerScrollBar,
   TitleBackground,
-  ProductTitle,
   ProductCard,
   RelatedContent,
-  RelatedList
+  RelatedListDiv
 };
 

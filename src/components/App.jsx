@@ -41,24 +41,25 @@ const App = () => {
   };
 
   const getRelatedIds = (productId) => {
-    axios.get('/getRelatedIds', { params: { id: productId } })
+    axios.get('/getRelatedIds', { params: { id: productId }})
       .then((numbers) => {
         console.log(numbers.data);
-        setRelatedIds(numbers.data);
+      setRelatedIds(numbers.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+    .catch((err) => {
+      console.log(err);
+    });
   };
 
-  const setNewProduct = (idNumber) => {
-    setProductId(idNumber);
-  };
+  const setNewProduct = (id) => {
+    setProductId(id);
+    getRelatedIds(id);
+  }
 
   const clickTracking = (element, widget, time) => {
-    axios.post('/click', { element: element, widget: widget, time: time })
-      .then(() => { console.log('click Tracking success') })
-      .catch(err => { console.log('click tracking err', err) })
+    axios.post('/click', {element: element, widget: widget, time: time})
+      .then(() => {console.log('click Tracking success')})
+      .catch(err => {console.log('click tracking err', err)})
   }
 
   // act as componentDidUpdate
@@ -77,16 +78,15 @@ const App = () => {
   return (
     // return all 4 widgets
     <>
-      <Heading quantityInCart={quantityInCart} />
-      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} />
-      <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct} />
+      <Heading quantityInCart={quantityInCart}/>
+      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} clickTracking={clickTracking}/>
+      <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct}/>
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />
-      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName} />
+      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
       <Footer></Footer>
     </>
   )
-
-};
+}
 
 export default App;

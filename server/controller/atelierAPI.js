@@ -180,12 +180,8 @@ module.exports = {
   postReviews: postReviews,
   putHelpfulReview: putHelpfulReview,
   putReportReview: putReportReview,
-<<<<<<< HEAD
-  getRelatedIds: getRelatedIds
-=======
-  getRelatedProducts: getRelatedProducts,
+  getRelatedIds: getRelatedIds,
   postInteractions: postInteractions
->>>>>>> 276c1d598e26e1da0f84dcffe229f02ef93d50f4
 };
 
 

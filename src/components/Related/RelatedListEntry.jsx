@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ProductCard, Button } from '../Questions/Styles.jsx';
 
-const RelatedListEntry = ({ setNewProduct }) => {
+const RelatedListEntry = ({ relatedProduct, productNum, setNewProduct }) => {
 
   return (
-    <div>
-      <h4>Product Name</h4>
-      <p>Product Description</p>
-      <div>
-        <img />
-      </div>
-      <h5>Product Price</h5>
-    </div>
+    <ProductCard>
+      <Button onClick={() => {setNewProduct(relatedProduct)}}>{`Related Product ${productNum + 1}`}</Button>
+    </ProductCard>
   )
 }
 

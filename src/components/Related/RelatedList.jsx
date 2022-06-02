@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { RelatedListDiv } from '../Questions/Styles.jsx';
 import RelatedListEntry from './RelatedListEntry.jsx';
 
-const RelatedList = ({ setNewProduct }) => {
+const RelatedList = ({ relatedProducts, setNewProduct }) => {
+
+  console.log(relatedProducts);
 
   return (
-    <div>
-      <RelatedListEntry setNewProduct={setNewProduct}></RelatedListEntry>
-    </div>
+    <RelatedListDiv>
+      {relatedProducts.map((relatedProduct, i) => {
+        return <RelatedListEntry key={i} relatedProduct={relatedProduct} productNum={i} setNewProduct={setNewProduct}></RelatedListEntry>
+      })}
+    </RelatedListDiv>
   )
 }
 

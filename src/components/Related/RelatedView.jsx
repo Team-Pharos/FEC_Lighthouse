@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import {CenterDiv, TitleTile, SectionTitle, RelatedContent} from '../Questions/Styles.jsx';
 import RelatedList from './RelatedList.jsx';
 
 const RelatedView = ({ relatedIds, setNewProduct }) => {
 
-  // const [relatedProducts, setRelatedProducts] = useState([]);
-
-  // const getProductList = (relatedIds) => {
-  //     axios.get('/getRelatedProducts', {params: {id: relatedIds}})
-  //       .then((products) => {
-  //         console.log(products.data);
-  //         setRelatedProducts(products.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  // };
-
-
   return (
-    <>
-    <h3>Related Products</h3>
-    <div>
+    <CenterDiv>
+      <TitleTile>
+    <SectionTitle>Related Products</SectionTitle>
+      </TitleTile>
+    <RelatedContent>
       <RelatedList relatedProducts={relatedIds} setNewProduct={setNewProduct}></RelatedList>
-    </div>
-    </>
+    </RelatedContent>
+    </CenterDiv>
   )
 }
 

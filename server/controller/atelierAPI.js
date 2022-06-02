@@ -160,15 +160,3 @@ module.exports = {
   putReportReview: putReportReview,
   getRelatedProducts: getRelatedProducts
 };
-
-
-
-
-
-
-
-
-
-
-
-// export function to server index.js

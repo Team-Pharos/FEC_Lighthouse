@@ -54,7 +54,6 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
   }
 
   let formHandler = (event) => {
-    event.preventDefault();
     let name = event.target.name;
     let value = event.target.value
 
@@ -82,7 +81,6 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
   }
 
   let charHandler = (event) => {
-    event.preventDefault();
     let name = event.target.name;
     let id = event.target.id;
     console.log(id);

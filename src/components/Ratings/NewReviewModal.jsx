@@ -34,6 +34,12 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
 
   let [reviewBody, setReviewBody] = useState('');
   let [summary, setSummary] = useState('');
+  let [recommend, setRecommend] = useState();
+  let [fitSelection, setFit] = useState();
+  let [comfortSelection, setComfort] = useState();
+  let [widthSelection, setWidth] = useState();
+  let [lengthSelection, setLength] = useState();
+  let [qualitySelection, setQuality] = useState();
   let [reviewForm, setReviewForm] = useState({ product_id: productId });
   let [charForm, setCharForm] = useState({})
 
@@ -50,6 +56,10 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
     event.preventDefault();
     let name = event.target.name;
     let value = event.target.value
+
+    if (value === 'true' || value === 'false') {
+      setRecommend(value);
+    }
 
     if (value === 'true') {
       value = true;
@@ -71,8 +81,9 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
   }
 
   let charHandler = (event) => {
-    let name = event.target.name;
     event.preventDefault();
+    let name = event.target.name;
+
     setCharForm({ ...charForm, [name]: Number(event.target.value) })
   }
 
@@ -116,6 +127,7 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
                 type='radio'
                 value='true'
                 name='recommend'
+                checked={ recommend === value }
                 onChange={formHandler} />recommended
               <input
                 type='radio'

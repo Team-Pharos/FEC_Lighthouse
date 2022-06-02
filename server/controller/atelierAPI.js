@@ -175,15 +175,3 @@ module.exports = {
   getRelatedProducts: getRelatedProducts,
   postInteractions: postInteractions
 };
-
-
-
-
-
-
-
-
-
-
-
-// export function to server index.js

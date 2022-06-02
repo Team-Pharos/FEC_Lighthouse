@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import { FaShareSquare, FaTwitter, FaPinterest, FaFacebook } from 'react-icons/fa';
 import {Tooltip} from './Tooltip.jsx';
 import StarRating from '../StarRating.jsx';
+import {Span} from './../Questions/Styles.jsx';
 
 const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) => {
   return (
-  <div className='ProductionInfo' onClick={() => {console.log('ProductInfo get clicked')}}>
+  <div className='ProductionInfo'>
    <StarRating
     ratings={ratings}
     style={{display: numOfReviews === 0 ? 'none' : ''}}
@@ -16,7 +17,7 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
       href='#RatingsAndReviews'
       style={{display: numOfReviews === 0 ? 'none' : ''}}
     >
-      Read All {numOfReviews} Reviews
+      <Span>Read All {numOfReviews} Reviews</Span>
     </a>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <Tooltip
@@ -42,7 +43,7 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
 
     <h3>{productDetails.category}</h3>
 
-    <h1 style={{color: '#68a69b'}}>{productDetails.name}</h1>
+    <h1 style={{color: '#68a69b', fontSize: '2.5em'}}>{productDetails.name}</h1>
     {currentStyle
     ? <span style={{textDecoration: currentStyle.sale_price ? 'line-through' : ''}}>${currentStyle.original_price}</span>
     : <></>}

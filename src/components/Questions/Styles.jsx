@@ -200,7 +200,7 @@ const PrimaryButton = styled.button`
   font-weight: 300;
   border-radius: 5px;
   margin: 5px;
-
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -211,6 +211,7 @@ const Button = styled.button`
   border-radius: 5px;
   border: 2px solid #010a26;
   margin: 5px;
+  cursor: pointer;
 `;
 
 export {

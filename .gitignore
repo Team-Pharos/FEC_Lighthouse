@@ -5,8 +5,5 @@ bundle.js
 node_modules
 package-lock.json
 coverage
-<<<<<<< HEAD
-=======
 *.pem
->>>>>>> 276c1d598e26e1da0f84dcffe229f02ef93d50f4
 *.cer

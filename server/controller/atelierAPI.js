@@ -172,18 +172,6 @@ module.exports = {
   postReviews: postReviews,
   putHelpfulReview: putHelpfulReview,
   putReportReview: putReportReview,
-  getRelatedProducts: getRelatedProducts
+  getRelatedProducts: getRelatedProducts,
   postInteractions: postInteractions
 };
-
-
-
-
-
-
-
-
-
-
-
-// export function to server index.js

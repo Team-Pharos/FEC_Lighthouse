@@ -11,6 +11,7 @@ const CompanyHeading = styled.div`
   display: block;
   height: 120px;
   margin: 0;
+  clear: both;
 `;
 
 const InnerDiv = styled.div`

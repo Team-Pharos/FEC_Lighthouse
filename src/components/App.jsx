@@ -7,6 +7,7 @@ import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 import IndexStyles from './../../styles/index.css';
 import Heading from './Heading.jsx';
+import Footer from './Footer.jsx';
 
 
 const App = () => {
@@ -64,6 +65,7 @@ const App = () => {
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />
       <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
+      <Footer></Footer>
     </>
   )
 }

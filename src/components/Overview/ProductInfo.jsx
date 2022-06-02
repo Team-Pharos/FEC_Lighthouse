@@ -5,7 +5,7 @@ import StarRating from '../StarRating.jsx';
 
 const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) => {
   return (
-  <div className='ProductionInfo'>
+  <div className='ProductionInfo' onClick={() => {console.log('ProductInfo get clicked')}}>
    <StarRating
     ratings={ratings}
     style={{display: numOfReviews === 0 ? 'none' : ''}}

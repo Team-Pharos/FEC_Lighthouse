@@ -27,7 +27,7 @@ const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
   }
 
   return (
-    <div className='AddToCart' >
+    <div className='AddToCart' onClick={() => {console.log('AddToCart get clicked')}}>
       <p style={{display: (sizeSelected !== 'none') ? 'none' : '', color: '#AB4A27', fontWeight: 'bold'}}
       >Please Select Size</p>
       <select

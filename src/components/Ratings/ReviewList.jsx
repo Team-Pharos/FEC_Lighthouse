@@ -7,6 +7,8 @@ import ReviewTile from './ReviewTile.jsx';
 const List = styled.div`
   font-family: 'Poppins', sans-serif;
   padding: 2px 2px;
+  height: 500px;
+  overflow: auto;
 `;
 
 const ReviewList = ({ productId }) => {

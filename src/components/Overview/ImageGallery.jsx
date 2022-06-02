@@ -14,7 +14,6 @@ const ImageGallery = ({currentStyle, clickTracking}) => {
     className='ImageGallery'
     onClick={(e) => {
       clickTracking('ImageGallery', 'Overview', new Date())
-      console.log(`ImageGallery get clicked ${new Date()}`)
     }}>
     <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed}/>
     {expanded ? <ImageModal setExpanded={setExpanded} zoomed={zoomed} setZoomed={setZoomed}>

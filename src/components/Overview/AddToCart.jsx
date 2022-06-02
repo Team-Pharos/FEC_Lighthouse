@@ -27,7 +27,7 @@ const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
   }
 
   return (
-    <div className='AddToCart' onClick={() => {console.log('AddToCart get clicked')}}>
+    <div className='AddToCart'>
       <p style={{display: (sizeSelected !== 'none') ? 'none' : '', color: '#AB4A27', fontWeight: 'bold'}}
       >Please Select Size</p>
       <select
@@ -70,7 +70,7 @@ const AddToCart = ({currentStyle, setQuantityInCart, quantityInCart}) => {
         data-tested='addToCartButton'
         onClick={addToBagHandler}
         disabled={Object.keys(currentStyle.skus)[0] === 'null' || totalQuantity === 0}
-      >ADD TO BAG</AddToCartButton>
+      >Add To Bag</AddToCartButton>
       {' '}
       <button
         onClick={() => {setStarClicked(pre => {return !pre})}}

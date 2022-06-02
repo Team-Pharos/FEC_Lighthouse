@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import ReviewList from './ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import NewReviewModal from './NewReviewModal.jsx';
+import CharacteristicsScale from './CharacteristicsScale.jsx';
+//import { Reviews, Breakdown, Container, Header, OpenAddReview, ReviewsFooter } from './Styles.jsx';
+import { Input, OuterModal, InnerModal, ModalTitle, SectionTitle, PrimaryButton, Button, CenterDiv, TitleTile, ClearFloat, InnerContent } from '../Questions/Styles.jsx';
 
 //component styling
 const Reviews = styled.div`
@@ -71,21 +74,22 @@ const RatingsReviews = ({ productId, metaData, ratings, productName }) => {
   }
   //render return
   return (
-    <div id="RatingsAndReviews">
-      <Container>
-        <Header><h2>Ratings and Reviews</h2></Header>
+    <CenterDiv>
+      <TitleTile>
+        <SectionTitle>Ratings and Reviews</SectionTitle>
+      </TitleTile>
+      <InnerContent>
+
         <Breakdown>
           <RatingBreakdown productId={productId} metaData={metaData} ratings={ratings} />
         </Breakdown>
         <Reviews>
           <ReviewList productId={productId} />
+        <PrimaryButton value='AddReview' onClick={openModal}>Add Review</PrimaryButton>
         </Reviews>
-      </Container>
-      <ReviewsFooter>
-        <OpenAddReview value='AddReview' onClick={openModal}>Add Review</OpenAddReview>
-      </ReviewsFooter>
-      {modalOpen && <NewReviewModal closeModal={openModal} metaData={metaData} productId={productId} productName={productName}/>}
-    </div>
+      </InnerContent>
+      {modalOpen && <NewReviewModal closeModal={openModal} metaData={metaData} productId={productId} productName={productName} />}
+    </CenterDiv>
   )
 }
 

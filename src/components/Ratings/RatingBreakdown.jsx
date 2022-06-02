@@ -4,7 +4,8 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import StarRating from '../StarRating.jsx';
 import { ShowStars } from './ReviewTile.jsx';
-import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
+import CharacteristicsScale from './CharacteristicsScale.jsx';
+import { BreakdownContainer, RatingStat, RatingValues, RightText } from './Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
@@ -22,11 +23,36 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
   let charBreakdown = (
     characteristics !== undefined ?
       <>
-        {!!fit && <div><span>Fit: {Number(fit.value).toFixed(1)}</span></div>}
-        {!!width && <div><span>Width: {Number(width.value).toFixed(1)}</span></div>}
-        {!!length && <div><span>Length: {Number(length.value).toFixed(1)}</span></div>}
-        {!!comfort && <div><span>Comfort: {Number(comfort.value).toFixed(1)}</span></div>}
-        {!!quality && <div><span>Quality: {Number(quality.value).toFixed(1)}</span></div>}
+        {!!fit && (
+          <div>
+            <span>Fit: </span><br/>
+            <span>too small</span><RightText>too big</RightText>
+            <CharacteristicsScale value={Number(fit.value).toFixed(1)} />
+          </div>)}
+        {!!width && (
+          <div>
+            <span>Width: {Number(width.value).toFixed(1)}</span>
+            <CharacteristicsScale value={Number(width.value).toFixed(1)} />
+          </div>
+        )}
+        {!!length && (
+        <div>
+          <span>Length: </span>
+          <CharacteristicsScale value={Number(length.value).toFixed(1)}/>
+          </div>
+          )}
+        {!!comfort && (
+        <div>
+          <span>Comfort: </span>
+          <CharacteristicsScale value={Number(comfort.value).toFixed(1)}/>
+          </div>
+          )}
+        {!!quality && (
+        <div>
+          <span>Quality: </span>
+          <CharacteristicsScale value={Number(quality.value).toFixed(1)}/>
+          </div>
+          )}
       </> :
       <></>
   );
@@ -57,7 +83,7 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
             </RatingValues>);
         })}
       </div>
-        {charBreakdown}
+      {charBreakdown}
     </BreakdownContainer>
   )
 }

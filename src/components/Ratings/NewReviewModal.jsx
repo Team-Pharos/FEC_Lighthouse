@@ -57,15 +57,13 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
     let name = event.target.name;
     let value = event.target.value
 
-    if (value === 'true' || value === 'false') {
-      setRecommend(value);
-    }
-
     if (value === 'true') {
+      setRecommend(value);
       value = true;
       console.log(value);
     }
     if (value === 'false') {
+      setRecommend(value);
       value = false;
       console.log(value);
     }
@@ -83,7 +81,6 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
   let charHandler = (event) => {
     let name = event.target.name;
     let id = event.target.id;
-    console.log(id);
     let value = event.target.value;
 
     switch (id.substring(0, id.length - 1)) {

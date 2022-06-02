@@ -100,7 +100,7 @@ const OuterModal = styled.div`
 `;
 
 const InnerModal = styled.div`
-  width: 500px;
+  max-width: 70%;
   background-color:#fff;
   border: 5px solid #F26938;
   border-radius: 5px;

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { BsStarFill, BsStar } from 'react-icons/bs';
 import {
   Input, OuterModal, InnerModal,
-  BodyInput, Modal, Span, SpanClicked, EntryTitle
+  BodyInput, Modal, Span, SpanClicked, EntryTitle, PrimaryButton
 } from '../Questions/Styles.jsx';
 import AddStarRating from './AddStarRating.jsx';
 
@@ -236,7 +236,7 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
                 onChange={formHandler} />
             </div>
             <div>
-              <input type='submit' />
+              <PrimaryButton type='submit'>Submit</PrimaryButton>
             </div>
           </form>
         </WriteReviewForm>

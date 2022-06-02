@@ -25,34 +25,39 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
       <>
         {!!fit && (
           <div>
-            <span>Fit: </span><br/>
-            <span>too small</span><RightText>too big</RightText>
+            <span><b>Fit </b></span> <br />
             <CharacteristicsScale value={Number(fit.value).toFixed(1)} />
+            <span>too small</span><RightText>too big</RightText> <br/>
           </div>)}
         {!!width && (
           <div>
-            <span>Width: {Number(width.value).toFixed(1)}</span>
+            <span><b>Width </b></span> <br />
             <CharacteristicsScale value={Number(width.value).toFixed(1)} />
+            <span>too narrow</span><RightText>too wide</RightText> <br/>
           </div>
         )}
         {!!length && (
-        <div>
-          <span>Length: </span>
-          <CharacteristicsScale value={Number(length.value).toFixed(1)}/>
+          <div>
+            <span><b>Length </b></span> <br />
+            <CharacteristicsScale value={Number(length.value).toFixed(1)} />
+            <span>too short</span><RightText>too long</RightText> <br/>
           </div>
-          )}
+        )}
         {!!comfort && (
-        <div>
-          <span>Comfort: </span>
-          <CharacteristicsScale value={Number(comfort.value).toFixed(1)}/>
+          <div>
+            <span><b>Comfort </b></span> <br />
+            <CharacteristicsScale value={Number(comfort.value).toFixed(1)} />
+            <span>uncomfortable</span><RightText>comfortable</RightText> <br/>
           </div>
-          )}
+        )}
         {!!quality && (
-        <div>
-          <span>Quality: </span>
-          <CharacteristicsScale value={Number(quality.value).toFixed(1)}/>
+          <div>
+            <span><b>Quality </b></span> <br />
+
+            <CharacteristicsScale value={Number(quality.value).toFixed(1)} />
+            <span>poor</span><RightText>great</RightText> <br/>
           </div>
-          )}
+        )}
       </> :
       <></>
   );

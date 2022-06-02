@@ -42,6 +42,7 @@ export const ImgMini = styled.img`
   width: ${props => props.className ? '100px' : '40px'};
   height: ${props => props.className ? '100px' : '40px'};
   border-radius: 50%;
+  filter: drop-shadow(0 0 0.75rem white);
   &:hover {
       cursor: pointer;
   }

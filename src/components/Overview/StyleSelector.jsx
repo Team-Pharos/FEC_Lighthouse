@@ -4,7 +4,7 @@ import {FaCheckCircle} from 'react-icons/fa';
 
 const StyleSelector = ({styles, currentStyle, setCurrentStyle}) => {
   return (
-    <div className='StyleSelector'>
+    <div className='StyleSelector' onClick={() => {console.log('StyleSelector get clicked')}}>
     {
       currentStyle !== undefined
       ? <h4>{`STYLE > ${currentStyle.name}`}</h4>

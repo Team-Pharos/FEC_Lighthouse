@@ -56,19 +56,7 @@ const answers = [{
 
 afterEach(cleanup);
 
-test('returns array filled with questions related to product', () => {
-  function updateQuestions() {
-    let productQuestions = QuestionsView(product);
-    expect(productQuestions.questions.length).toBe(80);
-  }
-});
-
-test('only two questions rendered on initial page load', () => {
-  function updateQuestions() {
-    let productQuestions = QuestionsView(product);
-    expect(productQuestions.visibleQuestions.length).toBe(2);
-  }
-});
+//--------- each component renders correctly ---------//
 
 it('renders Questions component without crashing', () => {
   const div = document.createElement('div');
@@ -118,22 +106,33 @@ it('renders submit question list without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-// it('renders AddAnswer modal correctly', () => {
-  //   const {getByElement} = render(<AddAnswer productName={product.productName}></AddAnswer>)
-  //   expect(getByElement('AddAnswer')).toHave
-  // });
+//--------- axios calls return what's expected / initial state set  ---------//
 
-  it('matches questions component snapshot',  () => {
-    const tree = renderer.create(<QuestionsView></QuestionsView>).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+test('returns array filled with questions related to product', () => {
+  function updateQuestions() {
+    let productQuestions = QuestionsView(product);
+    expect(productQuestions.questions.length).toBe(80);
+  }
+});
 
-  it('matches addanswer snapshot', () => {
-    const tree = renderer.create(<AddAnswer></AddAnswer>).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+test('only two questions rendered on initial page load', () => {
+  function updateQuestions() {
+    let productQuestions = QuestionsView(product);
+    expect(productQuestions.visibleQuestions.length).toBe(2);
+  }
+});
 
-  it('matches addquestion snapshot', () => {
-    const tree = renderer.create(<AddQuestion></AddQuestion>);
-    expect(tree).toMatchSnapshot();
-  });
+test('maps over each question and creates a new component', () => {
+  function mapQuestions() {
+    let individualEntry = QuestionsList({productName: product.productName, questions: questions});
+    expect(individualEntry).toHaveBeenLastCalledWith({productName: product.productName, questions: questions});
+  }
+});
+
+// test('questions list creates one new instance of question list entry per item in questions array' , () => {
+//   function createEntry() {
+//     let newEntry = QuestionsList({productName: product.productName, questions: questions});
+//     expect(<QuestionListEntry key="640994" question={questions[0]} productName="Camo Onesie" />).toBeInstanceOf(newEntry);
+//   }
+// });
+

@@ -6,6 +6,7 @@ import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 import IndexStyles from './../../styles/index.css';
 import Heading from './Heading.jsx';
+import Footer from './Footer.jsx';
 
 
 const App = () => {
@@ -40,44 +41,52 @@ const App = () => {
   };
 
   const getRelatedIds = (productId) => {
-    axios.get('/getRelatedIds', { params: { id: productId }})
+    axios.get('/getRelatedIds', { params: { id: productId } })
       .then((numbers) => {
         console.log(numbers.data);
-      setRelatedIds(numbers.data);
+        setRelatedIds(numbers.data);
       })
-    .catch((err) => {
-      console.log(err);
-    });
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-const setNewProduct = (idNumber) => {
-  setProductId(idNumber);
-};
+  const setNewProduct = (idNumber) => {
+    setProductId(idNumber);
+  };
 
-// act as componentDidUpdate
-useEffect(() => { getOneProduct(productId) }, [productId])
-useEffect(() => {
-  let reviewsNum = 0
-  for (let key in ratings) {
-    reviewsNum += Number(ratings[key]);
+  const clickTracking = (element, widget, time) => {
+    axios.post('/click', { element: element, widget: widget, time: time })
+      .then(() => { console.log('click Tracking success') })
+      .catch(err => { console.log('click tracking err', err) })
   }
-  setNumOfReviews(reviewsNum);
-}, [ratings]);
-useEffect(() => {
-  getRelatedIds(productId);
-}, []);
 
-return (
-  // return all 4 widgets
-  <>
-    <Heading quantityInCart={quantityInCart} />
-    <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} />
-    <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct} />
-    {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
-    <QuestionsView productId={productId} productName={productName} />
-    <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName} />
-  </>
-)
-}
+  // act as componentDidUpdate
+  useEffect(() => { getOneProduct(productId) }, [productId])
+  useEffect(() => {
+    let reviewsNum = 0
+    for (let key in ratings) {
+      reviewsNum += Number(ratings[key]);
+    }
+    setNumOfReviews(reviewsNum);
+  }, [ratings]);
+  useEffect(() => {
+    getRelatedIds(productId);
+  }, []);
+
+  return (
+    // return all 4 widgets
+    <>
+      <Heading quantityInCart={quantityInCart} />
+      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} />
+      <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct} />
+      {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
+      <QuestionsView productId={productId} productName={productName} />
+      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName} />
+      <Footer></Footer>
+    </>
+  )
+
+};
 
 export default App;

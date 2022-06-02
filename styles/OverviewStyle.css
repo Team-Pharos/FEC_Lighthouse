@@ -214,8 +214,8 @@
   left: 45%;
   top: 37%;
   height: 100%;
-  color: white;
-  font-weight: bold;
+  color: #f2daac;
+  font-weight: 300;
   position: absolute;
   z-index: 1;
 }

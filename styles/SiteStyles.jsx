@@ -29,10 +29,10 @@ const CompanyTitle = styled.h1`
   margin: 5px auto;
 `;
 
-const CompanyLogo = styled.div`
-  background-image: url("/lighthouse.png")
-  height: 100%;
-  vertical-align: center;
+const CompanyLogo = styled.img`
+  padding: 5px;
+  height: 90%;
+  margin: 20px 10px;
   float: left;
 `;
 CompanyLogo.defaultProps = {src: ''};

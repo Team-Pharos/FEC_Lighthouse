@@ -100,10 +100,23 @@ const OuterModal = styled.div`
 `;
 
 const InnerModal = styled.div`
-  width: 500px;
+  max-height: 80%;
+  max-width: 70%;
   background-color:#fff;
   border: 5px solid #ab4a27;
   border-radius: 5px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #010a26;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
 `;
 
 const Modal = styled.div`

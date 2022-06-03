@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Overview from './Overview/Overview.jsx';
 import QuestionsView from './Questions/QuestionsView.jsx';
-import RelatedItems from './Related/RelatedItems.jsx';
-import YourOutfit from './Related/YourOutfit.jsx';
+import RelatedView from './Related/RelatedView.jsx';
 import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 import IndexStyles from './../../styles/index.css';
@@ -18,7 +17,8 @@ const App = () => {
   const [metaData, setMetaData] = useState({});
   const [ratings, setRatings] = useState({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
   const [numOfReviews, setNumOfReviews] = useState(0);
-  const [quantityInCart, setQuantityInCart] = useState(0)
+  const [quantityInCart, setQuantityInCart] = useState(0);
+  const [relatedIds, setRelatedIds] = useState([]);
 
 
   const getOneProduct = (productId) => {
@@ -38,6 +38,22 @@ const App = () => {
       .catch(err => {
         console.log('getOneProduct err', err)
       })
+  };
+
+  const getRelatedIds = (productId) => {
+    axios.get('/getRelatedIds', { params: { id: productId }})
+      .then((numbers) => {
+      setRelatedIds(numbers.data);
+      })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+
+  const setNewProduct = (id) => {
+    getOneProduct(id);
+    setProductId(id);
+    getRelatedIds(id);
   }
 
   const clickTracking = (element, widget, time) => {
@@ -54,15 +70,17 @@ const App = () => {
       reviewsNum += Number(ratings[key]);
     }
     setNumOfReviews(reviewsNum);
-  }, [ratings]);
+  }, [productId, ratings]);
+  useEffect(() => {
+    getRelatedIds(productId);
+  }, [ productId ]);
 
   return (
     // return all 4 widgets
     <>
       <Heading quantityInCart={quantityInCart}/>
       <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} clickTracking={clickTracking}/>
-      {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
-      {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
+      <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct}/>
       <QuestionsView productId={productId} productName={productName} />
       <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
       <Footer></Footer>

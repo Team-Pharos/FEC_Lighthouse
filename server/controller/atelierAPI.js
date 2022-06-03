@@ -152,10 +152,10 @@ let putReportReview = (review_id) => {
 
 //==========Related Products============
 
-let getRelatedProducts = (product_id) => {
+let getRelatedIds = (product_id) => {
   let url = `${process.env.API}products/${product_id}/related`;
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
-}
+};
 
 module.exports = {
   getOneProduct: getOneProduct,
@@ -172,18 +172,7 @@ module.exports = {
   postReviews: postReviews,
   putHelpfulReview: putHelpfulReview,
   putReportReview: putReportReview,
-  getRelatedProducts: getRelatedProducts,
+  getRelatedIds: getRelatedIds,
   postInteractions: postInteractions
 };
 
-
-
-
-
-
-
-
-
-
-
-// export function to server index.js

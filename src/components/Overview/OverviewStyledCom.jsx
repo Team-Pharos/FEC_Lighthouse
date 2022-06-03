@@ -42,6 +42,7 @@ export const ImgMini = styled.img`
   width: ${props => props.className ? '100px' : '40px'};
   height: ${props => props.className ? '100px' : '40px'};
   border-radius: 50%;
+  filter: drop-shadow(0 0 0.75rem white);
   &:hover {
       cursor: pointer;
   }
@@ -50,14 +51,15 @@ export const ImgMini = styled.img`
 
 export const Arrow = styled.button`
   background-color: darkgray;
-  opacity: 0.5;
   border: white;
   height: 40px;
   width: 40px;
-  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: #ab4a27;
   font-size: 32px;
   &:hover {
-    opacity: 1;
+    color: #68a69b;
     cursor: pointer;
   }
   display: ${props => props.className === 'ZoomArrow' ? 'none' : ''};

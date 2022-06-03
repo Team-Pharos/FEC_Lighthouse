@@ -4,7 +4,8 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import StarRating from '../StarRating.jsx';
 import { ShowStars } from './ReviewTile.jsx';
-import { BreakdownContainer, RatingStat, RatingValues } from './Styles.jsx';
+import CharacteristicsScale from './CharacteristicsScale.jsx';
+import { BreakdownContainer, RatingStat, RatingValues, RightText } from './Styles.jsx';
 
 const RatingBreakdown = ({ productId, metaData, ratings }) => {
 
@@ -22,11 +23,41 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
   let charBreakdown = (
     characteristics !== undefined ?
       <>
-        {!!fit && <div><span>Fit: {Number(fit.value).toFixed(1)}</span></div>}
-        {!!width && <div><span>Width: {Number(width.value).toFixed(1)}</span></div>}
-        {!!length && <div><span>Length: {Number(length.value).toFixed(1)}</span></div>}
-        {!!comfort && <div><span>Comfort: {Number(comfort.value).toFixed(1)}</span></div>}
-        {!!quality && <div><span>Quality: {Number(quality.value).toFixed(1)}</span></div>}
+        {!!fit && (
+          <div>
+            <span><b>Fit </b></span> <br />
+            <CharacteristicsScale value={Number(fit.value).toFixed(1)} />
+            <span>too small</span><RightText>too big</RightText> <br/>
+          </div>)}
+        {!!width && (
+          <div>
+            <span><b>Width </b></span> <br />
+            <CharacteristicsScale value={Number(width.value).toFixed(1)} />
+            <span>too narrow</span><RightText>too wide</RightText> <br/>
+          </div>
+        )}
+        {!!length && (
+          <div>
+            <span><b>Length </b></span> <br />
+            <CharacteristicsScale value={Number(length.value).toFixed(1)} />
+            <span>too short</span><RightText>too long</RightText> <br/>
+          </div>
+        )}
+        {!!comfort && (
+          <div>
+            <span><b>Comfort </b></span> <br />
+            <CharacteristicsScale value={Number(comfort.value).toFixed(1)} />
+            <span>uncomfortable</span><RightText>comfortable</RightText> <br/>
+          </div>
+        )}
+        {!!quality && (
+          <div>
+            <span><b>Quality </b></span> <br />
+
+            <CharacteristicsScale value={Number(quality.value).toFixed(1)} />
+            <span>poor</span><RightText>great</RightText> <br/>
+          </div>
+        )}
       </> :
       <></>
   );
@@ -57,7 +88,7 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
             </RatingValues>);
         })}
       </div>
-        {charBreakdown}
+      {charBreakdown}
     </BreakdownContainer>
   )
 }

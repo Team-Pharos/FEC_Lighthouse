@@ -11,6 +11,7 @@ const CompanyHeading = styled.div`
   display: block;
   height: 120px;
   margin: 0;
+  clear: both;
 `;
 
 const InnerDiv = styled.div`
@@ -31,10 +32,11 @@ const CompanyTitle = styled.h1`
 
 const CompanyLogo = styled.img`
   padding: 5px;
-  height: 100%;
-  vertical-align: center;
+  height: 90%;
+  margin: 20px 10px;
   float: left;
 `;
+CompanyLogo.defaultProps = {src: ''};
 
 export {
   CompanyHeading,

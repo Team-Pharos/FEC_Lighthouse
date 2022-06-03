@@ -7,6 +7,7 @@ import RatingsReviews from './Ratings/RatingsReviews.jsx';
 import axios from 'axios';
 import IndexStyles from './../../styles/index.css';
 import Heading from './Heading.jsx';
+import Footer from './Footer.jsx';
 
 
 const App = () => {
@@ -39,6 +40,12 @@ const App = () => {
       })
   }
 
+  const clickTracking = (element, widget, time) => {
+    axios.post('/click', {element: element, widget: widget, time: time})
+      .then(() => {console.log('click Tracking success')})
+      .catch(err => {console.log('click tracking err', err)})
+  }
+
   // act as componentDidUpdate
   useEffect(() => { getOneProduct(productId) }, [productId])
   useEffect(() => {
@@ -53,11 +60,12 @@ const App = () => {
     // return all 4 widgets
     <>
       <Heading quantityInCart={quantityInCart}/>
-      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart}/>
+      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} clickTracking={clickTracking}/>
       {/* <RelatedItems productDetails={productDetails} productId={productId}/> */}
       {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />
       <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
+      <Footer></Footer>
     </>
   )
 }

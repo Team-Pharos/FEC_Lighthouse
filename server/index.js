@@ -178,17 +178,6 @@ app.get('/getRelatedIds', (req, res) => {
     })
 });
 
-// app.get('/getRelatedProducts', (req, res) => {
-//   getRelatedProducts(req.query.id)
-//     .then((relatedProducts) => {
-//       console.log(relatedProducts.data);
-//       res.send(relatedProducts.data);
-//     })
-//     .catch((error) => {
-//       res.sendStatus(501);
-//     });
-// })
-
 app.listen(process.env.PORT, () => {
   console.log(`success listening to ${process.env.PORT}`);
 })

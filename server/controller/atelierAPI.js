@@ -157,14 +157,6 @@ let getRelatedIds = (product_id) => {
   return axios.get(url, { headers: { Authorization: process.env.GITHUB } })
 };
 
-// let getRelatedProducts = (...product_ids) => {
-//   let queryList = product_ids.map((Id) => {
-//     let url = `${process.env.API}products/${Id}`;
-//     axios.get(url, { headers: { Authorization: process.env.GITHUB } });
-//   });
-//   return Promise.all(queryList);
-// }
-
 module.exports = {
   getOneProduct: getOneProduct,
   getStyles: getStyles,
@@ -184,14 +176,3 @@ module.exports = {
   postInteractions: postInteractions
 };
 
-
-
-
-
-
-
-
-
-
-
-// export function to server index.js

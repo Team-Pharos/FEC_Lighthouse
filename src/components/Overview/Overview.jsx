@@ -23,7 +23,7 @@ const Overview = ({productId, productDetails, ratings, numOfReviews, setQuantity
   }
 
   useEffect(() => {getStyles(productId)}, [productId])
-  useEffect(() => {setCurrentStyle(styles[0])}, [styles,productId])
+  useEffect(() => {setCurrentStyle(styles[0])}, [styles, productId])
 
   return (
     <div className='OverView'>

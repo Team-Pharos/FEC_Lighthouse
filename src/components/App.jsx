@@ -74,7 +74,7 @@ const App = () => {
   }, [productId, ratings]);
   useEffect(() => {
     getRelatedIds(productId);
-  }, [productId]);
+  }, [ productId ]);
 
   return (
     // return all 4 widgets

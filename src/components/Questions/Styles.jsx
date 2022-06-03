@@ -49,7 +49,6 @@ const SpanClicked = styled.span`
 //----------- OverFlow Styles -----------//
 
 const QuestionScrollBar = styled.div`
-  height: 400px;
   max-height: 80%;
   width: auto;
   max-width: 100%;
@@ -68,7 +67,6 @@ const QuestionScrollBar = styled.div`
 `;
 
 const AnswerScrollBar = styled.div`
-height: auto;
 max-height: 80%;
 width: auto;
 max-width: 100%;
@@ -228,6 +226,8 @@ const RelatedListDiv = styled.div`
   max-width: 100%;
   max-height: 70px;
   margin: 0;
+  white-space: nowrap;
+  overflow-y: hidden;
   overflow-x: auto;
 
   &::-webkit-scrollbar {

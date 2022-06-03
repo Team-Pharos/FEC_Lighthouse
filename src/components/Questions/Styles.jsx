@@ -49,7 +49,7 @@ const SpanClicked = styled.span`
 //----------- OverFlow Styles -----------//
 
 const QuestionScrollBar = styled.div`
-  max-height: 80%;
+  height: 300px;
   width: auto;
   max-width: 100%;
   overflow: scroll;

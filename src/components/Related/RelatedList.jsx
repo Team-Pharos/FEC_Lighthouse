@@ -5,7 +5,6 @@ import RelatedListEntry from './RelatedListEntry.jsx';
 
 const RelatedList = ({ relatedProducts, setNewProduct }) => {
 
-  console.log(relatedProducts);
 
   return (
     <RelatedListDiv>

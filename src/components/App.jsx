@@ -43,7 +43,6 @@ const App = () => {
   const getRelatedIds = (productId) => {
     axios.get('/getRelatedIds', { params: { id: productId }})
       .then((numbers) => {
-        console.log(numbers.data);
       setRelatedIds(numbers.data);
       })
     .catch((err) => {
@@ -64,7 +63,7 @@ const App = () => {
   }
 
   // act as componentDidUpdate
-  useEffect(() => { getOneProduct(productId) }, [])
+  useEffect(() => { getOneProduct(productId) }, [productId])
   useEffect(() => {
     let reviewsNum = 0
     for (let key in ratings) {

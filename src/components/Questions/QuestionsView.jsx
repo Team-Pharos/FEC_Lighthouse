@@ -39,7 +39,7 @@ const QuestionsView = ({ productId, productName }) => {
     }
   };
 
-  const getAllQuestions = () => {
+  const getAllQuestions = (productId) => {
     axios.get('/getQuestions', { params: { product_id: productId} })
       .then((questionList) => {
         setQuestions(questionList.data.results);
@@ -51,8 +51,8 @@ const QuestionsView = ({ productId, productName }) => {
     }
 
     useEffect(() => {
-      getAllQuestions();
-  }, []);
+      getAllQuestions(productId);
+  }, [productId]);
 
   return (
     <CenterDiv>

@@ -24,17 +24,17 @@ const ProductionInfo = ({productDetails, currentStyle, ratings, numOfReviews}) =
       content={<>
         <FaFacebook
           className='reactIcon'
-          onClick={() => {open('https://www.facebook.com')}}
+          onClick={() => {open('https://www.facebook.com/sharer/sharer.php?u=http://54.197.180.99/')}}
           // style={{color: '#68a69b'}}
         />&nbsp;
         <FaTwitter
           className='reactIcon'
-          onClick={() => {open('https://twitter.com')}}
+          onClick={() => {open('https://twitter.com/intent/tweet?url=http://54.197.180.99/&text=http://54.197.180.99/')}}
           // style={{color: '#68a69b'}}
         />&nbsp;
         <FaPinterest
           className='reactIcon'
-          onClick={() => {open('https://www.pinterest.com/')}}
+          onClick={() => {open('https://pinterest.com/pin/create/button/?url=http://54.197.180.99/&media=&description=http://54.197.180.99/')}}
           // style={{color: '#68a69b'}}
         />
       </>}>

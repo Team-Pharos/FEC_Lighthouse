@@ -20,6 +20,7 @@ const RightCol = styled.div`
 
 const InnerContent = styled.div`
   width: 90%;
+  height: auto;
   margin: 0 auto;
 `;
 
@@ -44,11 +45,11 @@ const SpanClicked = styled.span`
   text-decoration: underline;
 `;
 
+
 //----------- OverFlow Styles -----------//
 
 const QuestionScrollBar = styled.div`
-  height: 400px;
-  max-height: 80%;
+  height: 300px;
   width: auto;
   max-width: 100%;
   overflow: scroll;
@@ -66,7 +67,6 @@ const QuestionScrollBar = styled.div`
 `;
 
 const AnswerScrollBar = styled.div`
-height: auto;
 max-height: 80%;
 width: auto;
 max-width: 100%;
@@ -214,6 +214,42 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+//----------- buttons -----------//
+
+const RelatedContent = styled.div`
+  width: 90%;
+  max-height: auto;
+  margin: 0 auto;
+`;
+
+const RelatedListDiv = styled.div`
+  max-width: 100%;
+  max-height: 70px;
+  margin: 0;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #010a26;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+`;
+
+const ProductCard = styled.div`
+  width: auto;
+  height: auto;
+  margin: 10px;
+  display: inline-block;
+`;
+
+
 export {
   Input,
   OuterModal,
@@ -239,6 +275,9 @@ export {
   InnerContent,
   QuestionScrollBar,
   AnswerScrollBar,
-  TitleBackground
+  TitleBackground,
+  ProductCard,
+  RelatedContent,
+  RelatedListDiv
 };
 

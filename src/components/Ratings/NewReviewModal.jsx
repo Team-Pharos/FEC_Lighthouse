@@ -4,7 +4,7 @@ import axios from 'axios';
 import { BsStarFill, BsStar } from 'react-icons/bs';
 import {
   Input, OuterModal, InnerModal,
-  BodyInput, Modal, Span, SpanClicked, EntryTitle
+  BodyInput, Modal, Span, SpanClicked, EntryTitle, PrimaryButton
 } from '../Questions/Styles.jsx';
 import AddStarRating from './AddStarRating.jsx';
 
@@ -29,6 +29,10 @@ const Exit = styled.button`
 const ReviewBody = styled.textarea`
   width: 300px;
 `
+
+const Warning = styled.span`
+  color: #ab4a27;
+`;
 
 const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
 
@@ -57,15 +61,13 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
     let name = event.target.name;
     let value = event.target.value
 
-    if (value === 'true' || value === 'false') {
-      setRecommend(value);
-    }
-
     if (value === 'true') {
+      setRecommend(value);
       value = true;
       console.log(value);
     }
     if (value === 'false') {
+      setRecommend(value);
       value = false;
       console.log(value);
     }
@@ -83,7 +85,6 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
   let charHandler = (event) => {
     let name = event.target.name;
     let id = event.target.id;
-    console.log(id);
     let value = event.target.value;
 
     switch (id.substring(0, id.length - 1)) {
@@ -223,9 +224,11 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
                 name='body'
                 value={reviewBody}
                 onChange={formHandler}
-              />
+              /> <br/>
               {reviewBody.length < 50 ?
-                (<span>{50 - reviewBody.length} More Chars Required</span>) :
+                (<Warning>
+                  {50 - reviewBody.length} More Chars Required
+                  </Warning>) :
                 (<span>Requirement Met</span>)
               }
             </div>
@@ -239,7 +242,7 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
                 onChange={formHandler} />
             </div>
             <div>
-              <input type='submit' />
+              <PrimaryButton type='submit'>Submit</PrimaryButton>
             </div>
           </form>
         </WriteReviewForm>

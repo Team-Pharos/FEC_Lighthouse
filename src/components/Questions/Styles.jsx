@@ -102,7 +102,7 @@ const OuterModal = styled.div`
 `;
 
 const InnerModal = styled.div`
-  width: 500px;
+  max-width: 70%;
   background-color:#fff;
   border: 5px solid #F26938;
   border-radius: 5px;
@@ -202,7 +202,7 @@ const PrimaryButton = styled.button`
   font-weight: 300;
   border-radius: 5px;
   margin: 5px;
-
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -213,6 +213,7 @@ const Button = styled.button`
   border-radius: 5px;
   border: 2px solid #010a26;
   margin: 5px;
+  cursor: pointer;
 `;
 
 //----------- buttons -----------//

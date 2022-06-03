@@ -52,6 +52,7 @@ const App = () => {
   };
 
   const setNewProduct = (id) => {
+    getOneProduct(id);
     setProductId(id);
     getRelatedIds(id);
   }

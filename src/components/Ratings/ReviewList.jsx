@@ -30,7 +30,7 @@ const ReviewList = ({ productId }) => {
         updateList(reviews.data)
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [productId]);
 
   let showMoreClicked = (event) => {
     event.preventDefault();

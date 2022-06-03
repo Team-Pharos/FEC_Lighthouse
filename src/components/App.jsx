@@ -64,17 +64,17 @@ const App = () => {
   }
 
   // act as componentDidUpdate
-  useEffect(() => { getOneProduct(productId) }, [productId])
+  useEffect(() => { getOneProduct(productId) }, [])
   useEffect(() => {
     let reviewsNum = 0
     for (let key in ratings) {
       reviewsNum += Number(ratings[key]);
     }
     setNumOfReviews(reviewsNum);
-  }, [ratings]);
+  }, [productId, ratings]);
   useEffect(() => {
     getRelatedIds(productId);
-  }, []);
+  }, [productId]);
 
   return (
     // return all 4 widgets
@@ -82,7 +82,6 @@ const App = () => {
       <Heading quantityInCart={quantityInCart}/>
       <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} clickTracking={clickTracking}/>
       <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct}/>
-      {/* <YourOutfit productId={productId} productDetails={productDetails}/> */}
       <QuestionsView productId={productId} productName={productName} />
       <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
       <Footer></Footer>

@@ -30,6 +30,10 @@ const ReviewBody = styled.textarea`
   width: 300px;
 `
 
+const Warning = styled.span`
+  color: #ab4a27;
+`;
+
 const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
 
   let [reviewBody, setReviewBody] = useState('');
@@ -220,9 +224,11 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
                 name='body'
                 value={reviewBody}
                 onChange={formHandler}
-              />
+              /> <br/>
               {reviewBody.length < 50 ?
-                (<span>{50 - reviewBody.length} More Chars Required</span>) :
+                (<Warning>
+                  {50 - reviewBody.length} More Chars Required
+                  </Warning>) :
                 (<span>Requirement Met</span>)
               }
             </div>

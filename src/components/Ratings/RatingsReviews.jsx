@@ -20,6 +20,7 @@ const Breakdown = styled.div`
     float: left;
     position: absolute;
     margin: 20px auto;
+    padding: 0 1%;
     width: 25%;
     height: 500px;
     overflow: auto;
@@ -57,7 +58,7 @@ const RatingsReviews = ({ productId, metaData, ratings, productName }) => {
   //render return
   return (
     <CenterDiv>
-      <TitleTile>
+      <TitleTile id='RatingsAndReviews'>
         <SectionTitle>Ratings and Reviews</SectionTitle>
       </TitleTile>
       <InnerContent>

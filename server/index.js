@@ -1,5 +1,6 @@
 const express = require('express');
 let app = express();
+let compression = require('compression');
 const path = require('path');
 require('dotenv').config();
 const {
@@ -11,7 +12,8 @@ const {
 } = require('./controller/atelierAPI');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(compression());
 
 app.get('/getOne', (req, res) => {
   getOneProduct(req.query.id)

@@ -10,5 +10,4 @@ const Features = ({productDetails}) => {
   )
 }
 
-
 export default Features;

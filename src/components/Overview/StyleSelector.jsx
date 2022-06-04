@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {StyleImg} from './OverviewStyledCom.jsx';
 import {FaCheckCircle} from 'react-icons/fa';
 

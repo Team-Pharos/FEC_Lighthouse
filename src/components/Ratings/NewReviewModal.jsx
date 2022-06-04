@@ -647,21 +647,3 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
 };
 
 export default NewReviewModal;
-
-//   let testData = {
-//     "product_id": 37313,
-//     "rating": 4,
-//     "summary": "I love these but...",
-//     "body": "I don't want to have to wake up super early to use these. I have to hit my alarm like five times and then I only get to wear them for like two hours before I have to change into my afternoon joggers.",
-//     "recommend": true,
-//     "name": "Sleepy",
-//     "email": "SleepIsGood@gmail.com",
-//     "photos": ["https://imgur.com/oq8YqZ4", "https://imgur.com/oltqWdF"],
-//     "characteristics": {
-//             "125036": 3,
-//             "125037": 3,
-//             "125038": 5,
-//             "125039": 5
-
-//     }
-// }

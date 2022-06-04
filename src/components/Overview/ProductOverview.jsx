@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { FaShareSquare, FaTwitter, FaPinterest, FaFacebook } from 'react-icons/fa';
 import {Tooltip} from './Tooltip.jsx';
 
 const ProductOverview = ({productDetails}) => {

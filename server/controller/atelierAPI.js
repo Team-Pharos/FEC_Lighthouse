@@ -10,20 +10,6 @@ let getOneProduct = (product_id) => {
   { headers: { Authorization: process.env.GITHUB } })
 }
 
-let postInteractions = (element, widget, time) => {
-  let url = `${urlBase}interactions`;
-  return axios({
-    method: 'post',
-    url: url,
-    headers: { Authorization: process.env.GITHUB },
-    data: {
-      element: element,
-      widget: widget,
-      time: time
-    }
-  })
-}
-
 let getStyles = (product_id) => {
   return axios.get(`${urlBase}products/${product_id}/styles`,
   { headers: { Authorization: process.env.GITHUB } })
@@ -174,7 +160,6 @@ module.exports = {
   postReviews: postReviews,
   putHelpfulReview: putHelpfulReview,
   putReportReview: putReportReview,
-  getRelatedIds: getRelatedIds,
-  postInteractions: postInteractions
+  getRelatedIds: getRelatedIds
 };
 

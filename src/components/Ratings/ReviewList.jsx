@@ -11,23 +11,32 @@ const List = styled.div`
   overflow: auto;
 `;
 
-const ReviewList = ({ productId }) => {
+const ReviewList = ({ productId, ratingSort}) => {
   //State
   const [reviews, setReviews] = useState([]);
   const [displayed, setDisplayed] = useState([]);
   const [askToShowMore, setShowMoreVisibility] = useState(true);
   const [sort, setSort] = useState('relevant');
+  const [ratingFilter, setRatingFilter] = useState(ratingSort);
 
-  let updateList = (data) => {
+  let updateList = (data, numDisplayed) => {
     setReviews(data.results);
-    setDisplayed((data.results.slice(0, 2)));
+    console.log(ratingFilter);
+    if (ratingFilter.length > 0) {
+      let filtered = data.results.filter( review => (
+        ratingFilter.includes(review.rating)
+      ));
+      setDisplayed((filtered.slice(0, numDisplayed)));
+    } else {
+      setDisplayed(data.results.slice(0, numDisplayed))
+    }
   }
 
   //state population
   useEffect(() => {
     axios.get('/getReviews', { params: { id: productId } })
       .then((reviews) => {
-        updateList(reviews.data)
+        updateList(reviews.data, 2)
       })
       .catch((err) => console.log(err));
   }, [productId]);
@@ -39,7 +48,7 @@ const ReviewList = ({ productId }) => {
 
   let reSort = (sortType) => {
     axios.get('/getReviews', {params: { id: productId, sort: sortType}})
-      .then((reviews) => {updateList(reviews.data)})
+      .then((reviews) => {updateList(reviews.data, displayed.length)})
       .catch((err) => console.log(err));
   }
 

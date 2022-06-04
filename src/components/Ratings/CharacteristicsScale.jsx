@@ -37,7 +37,7 @@ const Arrow = styled.div`
   border-top: 15px solid #6ba69b;
 `;
 
-const Scale = styled.div`
+export const Scale = styled.div`
   width: 100%
   height: auto;
 `;
@@ -49,7 +49,7 @@ const CharacteristicsScale = ({ value }) => {
 
   return (
     <Scale>
-      <Arrow percent={calculatePercentage()}/>
+      <Arrow percent={calculatePercentage()} />
       <OuterScale>
         <InnerScale percent={calculatePercentage()} />
       </OuterScale>

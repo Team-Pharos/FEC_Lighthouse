@@ -4,7 +4,7 @@ import axios from "axios";
 import { BsStarFill } from "react-icons/bs";
 import StarRating from "../StarRating.jsx";
 import { ShowStars } from "./ReviewTile.jsx";
-import Scale from './Scale.jsx';
+import Scale from "./Scale.jsx";
 import CharacteristicsScale from "./CharacteristicsScale.jsx";
 import {
   BreakdownContainer,
@@ -13,7 +13,13 @@ import {
   RightText,
 } from "./Styles.jsx";
 
-const RatingBreakdown = ({ productId, metaData, ratings }) => {
+const RatingBreakdown = ({
+  productId,
+  metaData,
+  ratings,
+  numOfReviews,
+  sortReviews,
+}) => {
   let characteristics = metaData.characteristics;
   if (characteristics !== undefined) {
     var fit = characteristics.Fit || "";
@@ -87,14 +93,19 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
     );
 
   let calculateOverallRating = (ratingsObject) => {
-    let numVotes = 0;
     let totalScore = 0;
 
     for (let rating in ratingsObject) {
-      numVotes += Number(ratingsObject[rating]);
       totalScore += rating * ratingsObject[rating];
     }
-    return numVotes === 0 ? 5 : (totalScore / numVotes).toFixed(1);
+
+    return numOfReviews === 0 ? 5 : (totalScore / numOfReviews).toFixed(1);
+  };
+
+  let ratingsClick = (event) => {
+    event.preventDefault();
+    let filter = event.target.id.substring(1);
+    sortReviews(filter);
   };
 
   return (
@@ -105,11 +116,13 @@ const RatingBreakdown = ({ productId, metaData, ratings }) => {
       <div>
         {Object.keys(ratings).map((rating) => {
           return (
-            <RatingValues key={`RS${rating}`}>
-              {ShowStars(rating)}
-              <RatingStat>{ratings[rating]}</RatingStat>
-
-            </RatingValues>
+            <div onClick={ratingsClick}>
+              <RatingValues key={`RS${rating}`} id={`R${rating}`}>
+                {ShowStars(rating)}
+                <RatingStat>{ratings[rating]}</RatingStat>
+                <Scale total={numOfReviews} amount={ratings[rating]} />
+              </RatingValues>
+            </div>
           );
         })}
       </div>

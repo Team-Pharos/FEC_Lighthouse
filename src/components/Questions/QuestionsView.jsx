@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Input, OuterModal, InnerModal, ModalTitle, SectionTitle, PrimaryButton, Button, CenterDiv, TitleTile, ClearFloat, InnerContent } from './Styles.jsx';
+import { SectionTitle, PrimaryButton, Button,
+  CenterDiv, TitleTile, ClearFloat, InnerContent } from './Styles.jsx';
 import SearchBar from './SearchBar.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import AddQuestion from './AddQuestionModal.jsx';
@@ -11,7 +12,6 @@ const QuestionsView = ({ productId, productName }) => {
   const [visibleQuestions, setVisibleQuestions] = useState([]);
   const [addQuestion, setAddQuestion] = useState(false);
   const [count, setCount] = useState(2);
-  const [filter, setFilter] = useState(null);
 
   const increaseCount = (e) => {
     e.preventDefault();
@@ -67,7 +67,8 @@ const QuestionsView = ({ productId, productName }) => {
         </div>}
         <ClearFloat>
           <PrimaryButton onClick={() => setAddQuestion(true)}>Add A Question</PrimaryButton>
-          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion} addAQuestion={addAQuestion} getAllQuestions={getAllQuestions} onClose={() => setAddQuestion(false)} />
+          <AddQuestion productName={productName} productId={productId} addQuestion={addQuestion}
+            addAQuestion={addAQuestion} getAllQuestions={getAllQuestions} onClose={() => setAddQuestion(false)} />
         </ClearFloat>
       </InnerContent>
     </CenterDiv>

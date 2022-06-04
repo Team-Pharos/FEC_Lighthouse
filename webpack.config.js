@@ -1,11 +1,16 @@
 const path = require("path");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.jsx",
   output: {
     path: path.join(__dirname, 'public'),
     filename: "bundle.js"
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
   },
   module: {
     rules: [

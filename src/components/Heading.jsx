@@ -7,7 +7,7 @@ const Heading = ({quantityInCart}) => {
   <CompanyHeading>
     <InnerDiv>
       <CompanyTitle>Pharos</CompanyTitle>
-      <CompanyLogo src='/assets/PharosLogo.png'/>
+      <CompanyLogo src='/assets/PharosLogo.png' alt="line drawing of ancient lighthouse"/>
       <div className='shoppingCart'>
         <span className='shoppingCartNum'>{quantityInCart}</span>
         <FaShoppingCart className='shoppingCart'/>

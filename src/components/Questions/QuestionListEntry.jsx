@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { Input, OuterModal, InnerModal, Span, SpanClicked, QuestionTitle, Button, SubTitle, Description, ClearFloat } from './Styles.jsx';
+import { Span, SpanClicked, QuestionTitle, Button,
+  SubTitle, Description, ClearFloat } from './Styles.jsx';
 import AnswersList from './AnswersList.jsx';
 import AddAnswer from './AddAnswerModal.jsx';
 
@@ -67,10 +68,13 @@ const QuestionListEntry = ({ question, productName }) => {
 
   return (
     <ClearFloat>
-      <QuestionTitle className="question_title">{`Q: ${question.question_body}`}</QuestionTitle><SubTitle className="question helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> : <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>}</SubTitle>
+      <QuestionTitle className="question_title">{`Q: ${question.question_body}`}</QuestionTitle><SubTitle
+        className="question helpful">Helpful? {isHelpful ? <SpanClicked>{`Yes (${helpfulness})`}</SpanClicked> :
+        <Span onClick={helpfulClick}>{`Yes (${helpfulness})`}</Span>}</SubTitle>
       <Description>{`asked by: ${question.asker_name} ${moment(question.question_date).format('MMMM DD, YYYY')}`}</Description>
       <Button onClick={() => { setAddAnswer(true) }} >Add An Answer</Button>
-      <AddAnswer productName={productName} questionBody={question.question_body} questionID={question.question_id} addAnswer={addAnswer} getAllAnswers={getAllAnswers} onClose={() => { setAddAnswer(false); return }} />
+      <AddAnswer productName={productName} questionBody={question.question_body} questionID={question.question_id}
+        addAnswer={addAnswer} getAllAnswers={getAllAnswers} onClose={() => { setAddAnswer(false); return }} />
       {answers.length > 0 && (<AnswersList answers={visibleAnswers} length={answers.length} allVisible={allVisible} showAll={showAll}/>)}
     </ClearFloat>
   )

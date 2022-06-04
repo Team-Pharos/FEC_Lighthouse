@@ -27,13 +27,14 @@ const App = () => {
         setProductName(response.data.name);
       })
       .then(() =>
-        axios.get('/getReviewMeta', { params: { id: productId } })
-          .then((returnedMeta) => {
+      axios.get('/getReviewMeta', { params: { id: productId } })
+      )
+      .then((returnedMeta) => {
             setMetaData(returnedMeta.data);
             setRatings(returnedMeta.data.ratings);
           })
           .catch(error => console.log('getReviewMeta error: ', error))
-      )
+
       .catch(err => {
         console.log('getOneProduct err', err)
       })
@@ -75,7 +76,7 @@ const App = () => {
       <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart}/>
       <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct}/>
       <QuestionsView productId={productId} productName={productName} />
-      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>
+      <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName} numOfReviews={numOfReviews}/>
       <Footer></Footer>
     </>
   )

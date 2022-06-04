@@ -22,5 +22,4 @@ const ImageGallery = ({currentStyle, clickTracking}) => {
   </div>)
 }
 
-
 export default ImageGallery;

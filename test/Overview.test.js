@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import { render, cleanup, fireEvent, screen } from '@testing-library/react';
-import 'regenerator-runtime/runtime';
 import StyleSelector from './../src/components/Overview/StyleSelector';
 import {AddToCartButton, Img} from './../src/components/Overview/OverviewStyledCom'
 import {Tooltip} from './../src/components/Overview/Tooltip';
@@ -15,8 +14,6 @@ import ImageCarousel from './../src/components/Overview/ImageCarousel';
 import Features from './../src/components/Overview/Features';
 import ImageModal from './../src/components/Overview/ImageModal';
 import ImageGallery from './../src/components/Overview/ImageGallery';
-
-
 
 afterEach(cleanup);
 

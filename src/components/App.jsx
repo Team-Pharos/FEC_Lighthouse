@@ -10,7 +10,6 @@ import Footer from './Footer.jsx';
 
 
 const App = () => {
-  // set default product as 37313
   const [productId, setProductId] = useState(37313);
   const [productName, setProductName] = useState('');
   const [productDetails, setProductDetails] = useState({});
@@ -56,12 +55,6 @@ const App = () => {
     getRelatedIds(id);
   }
 
-  const clickTracking = (element, widget, time) => {
-    axios.post('/click', {element: element, widget: widget, time: time})
-      .then(() => {console.log('click Tracking success')})
-      .catch(err => {console.log('click tracking err', err)})
-  }
-
   // act as componentDidUpdate
   useEffect(() => { getOneProduct(productId) }, [productId])
   useEffect(() => {
@@ -79,7 +72,7 @@ const App = () => {
     // return all 4 widgets
     <>
       <Heading quantityInCart={quantityInCart}/>
-      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart} clickTracking={clickTracking}/>
+      <Overview productDetails={productDetails} productId={productId} ratings={ratings} numOfReviews={numOfReviews} setQuantityInCart={setQuantityInCart} quantityInCart={quantityInCart}/>
       <RelatedView relatedIds={relatedIds} setNewProduct={setNewProduct}/>
       <QuestionsView productId={productId} productName={productName} />
       <RatingsReviews productId={productId} metaData={metaData} ratings={ratings} productName={productName}/>

@@ -7,7 +7,7 @@ const {
   getReviews, getRelatedIds, getAnswers,
   getReviewMeta, markQAsHelpful, markAAsHelpful,
   markAAsReported, postAnswer, postQuestion,
-  postReviews, putHelpfulReview, putReportReview, postInteractions
+  postReviews, putHelpfulReview, putReportReview
 } = require('./controller/atelierAPI');
 
 app.use(express.json());
@@ -21,12 +21,6 @@ app.get('/getOne', (req, res) => {
   .catch (err => {
     res.sendStatus(501);
   });
-})
-
-app.post('/click', (req, res) => {
-  postInteractions(req.body.element, req.body.widget, req.body.time)
-  .then(() => {res.sendStatus(201)})
-  .catch(err => {console.log('post interactions err', err)})
 })
 
 app.get('/getStyles', (req, res) => {

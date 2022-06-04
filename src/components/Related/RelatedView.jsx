@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import {CenterDiv, TitleTile, SectionTitle, RelatedContent} from '../Questions/Styles.jsx';
 import RelatedList from './RelatedList.jsx';

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import QuestionListEntry from './QuestionListEntry.jsx';
-import { Button, InnerContent, ClearFloat, QuestionScrollBar } from './Styles.jsx';
+import { InnerContent, QuestionScrollBar } from './Styles.jsx';
 
 const QuestionsList = ({ productName, questions }) => {
 

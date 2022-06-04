@@ -40,18 +40,6 @@ app.get('/getStyles', (req, res) => {
 
 app.get('/getQuestions', (req, res) => {
   getQuestions(req.query.product_id)
-    .then((relevantQuestions) => {
-      let filterQuestions = [];
-      if (req.query.filter) {
-        relevantQuestions.data.results.map(question => {
-          if (question.question_body.includes(req.query.filter)) {
-            filterQuestions.push(question);
-          }
-        })
-        return filterQuestions;
-      }
-        return relevantQuestions;
-    })
     .then((filteredQuestions) => {
       res.send(filteredQuestions.data);
     })

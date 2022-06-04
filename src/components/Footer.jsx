@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { CompanyHeading, InnerDiv, CompanyTitle, CompanyLogo } from '../../styles/SiteStyles.jsx';
-import {FaShoppingCart} from 'react-icons/fa';
+import React from "react";
+import { CompanyHeading } from '../../styles/SiteStyles.jsx';
 
 const Footer = () => {
   return (

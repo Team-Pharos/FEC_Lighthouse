@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import ReviewList from './ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import NewReviewModal from './NewReviewModal.jsx';
-//import { Reviews, Breakdown, Container, Header, OpenAddReview, ReviewsFooter } from './Styles.jsx';
-import { Input, OuterModal, InnerModal, ModalTitle, SectionTitle, PrimaryButton, Button, CenterDiv, TitleTile, ClearFloat, InnerContent } from '../Questions/Styles.jsx';
+import { Input, OuterModal, InnerModal, ModalTitle, SectionTitle, PrimaryButton, CenterDiv, TitleTile, InnerContent } from '../Questions/Styles.jsx';
 
 //component styling
 const Reviews = styled.div`

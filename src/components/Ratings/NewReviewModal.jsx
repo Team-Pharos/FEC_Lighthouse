@@ -8,9 +8,6 @@ import {
   InnerModal,
   BodyInput,
   Modal,
-  Span,
-  SpanClicked,
-  EntryTitle,
   PrimaryButton,
 } from "../Questions/Styles.jsx";
 import AddStarRating from "./AddStarRating.jsx";
@@ -31,10 +28,6 @@ const WriteReviewForm = styled.div`
 
 const Exit = styled.button`
   float: right;
-`;
-
-const ReviewBody = styled.textarea`
-  width: 300px;
 `;
 
 const Warning = styled.span`
@@ -80,12 +73,10 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
     if (value === "true") {
       setRecommend(value);
       value = true;
-      console.log(value);
     }
     if (value === "false") {
       setRecommend(value);
       value = false;
-      console.log(value);
     }
 
     setReviewForm({ ...reviewForm, [name]: value });
@@ -94,7 +85,9 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
       setReviewBody(event.target.value);
     }
     if (name === "summary") {
-      setSummary(event.target.value);
+      if (summary.length <= 60) {
+        setSummary(event.target.value);
+      }
     }
   };
 
@@ -613,7 +606,7 @@ const NewReviewModal = ({ closeModal, metaData, productId, productName }) => {
             />
             <div>
               <h4>Review Body</h4>
-              <ReviewBody
+              <BodyInput
                 placeholder="Why did you like the product or not?"
                 name="body"
                 value={reviewBody}

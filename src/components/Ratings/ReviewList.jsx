@@ -45,7 +45,6 @@ const ReviewList = ({ productId }) => {
 
   return (
     <List>
-      {/* <h3>Reviews for {productId}</h3> */}
       <form>
         <h3>Sorted by
           <select value={sort} onChange={(e) => {

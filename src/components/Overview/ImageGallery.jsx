@@ -11,16 +11,12 @@ const ImageGallery = ({currentStyle, clickTracking}) => {
 
   return (
   <div
-    className='ImageGallery'
-    onClick={(e) => {
-      clickTracking('ImageGallery', 'Overview', new Date())
-    }}>
+    className='ImageGallery'>
     <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed}/>
     {expanded ? <ImageModal setExpanded={setExpanded} zoomed={zoomed} setZoomed={setZoomed}>
     <ImageCarousel  currentStyle={currentStyle} setExpanded={setExpanded} expanded={expanded} zoomed={zoomed} setZoomed={setZoomed}/>
     </ImageModal> : <></>}
   </div>)
 }
-
 
 export default ImageGallery;

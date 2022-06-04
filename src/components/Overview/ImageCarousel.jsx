@@ -18,34 +18,16 @@ const ImageCarousel = ({currentStyle, setExpanded, expanded, zoomed, setZoomed})
   const [position, setPosition] = useState(['0px', '0px'])
 
   const mouseMoveHandler = (e) => {
-    // console.log(e.pageX);
-    // console.log(e.pageY);
-
-    // bottom: 2100; left: -434; right: 2065; top: -900
-    // bottom: 2375; left: -352.5; right: 1875; top: -712.5
-    // center-vertical = 600; center-hor: 815
     const { left, top, width, height } = e.target.getBoundingClientRect()
-    // console.log(left, top, width, height);
-    // horizontal
-    // let centerX = right - (right - left) / 2
     const x = (e.pageX - 1200);
-    // console.log('x', x)
-    //vertical
-    // let centerY = bottom - (bottom - top) / 2
     const y = (500 - e.pageY) * 1.4
-    // console.log('y', y)
     setPosition([`${x}px`, `${y}px`]);
-    // console.log(position);
   }
 
 
   return (
   <div className='ImageCarousel'>
-
-    {/* left and right */}
     <div className='gallery'>
-
-      {/* up and down */}
     <div className={expanded ? 'ExpThumbnail' : 'thumbnail'}>
       <Arrow
         aria-label='upArrow'

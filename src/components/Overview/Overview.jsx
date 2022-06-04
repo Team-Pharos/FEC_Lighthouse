@@ -8,7 +8,7 @@ import ProductOverview from './ProductOverview.jsx';
 import Features from './Features.jsx';
 import OverviewStyles from './../../../styles/OverviewStyle.css';
 
-const Overview = ({productId, productDetails, ratings, numOfReviews, setQuantityInCart, quantityInCart, clickTracking}) => {
+const Overview = ({productId, productDetails, ratings, numOfReviews, setQuantityInCart, quantityInCart}) => {
   const [styles, setStyles] = useState([])
   const [currentStyle, setCurrentStyle] = useState(styles[0])
 
@@ -28,7 +28,7 @@ const Overview = ({productId, productDetails, ratings, numOfReviews, setQuantity
   return (
     <div className='OverView'>
       {
-        currentStyle ? <ImageGallery currentStyle={currentStyle} clickTracking={clickTracking}/> : <></>
+        currentStyle ? <ImageGallery currentStyle={currentStyle}/> : <></>
       }
       <ProductInfo
         productDetails={productDetails}
@@ -53,6 +53,5 @@ const Overview = ({productId, productDetails, ratings, numOfReviews, setQuantity
     </div>
   )
 }
-
 
 export default Overview;

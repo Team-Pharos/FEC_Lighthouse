@@ -17,14 +17,13 @@ const ReviewList = ({ productId, ratingSort}) => {
   const [displayed, setDisplayed] = useState([]);
   const [askToShowMore, setShowMoreVisibility] = useState(true);
   const [sort, setSort] = useState('relevant');
-  const [ratingFilter, setRatingFilter] = useState(ratingSort);
 
   let updateList = (data, numDisplayed) => {
     setReviews(data.results);
-    console.log(ratingFilter);
-    if (ratingFilter.length > 0) {
+    console.log(ratingSort.length);
+    if (ratingSort.length > 0) {
       let filtered = data.results.filter( review => (
-        ratingFilter.includes(review.rating)
+        ratingSort.includes(review.rating)
       ));
       setDisplayed((filtered.slice(0, numDisplayed)));
     } else {

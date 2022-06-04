@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ReviewList from "./ReviewList.jsx";
-import RatingBreakdown from "./RatingBreakdown.jsx";
+import RatingBreakdown from "./Ratings/RatingBreakdown.jsx";
 import NewReviewModal from "./NewReviewModal.jsx";
 import {
   Input,
@@ -62,24 +62,22 @@ const RatingsReviews = ({
   productName,
   numOfReviews,
 }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const [ratingSort, setRatingSort] = useState([]);
 
-  let openModal = (event) => {
+  let modalVisible = (event) => {
     event.preventDefault();
-    setModalOpen(!modalOpen);
+    setModalVisibility(!modalVisibility);
   };
 
   const sortReviews = (filter) => {
-    console.log('triggered');
-    console.log(ratingSort);
+    let curFilter = ratingSort.slice();
     if (!ratingSort.includes(filter)) {
       setRatingSort([...ratingSort, filter]);
     } else {
-      let ratingIdx = ratingSort.indexOf(filter);
-      let splicedRating = ratingSort.slice().splice(ratingIdx, 1);
-      [...ratingSort].splice(ratingIdx, 1);
-      setRatingSort(splicedRating);
+      let ratingIdx = curFilter.indexOf(filter);
+      curFilter.splice(ratingIdx, 1);
+      setRatingSort(curFilter);
     }
   };
 
@@ -108,7 +106,7 @@ const RatingsReviews = ({
           Add Review
         </AddReviewButton>
       </InnerContent>
-      {modalOpen && (
+      {modalVisibility && (
         <NewReviewModal
           closeModal={openModal}
           metaData={metaData}

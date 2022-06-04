@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useStat } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { BsStarFill } from "react-icons/bs";
-import StarRating from "../StarRating.jsx";
-import { ShowStars } from "./ReviewTile.jsx";
+import StarRating from "../../StarRating.jsx";
+import { ShowStars } from "../ReviewTile.jsx";
 import Scale from "./Scale.jsx";
 import CharacteristicsScale from "./CharacteristicsScale.jsx";
 import {
@@ -11,7 +11,7 @@ import {
   RatingStat,
   RatingValues,
   RightText,
-} from "./Styles.jsx";
+} from "../Styles.jsx";
 
 const RatingBreakdown = ({
   productId,
@@ -116,13 +116,11 @@ const RatingBreakdown = ({
       <div>
         {Object.keys(ratings).map((rating) => {
           return (
-            <div onClick={ratingsClick}>
-              <RatingValues key={`RS${rating}`} id={`R${rating}`}>
+              <RatingValues key={`RS${rating}`} id={`R${rating}`} onClick={ratingsClick}>
                 {ShowStars(rating)}
                 <RatingStat>{ratings[rating]}</RatingStat>
                 <Scale total={numOfReviews} amount={ratings[rating]} />
               </RatingValues>
-            </div>
           );
         })}
       </div>
